@@ -94,41 +94,13 @@
       .divider.small { width: 42px; margin: 14px 0; }
       .divider.center { margin-left: auto; margin-right: auto; display: block; }
 
-      /* ---------- CAROUSEL ---------- */
-      .carousel-section { padding-bottom: 36px; }
-      .carousel-wrap { display: flex; align-items: center; gap: 14px; }
-      .carousel-arrow {
-        flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--white); font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--ink); transition: background 0.2s; user-select: none; z-index: 5;
-      }
-      .carousel-arrow:hover { background: var(--cream-2); }
-      .carousel-container { flex: 1; overflow: hidden; }
-      .carousel-track {
-        display: flex; gap: 22px; transition: transform 0.8s cubic-bezier(0.25, 1, 0.35, 1); will-change: transform; backface-visibility: hidden;
-      }
-      .carousel-card {
-        flex: 0 0 calc(33.333% - 14.67px); min-height: 310px; border-radius: 6px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; color: var(--white); overflow: hidden; position: relative;
-      }
-      .carousel-card::before {
-        content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 16, 12, 0.15) 0%, rgba(20, 16, 12, 0.75) 100%); z-index: 2;
-      }
-      .carousel-card .card-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-      .carousel-card > *:not(.card-img) { position: relative; z-index: 3; }
-      .carousel-card h3 { color: var(--white); font-size: 1.25rem; line-height: 1.3; font-weight: 600; text-align: right; }
-      .tag {
-        align-self: flex-end; background: rgba(255, 255, 255, 0.18); backdrop-filter: blur(2px); border: 1px solid rgba(255, 255, 255, 0.4); font-size: 0.68rem; letter-spacing: 1px; padding: 5px 10px; border-radius: 3px; text-transform: uppercase;
-      }
       .btn {
         display: inline-flex; align-items: center; width: fit-content; padding: 10px 18px; border-radius: 4px; font-size: 0.82rem; letter-spacing: 0.3px; transition: transform 0.15s, background 0.2s; border: none; cursor: pointer;
       }
-      .btn-light { background: var(--white); color: var(--ink); }
-      .btn-light:hover { transform: translateY(-2px); }
       .btn-dark { background: var(--green-deep); color: var(--white); }
       .btn-dark:hover { background: #2d3728; }
       .btn-dark.small { padding: 9px 22px; font-size: 0.8rem; margin: 0 auto; }
       .btn-outline { background: transparent; border: 1px solid var(--ink); color: var(--ink); }
-      .dots { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
-      .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); cursor: pointer; transition: all 0.3s ease; }
-      .dot.active { background: var(--green-deep); width: 20px; border-radius: 4px; }
 
       /* ---------- ABOUT ---------- */
       .about { background: var(--cream-2); padding: 80px 0; }
@@ -175,13 +147,10 @@
 
       @media (max-width: 960px) {
         .main-nav { display: none; }
-        .carousel-card { flex: 0 0 calc(50% - 11px); }
-        .about-inner { grid-template-columns: 1fr; gap: 36px; }
         .protocol-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
       }
       @media (max-width: 560px) {
         .protocol-grid, .footer-grid { grid-template-columns: 1fr; }
-        .carousel-arrow { display: none; }
       }
 
       .banner { width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
@@ -283,70 +252,20 @@
       </div>
     </section>
 
-    <!-- ABOUT ME -->
+    <!-- ABOUT ME (ARABIC) -->
     <section class="about">
       <div class="container" style="max-width: 800px; text-align: center;">
-        <div class="about-text">
-          <span class="eyebrow">ABOUT ME</span>
-          <h2>I'm Nushdan</h2>
+        <div class="about-text ar-text">
+          <span class="eyebrow" style="direction: ltr;">عنّي</span>
+          <h2>أنا نشدان</h2>
           <span class="divider small center"></span>
-          <p style="font-size: 1.05rem; margin-top: 20px;">I am a certified practitioner in naturopathy and integrative health.</p>
-          <p style="font-size: 1.05rem;">My mission is to guide each person towards a sustainable balance by identifying the root causes of imbalances and offering personalized solutions, grounded in science and tailored to your lifestyle.</p>
+          <p style="font-size: 1.05rem; margin-top: 20px;">أنا ممارسة معتمدة في العلاج الطبيعي (Naturopathy) والصحة التكاملية.</p>
+          <p style="font-size: 1.05rem;">مهمتي هي إرشاد كل شخص نحو التوازن المستدام عبر تحديد الجذور الأساسية للاختلالات وتقديم حلول مخصصة، مبنية على أسس علمية ومصممة خصيصاً لتناسب نمط حياتك.</p>
           <div style="margin-top: 25px;">
-            <a href="pages/about.html" class="btn btn-dark">Learn more about me &nbsp;→</a>
+            <a href="pages/about.html" class="btn btn-dark" style="direction: ltr;">تعرفي على المزيد عنّي &nbsp;→</a>
           </div>
         </div>
       </div>
-    </section>
-    
-    <!-- CAROUSEL / ARTICLES -->
-    <section class="carousel-section">
-      <div class="container carousel-wrap">
-        <button class="carousel-arrow prev" aria-label="Previous">&#8249;</button>
-        <div class="carousel-container">
-          <br /><h2 class="ar-text" style="text-align: right; padding-right: 15px;">مقالاتنا</h2><br />
-          <div class="carousel-track">
-            <article class="carousel-card">
-              <img src="images/sommeil.jpg" alt="Quality Sleep" class="card-img" />
-              <span class="tag ar-text">النوم</span>
-              <h3 class="ar-text">تحسين جودة النوم بشكل طبيعي</h3>
-              <a href="pages/articles.html" class="btn btn-light">Read Article &nbsp;→</a>
-            </article>
-            <article class="carousel-card">
-              <img src="images/activite-physique.jpg" alt="Physical Activity" class="card-img" />
-              <span class="tag ar-text">النشاط البدني</span>
-              <h3 class="ar-text">التحرك كل يوم: أفضل دواء وقائي</h3>
-              <a href="pages/articles.html" class="btn btn-light">Read Article &nbsp;→</a>
-            </article>
-            <article class="carousel-card">
-              <img src="images/nutrition.jpg" alt="Nutrition" class="card-img" />
-              <span class="tag ar-text">التغذية</span>
-              <h3 class="ar-text">النظام الغذائي المضاد للالتهابات</h3>
-              <a href="pages/articles.html" class="btn btn-light">Read Article &nbsp;→</a>
-            </article>
-            <article class="carousel-card">
-              <img src="images/stress.jpg" alt="Stress Management" class="card-img" />
-              <span class="tag ar-text">التوتر والصفاء</span>
-              <h3 class="ar-text">تهدئة الجهاز العصبي يوميًا</h3>
-              <a href="pages/articles.html" class="btn btn-light">Read Article &nbsp;→</a>
-            </article>
-            <article class="carousel-card">
-              <img src="images/microbiote.jpg" alt="Microbiome" class="card-img" />
-              <span class="tag ar-text">صحة الأمعاء</span>
-              <h3 class="ar-text">الميكروبيوم: الركيزة الأساسية</h3>
-              <a href="pages/articles.html" class="btn btn-light">Read Article &nbsp;→</a>
-            </article>
-            <article class="carousel-card">
-              <img src="images/phytotherapie.jpg" alt="Phytotherapy" class="card-img" />
-              <span class="tag ar-text">العلاج بالنباتات</span>
-              <h3 class="ar-text">النباتات المتكيفة ضد التعب</h3>
-              <a href="pages/articles.html" class="btn btn-light">Read Article &nbsp;→</a>
-            </article>
-          </div>
-        </div>
-        <button class="carousel-arrow next" aria-label="Next">&#8250;</button>
-      </div>
-      <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
     </section>
 
     <!-- FOOTER -->
