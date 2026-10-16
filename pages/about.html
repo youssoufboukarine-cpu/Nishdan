@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — Nishdan</title>
+    <title>About — NISHDAN</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
@@ -82,7 +82,7 @@
       }
       .logo-link { text-decoration: none; color: inherit; display: inline-block; }
       .logo {
-        display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.3px;
+        display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
       }
       .logo-icon { width: 80px; height: 65px; color: var(--green-deep); }
       .main-nav { display: flex; gap: 34px; }
@@ -162,7 +162,7 @@
       .profile-text .en { font-size: 0.85rem; color: var(--ink-soft); }
 
       .hero-image-banner {
-        width: 100%; height: 180px; border-radius: 8px; overflow: hidden;
+        width: 100%; height: 200px; border-radius: 8px; overflow: hidden;
         margin-bottom: 24px; border: 1px solid var(--line);
       }
       .hero-image-banner img { width: 100%; height: 100%; }
@@ -210,7 +210,7 @@
       .therapy-pill:hover .en { color: var(--gold); }
       .therapy-pill .en { font-size: 0.78rem; color: var(--ink-soft); }
 
-      /* Timeline & Pioneers (بدون صور) */
+      /* Timeline & Pioneers */
       .timeline-compact {
         display: grid;
         gap: 14px;
@@ -265,10 +265,22 @@
         .main-nav { display: none; }
         .footer-grid { grid-template-columns: repeat(2, 1fr); }
       }
+
+      /* تنسيقات مخصصة لتصغير الخطوط في الجوال لراحة العين */
       @media (max-width: 560px) {
-        .section-card { padding: 24px 16px; }
+        .container { padding: 0 16px; }
+        .section-card { padding: 22px 14px; }
+        .section-title { font-size: 1.6rem; }
+        .text-block { font-size: 0.94rem; line-height: 1.7; }
+        .profile-text .ar { font-size: 1.02rem; }
+        .profile-text .en { font-size: 0.8rem; }
+        .principle-item .ar { font-size: 0.95rem; }
+        .principle-item .en { font-size: 0.78rem; }
+        .therapy-pill { font-size: 0.84rem; padding: 6px 12px; }
         .timeline-row { grid-template-columns: 1fr; gap: 4px; text-align: center; }
-        .timeline-year { direction: rtl; }
+        .timeline-year { direction: rtl; font-size: 1rem; }
+        .timeline-info .ar { font-size: 0.94rem; }
+        .timeline-info .en { font-size: 0.76rem; }
         .footer-grid { grid-template-columns: 1fr; }
       }
     </style>
@@ -280,8 +292,8 @@
       <div class="header-inner">
         <a href="../index.html" class="logo-link">
           <span class="logo">
-            <img src="../images/logoo.png" alt="Nishdan Logo" class="logo-icon" />
-            Nishdan
+            <img src="../images/logoo.png" alt="NISHDAN Logo" class="logo-icon" />
+            NISHDAN
           </span>
         </a>
         <nav class="main-nav">
@@ -308,7 +320,7 @@
       <section class="section-card">
         <div class="profile-hero">
           <div class="profile-img-wrap">
-            <img src="../images/logoo.png" alt="Nishdan" />
+            <img src="../images/logoo.png" alt="NISHDAN" />
           </div>
           <div class="profile-text ar-text">
             <p class="ar">نشدان استشارية ومدربة صحة حاصلة على شهادة في الناتوروباثي وهو طب شمولي تغذوي وعلاج بالطبيعة.</p>
@@ -316,8 +328,9 @@
           </div>
         </div>
 
+        <!-- صورة الترويسة الجديدة (أعشاب ونباتات طبية طبيعية) -->
         <div class="hero-image-banner">
-          <img src="../images/weight.jpg" alt="Herbs and Nature" />
+          <img src="../images/herbs.jpg" alt="Natural Herbs & Plants" />
         </div>
 
         <div class="section-title-wrap ar-text">
@@ -326,7 +339,7 @@
         </div>
         
         <p class="text-block ar-text">
-          هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من الطب النبوي والطب الشمولي لتكوني مطببة نفسكِ وعائلتكِ بوعي تام، بناءً على المنهج الصحي القائم على أن <strong>جسم الإنسان لديه القدرة على التشافي بشكل فطري</strong>، وأن العلاج الحقيقي موجود في الطبيعة.
+          هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من ديننا الحنيف والطب الشمولي لتكوني طبيبة نفسكِ وعائلتكِ بوعي تام، بناءً على المنهج الصحي القائم على أن <strong>جسم الإنسان لديه القدرة على التشافي بشكل فطري</strong>، وأن العلاج الحقيقي موجود في الطبيعة.
         </p>
 
         <div class="mini-quote ar-text">
@@ -371,7 +384,7 @@
         </ul>
       </section>
 
-      <!-- القسم الثالث: التاريخ والرواد (تم نقله ليصبح مباشرة بعد المبادئ) -->
+      <!-- القسم الثالث: التاريخ والرواد -->
       <section class="section-card">
         <div class="section-title-wrap ar-text">
           <h2 class="section-title">تاريخ وروّاد الناتوروباثي</h2>
@@ -455,7 +468,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <h3>Nishdan<br />Integrative Health</h3>
+          <h3>NISHDAN<br />Integrative Health</h3>
           <p>Evidence-based naturopathy serving your lifelong health.</p>
         </div>
         <div class="footer-col">
@@ -477,7 +490,7 @@
           <p>Receive exclusive tips and content every week.</p>
         </div>
       </div>
-      <div class="footer-bottom">© 2026 Nishdan Integrative Health — All rights reserved.</div>
+      <div class="footer-bottom">&copy; 2026 NISHDAN Integrative Health — All rights reserved.</div>
     </footer>
 
   </body>
