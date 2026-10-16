@@ -161,11 +161,21 @@
       .profile-text .ar { font-weight: 600; color: var(--green-deep); font-size: 1.15rem; }
       .profile-text .en { font-size: 0.85rem; color: var(--ink-soft); }
 
+      /* تنسيق بانر صورة الترويسة لضمان عرضها بوضوح */
       .hero-image-banner {
-        width: 100%; height: 200px; border-radius: 8px; overflow: hidden;
-        margin-bottom: 24px; border: 1px solid var(--line);
+        width: 100%; 
+        height: 220px; 
+        border-radius: 10px; 
+        overflow: hidden;
+        margin-bottom: 24px; 
+        border: 1px solid var(--line);
+        background-color: var(--cream-2);
       }
-      .hero-image-banner img { width: 100%; height: 100%; }
+      .hero-image-banner img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+      }
 
       /* Principles Grid */
       .principles-grid {
@@ -266,7 +276,7 @@
         .footer-grid { grid-template-columns: repeat(2, 1fr); }
       }
 
-      /* تنسيقات مخصصة لتصغير الخطوط في الجوال لراحة العين */
+      /* تنسيقات تصغير الخطوط في الجوال لراحة العين */
       @media (max-width: 560px) {
         .container { padding: 0 16px; }
         .section-card { padding: 22px 14px; }
@@ -328,9 +338,9 @@
           </div>
         </div>
 
-        <!-- صورة الترويسة الجديدة (أعشاب ونباتات طبية طبيعية) -->
+        <!-- صورة الترويسة (تأكدي من توفر ملف باسم herbs.jpg أو استبداله باسم الصورة الفعلية لديك في مجلد images) -->
         <div class="hero-image-banner">
-          <img src="../images/herbs.jpg" alt="Natural Herbs & Plants" />
+          <img src="../images/herbs.jpg" alt="Natural Herbs & Plants" onerror="this.src='../images/weight.jpg';" />
         </div>
 
         <div class="section-title-wrap ar-text">
@@ -478,6 +488,7 @@
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </div>
+        .visuals
         <div class="footer-col">
           <h4>Resources</h4>
           <a href="#">Blog</a>
