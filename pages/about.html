@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>عنّي وفلسفة الناتوروباثي | Nishdan</title>
-  <meta name="description" content="تعرّفي على نشدان وفلسفة الناتوروباثي، المبادئ، العلاجات، والتاريخ بوعي وتصميم هادئ ومتقارب.">
+  <meta name="description" content="تعرّفي على نشدان وفلسفة الناتوروباثي، المبادئ، العلاجات، والتاريخ بتصميم جذاب ودافئ.">
 
   <!-- الخطوط -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,21 +13,19 @@
 
   <style>
     :root {
-      --cream: #faf8f3;
-      --vanilla: #f3efe7;
-      --paper: #fffdf9;
-      --olive: #3c4a34;
-      --olive-deep: #2f3a29;
-      --gold: #b8a06a;
-      --gold-deep: #7d6a3c;
-      --gold-light: #d9c99e;
-      --sage: #e2e6d6;
-      --box: #e8e2d4;
-      --ink: #2a2e25;
-      --muted: #5f6656;
-      --line: rgba(184, 160, 106, 0.3);
+      /* تعديل الألوان لتكون أوضح وأكثر جاذبية ودفئاً (ليست ممحية) */
+      --cream: #f4efe6;
+      --card-bg: #fffbf5;
+      --olive: #2f3d27;       /* أخضر زيتوني داكن وغني */
+      --olive-light: #46583d;
+      --gold: #9d8243;        /* ذهبي داكن وواضح */
+      --gold-light: #d6b97a;
+      --sage: #d5ded1;        /* أخضر ميرمية غني ومريح للعين */
+      --ink: #1e221b;         /* لون نص داكن وواضح جداً للقراءة */
+      --muted: #4a5245;
+      --line: #c8bdab;        /* خطوط حدود واضحة وغير باهتة */
       --font-body: 'Jost', 'IBM Plex Sans Arabic', sans-serif;
-      --shadow: 0 15px 35px -20px rgba(60, 74, 52, 0.25);
+      --shadow: 0 15px 35px -15px rgba(47, 61, 39, 0.2);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -35,15 +33,15 @@
     body {
       margin: 0;
       font-family: var(--font-body);
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 1.02rem;
+      line-height: 1.8;
       color: var(--ink);
       background: var(--cream);
     }
     h1, h2, h3, p, ul { margin: 0; }
     ul { padding: 0; list-style: none; }
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    img { display: block; max-width: 100%; object-fit: cover; }
 
     .container { width: min(880px, calc(100% - 32px)); margin-inline: auto; }
     .en { font-family: 'Jost', sans-serif; }
@@ -51,124 +49,132 @@
     /* ---------- القائمة العلوية ---------- */
     .site-header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(250, 248, 243, 0.92);
-      backdrop-filter: blur(10px);
+      background: rgba(244, 239, 230, 0.95);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
     .logo {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 500;
+      font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600;
       color: var(--olive); direction: ltr; display: flex; align-items: center; gap: 8px;
     }
     .logo span { color: var(--gold); }
-    .nav ul { display: flex; gap: 24px; font-size: 0.9rem; }
-    .nav a:hover, .nav a[aria-current="page"] { color: var(--gold-deep); }
+    .nav ul { display: flex; gap: 28px; font-size: 0.95rem; font-weight: 500; }
+    .nav a:hover, .nav a[aria-current="page"] { color: var(--gold); }
 
-    /* ---------- المحتوى المدمج (صفحة واحدة متصلة بمرونة) ---------- */
+    /* ---------- تدفق المحتوى ---------- */
     .content-flow {
       padding-block: 40px 60px;
       display: grid;
-      gap: 32px;
+      gap: 36px;
     }
 
-    /* الحاويات (Sections) المصغرة والمتصلة */
     .section-card {
-      background: var(--vanilla);
+      background: var(--card-bg);
       border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 36px clamp(20px, 4vw, 40px);
+      border-radius: 24px;
+      padding: 40px clamp(20px, 4vw, 48px);
       box-shadow: var(--shadow);
       position: relative;
     }
 
     .section-title {
       font-family: 'Amiri', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
       color: var(--olive);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       text-align: center;
+      font-weight: 700;
     }
     .section-subtitle {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-      color: var(--gold-deep);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--gold);
       text-align: center;
       margin-bottom: 24px;
+      font-weight: 600;
     }
 
     .text-block {
-      font-size: 1.05rem;
-      line-height: 1.85;
+      font-size: 1.08rem;
+      line-height: 1.9;
       color: var(--ink);
       text-align: center;
-      max-width: 720px;
+      max-width: 740px;
       margin-inline: auto;
     }
     .text-block + .text-block { margin-top: 16px; }
 
-    /* ---------- 1. قسم القصة والفلسفة ---------- */
-    .profile-mini {
-      display: flex; align-items: center; gap: 20px;
-      background: var(--paper);
-      padding: 20px; border-radius: 14px;
-      margin-bottom: 24px; border: 1px solid var(--line);
+    /* ---------- 1. قسم القصة مع صورة الشعار / البروفايل ---------- */
+    .profile-hero {
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px;
+      margin-bottom: 28px;
     }
-    .profile-avatar {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: var(--olive); color: var(--cream);
-      display: grid; place-items: center;
-      font-family: 'Playfair Display', serif; font-size: 1.6rem; font-style: italic;
-      flex-shrink: 0;
+    .profile-img-wrap {
+      width: 90px; height: 90px; border-radius: 50%;
+      overflow: hidden; border: 3px solid var(--gold);
+      box-shadow: 0 8px 20px rgba(157, 130, 67, 0.25);
     }
-    .profile-text .ar { font-weight: 600; color: var(--olive); font-size: 1.1rem; }
+    .profile-img-wrap img { width: 100%; height: 100%; }
+    .profile-text .ar { font-weight: 700; color: var(--olive); font-size: 1.25rem; }
     .profile-text .en { font-size: 0.9rem; color: var(--muted); }
 
-    /* ---------- 2. المبادئ (تشجير شبكي متصل ومقارب) ---------- */
+    /* عرض صورة جمالية تعبيرية للطبيعة */
+    .hero-image-banner {
+      width: 100%; height: 200px; border-radius: 16px; overflow: hidden;
+      margin-bottom: 24px; border: 1px solid var(--line);
+    }
+
+    /* ---------- 2. المبادئ (شبكة واضحة ومرتبة) ---------- */
     .principles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
     }
     .principle-item {
       background: var(--sage);
-      padding: 16px 20px;
-      border-radius: 12px;
+      padding: 18px 22px;
+      border-radius: 14px;
       text-align: center;
-      border: 1px solid rgba(60, 74, 52, 0.15);
+      border: 1px solid rgba(47, 61, 39, 0.15);
+      transition: transform 0.2s;
     }
-    .principle-item .ar { font-weight: 600; color: var(--olive); font-size: 1.02rem; }
-    .principle-item .en { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+    .principle-item:hover { transform: translateY(-3px); }
+    .principle-item .ar { font-weight: 700; color: var(--olive); font-size: 1.08rem; }
+    .principle-item .en { font-size: 0.85rem; color: var(--muted); margin-top: 3px; }
 
-    /* ---------- 3. العلاجات (قائمة منسقة ومدمجة) ---------- */
+    /* ---------- 3. التخصصات والعلاجات (أقراص جذابة) ---------- */
     .therapy-compact {
-      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-      margin-top: 20px;
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin-top: 24px;
     }
     .therapy-pill {
-      background: var(--paper);
+      background: var(--cream);
       border: 1px solid var(--line);
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 20px;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--olive);
       display: flex; gap: 8px; align-items: baseline;
     }
     .therapy-pill .en { font-size: 0.8rem; color: var(--muted); }
 
-    /* ---------- 4. التاريخ والخط الزمني المصغر ---------- */
+    /* ---------- 4. التاريخ والرواد (مع مكان الصور الحقيقية) ---------- */
     .timeline-compact {
       display: grid;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 16px;
+      margin-top: 24px;
     }
     .timeline-row {
       display: grid;
-      grid-template-columns: 80px 1fr;
+      grid-template-columns: 70px 60px 1fr;
       align-items: center;
-      background: var(--paper);
-      padding: 12px 18px;
-      border-radius: 12px;
+      gap: 16px;
+      background: var(--cream);
+      padding: 14px 20px;
+      border-radius: 16px;
       border: 1px solid var(--line);
     }
     .timeline-year {
@@ -178,34 +184,39 @@
       color: var(--olive);
       direction: ltr;
     }
-    .timeline-info .ar { font-weight: 600; color: var(--olive); font-size: 0.98rem; }
+    .pioneer-avatar {
+      width: 50px; height: 50px; border-radius: 50%; overflow: hidden;
+      border: 2px solid var(--gold); background: var(--sage);
+    }
+    .timeline-info .ar { font-weight: 700; color: var(--olive); font-size: 1.02rem; }
     .timeline-info .en { font-size: 0.85rem; color: var(--muted); }
 
-    /* اقتباس فوغل المصغر */
+    /* اقتباس فوغل المميز */
     .mini-quote {
       background: var(--olive);
-      color: var(--cream);
-      padding: 24px;
-      border-radius: 14px;
+      color: var(--card-bg);
+      padding: 28px;
+      border-radius: 18px;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 24px;
+      box-shadow: 0 10px 25px rgba(47, 61, 39, 0.3);
     }
-    .mini-quote .ar { font-family: 'Amiri', serif; font-size: 1.15rem; }
-    .mini-quote .en { font-size: 0.9rem; color: var(--gold-light); margin-top: 6px; }
-    .mini-quote cite { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--gold-light); font-style: normal; }
+    .mini-quote .ar { font-family: 'Amiri', serif; font-size: 1.25rem; font-weight: 700; }
+    .mini-quote .en { font-size: 0.92rem; color: var(--gold-light); margin-top: 8px; font-style: italic; }
+    .mini-quote cite { display: block; margin-top: 12px; font-size: 0.88rem; color: var(--gold-light); font-style: normal; }
 
-    /* ---------- التذييل المصغر ---------- */
+    /* التذييل */
     .site-footer {
       background: var(--olive);
-      color: rgba(250, 248, 243, 0.8);
-      padding: 32px 0;
+      color: rgba(244, 239, 230, 0.85);
+      padding: 36px 0;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
     }
 
     @media (max-width: 640px) {
-      .section-card { padding: 24px 16px; }
-      .timeline-row { grid-template-columns: 1fr; gap: 4px; text-align: center; }
+      .section-card { padding: 28px 18px; }
+      .timeline-row { grid-template-columns: 1fr; gap: 8px; text-align: center; justify-items: center; }
       .timeline-year { direction: rtl; }
     }
   </style>
@@ -215,12 +226,12 @@
   <!-- القائمة العلوية -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo"><span>N</span>ishdan</a>
+      <a href="../index.html" class="logo"><span>N</span>ishdan</a>
       <nav class="nav">
         <ul>
-          <li><a href="#">الرئيسية</a></li>
-          <li><a href="#">الدورات</a></li>
-          <li><a href="#" aria-current="page">عنّي</a></li>
+          <li><a href="../index.html">الرئيسية</a></li>
+          <li><a href="courses.html">الدورات</a></li>
+          <li><a href="about.html" aria-current="page">عنّي</a></li>
         </ul>
       </nav>
     </div>
@@ -228,14 +239,22 @@
 
   <main class="container content-flow">
 
-    <!-- القسم الأول: قصتي والتعريف بالناتوروباثي مدمجون معاً -->
+    <!-- القسم الأول: قصتي والفلسفة مع صور تعبيرية -->
     <section class="section-card">
-      <div class="profile-mini">
-        <div class="profile-avatar">N</div>
+      <div class="profile-hero">
+        <div class="profile-img-wrap">
+          <!-- ضعي صورتك الشخصية الحقيقية أو الشعار هنا -->
+          <img src="../images/logoo.png" alt="نشدان">
+        </div>
         <div class="profile-text">
           <p class="ar">أنا نشدان، حاصلة على شهادة في الناتوروباثي.</p>
           <p class="en" lang="en">Certified Naturopath &amp; Holistic Guide</p>
         </div>
+      </div>
+
+      <!-- صورة تعبيرية جمالية للطبيعة والطب الشمولي -->
+      <div class="hero-image-banner">
+        <img src="../images/beauty.jpg" alt="الطبيعة والشفاء">
       </div>
 
       <h1 class="section-title">فلسفة المداواة الطبيعية</h1>
@@ -253,7 +272,7 @@
     </section>
 
 
-    <!-- القسم الثاني: المبادئ (بتصميم شبكي متصل ومبسط) -->
+    <!-- القسم الثاني: المبادئ الستة -->
     <section class="section-card">
       <h2 class="section-title">مبادئ الناتوروباثي</h2>
       <p class="section-subtitle" lang="en" dir="ltr">Principles of Naturopathy</p>
@@ -287,12 +306,12 @@
     </section>
 
 
-    <!-- القسم الثالث: طبيعة العلاجات المتعددة (بشكل أزرار دائرية متجاورة مدمجة) -->
+    <!-- القسم الثالث: التخصصات والعلاجات المتعددة -->
     <section class="section-card">
       <h2 class="section-title">التخصصات والعلاجات المتعددة</h2>
       <p class="section-subtitle" lang="en" dir="ltr">Multidisciplinary Therapies</p>
       
-      <p class="text-block" style="font-size: 0.98rem; margin-bottom: 16px;">
+      <p class="text-block" style="font-size: 1rem; margin-bottom: 16px;">
         يستخدم معالج الناتوروباثي مجموعة من العلاجات الآمنة والداعمة لآليات التشافي الذاتي في آنٍ واحد:
       </p>
 
@@ -310,18 +329,21 @@
     </section>
 
 
-    <!-- القسم الرابع: تاريخ ورواد الناتوروباثي (بشكل جدول زمني مصغر ومرتب) -->
+    <!-- القسم الرابع: تاريخ ورواد الناتوروباثي (مع أطر جاهزة للصور الحقيقية للرواد) -->
     <section class="section-card">
       <h2 class="section-title">تاريخ وروّاد الناتوروباثي</h2>
       <p class="section-subtitle" lang="en" dir="ltr">History &amp; Pioneers</p>
       
-      <p class="text-block" style="font-size: 0.98rem; margin-bottom: 16px;">
+      <p class="text-block" style="font-size: 1rem; margin-bottom: 16px;">
         تعتمد الجذور على حركة (Nature Cure) التي نشأت بأوروبا في القرن الـ 19:
       </p>
 
       <div class="timeline-compact">
         <div class="timeline-row">
           <time class="timeline-year">1826</time>
+          <div class="pioneer-avatar">
+            <!-- ضعي صورة فنسنت بريزنتس هنا: <img src="../images/priessnitz.jpg" alt="Priessnitz"> -->
+          </div>
           <div class="timeline-info">
             <p class="ar">د. فنسنت بريزنتس — أبو العلاج بالماء</p>
             <p class="en" lang="en">Dr. Vincent Priessnitz (Father of Hydrotherapy)</p>
@@ -330,6 +352,9 @@
 
         <div class="timeline-row">
           <time class="timeline-year">1840</time>
+          <div class="pioneer-avatar">
+            <!-- ضعي صورة سباستيان كنايب هنا: <img src="../images/kneipp.jpg" alt="Kneipp"> -->
+          </div>
           <div class="timeline-info">
             <p class="ar">سباستيان كنايب — تطوير أساليب العلاج المائي</p>
             <p class="en" lang="en">Sebastian Kneipp (Developed Hydrotherapy)</p>
@@ -338,6 +363,9 @@
 
         <div class="timeline-row">
           <time class="timeline-year">1880</time>
+          <div class="pioneer-avatar">
+            <!-- ضعي صورة إيجيناز فون بيزلي هنا: <img src="../images/peczely.jpg" alt="Peczely"> -->
+          </div>
           <div class="timeline-info">
             <p class="ar">د. إيجيناز فون بيزلي — مؤسس علم التشخيص بالقزحية</p>
             <p class="en" lang="en">Dr. Ignaz Von Peczely (Founder of Iridology)</p>
@@ -346,6 +374,9 @@
 
         <div class="timeline-row">
           <time class="timeline-year">1885</time>
+          <div class="pioneer-avatar">
+            <!-- ضعي صورة جون شيل هنا: <img src="../images/scheel.jpg" alt="Scheel"> -->
+          </div>
           <div class="timeline-info">
             <p class="ar">د. جون شيل — صاغ مصطلح «ناتوروباثي»</p>
             <p class="en" lang="en">Dr. John Scheel (Coined Naturopathy)</p>
@@ -354,6 +385,9 @@
 
         <div class="timeline-row">
           <time class="timeline-year">1900</time>
+          <div class="pioneer-avatar">
+            <!-- ضعي صورة بينيديكت لوست هنا: <img src="../images/lust.jpg" alt="Lust"> -->
+          </div>
           <div class="timeline-info">
             <p class="ar">د. بينيديكت لوست — أبو الناتوروباثي في أمريكا</p>
             <p class="en" lang="en">Dr. Benedict Lust (Father of American Naturopathy)</p>
