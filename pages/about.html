@@ -3,1133 +3,460 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عنّي | Nishdan</title>
-  <meta name="description" content="تعرّفي على نشدان وفلسفة الناتوروباثي: المداواة الطبيعية، مبادئها، علاجاتها، وتاريخ روّادها.">
+  <title>عنّي وفلسفة الناتوروباثي | Nishdan</title>
+  <meta name="description" content="تعرّفي على نشدان وفلسفة الناتوروباثي، المبادئ، العلاجات، والتاريخ بتصميم جذاب، دافئ، وتفاعلي.">
 
-  <!-- الخطوط: Playfair Display و Jost للاتينية + Amiri و IBM Plex Sans Arabic للحروف العربية -->
+  <!-- الخطوط -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Jost:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-       1. المتغيرات — لتغيير الألوان يكفي تعديل هذا القسم
-       ========================================================= */
     :root {
-      --cream: #faf8f3;
-      --vanilla: #f3efe7;
-      --paper: #fffdf9;
-      --olive: #3c4a34;
-      --olive-deep: #2f3a29;
-      --gold: #b8a06a;
-      --gold-deep: #7d6a3c;
-      --gold-light: #d9c99e;
-      --sage: #e2e6d6;
-      --sage-deep: #a9b796;
-      --stone: #d6d0c2;
-      --box: #e8e2d4;
-      --ink: #2a2e25;
-      --muted: #5f6656;
-      --line: rgba(184, 160, 106, 0.35);
-
+      --cream: #f5f0e8;
+      --card-bg: #fffefb;
+      --olive: #2b3823;
+      --olive-light: #3d4f33;
+      --gold: #b2934b;
+      --gold-light: #e8d5a8;
+      --sage: #e4ebe0;
+      --accent-tint: #fdf8ee;
+      --ink: #1a1e17;
+      --muted: #555e4f;
+      --line: #d3c4ad;
       --font-body: 'Jost', 'IBM Plex Sans Arabic', sans-serif;
-      --pad: clamp(20px, 5vw, 56px);
-      --shadow: 0 30px 60px -40px rgba(60, 74, 52, .45);
+      --shadow: 0 15px 35px -12px rgba(43, 56, 35, 0.18);
       --ease: cubic-bezier(.22, .61, .36, 1);
     }
 
-    /* =========================================================
-       2. الأساسيات
-       ========================================================= */
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: var(--font-body);
-      font-size: 1.0625rem;
-      line-height: 1.9;
+      font-size: 1.02rem;
+      line-height: 1.85;
       color: var(--ink);
       background: var(--cream);
-      overflow-x: clip;
-      -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3, p, figure, blockquote, ol, ul { margin: 0; }
-    ol, ul { padding: 0; list-style: none; }
-    a { color: inherit; }
-    img { display: block; max-width: 100%; }
-    svg { display: block; }
-    ::selection { background: var(--gold-light); color: var(--olive-deep); }
-    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+    h1, h2, h3, p, ul { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; object-fit: cover; }
 
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-    }
-    .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .container { width: min(880px, calc(100% - 32px)); margin-inline: auto; }
     .en { font-family: 'Jost', sans-serif; }
 
-    /* =========================================================
-       3. القائمة العلوية
-       ========================================================= */
+    /* ---------- القائمة العلوية مع تفاعلات الحركة ---------- */
     .site-header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(250, 248, 243, .9);
-      backdrop-filter: saturate(140%) blur(12px);
-      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      background: rgba(245, 240, 232, 0.96);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
     .logo {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 500;
-      letter-spacing: .04em; line-height: 1;
-      color: var(--olive); text-decoration: none; direction: ltr;
+      font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600;
+      color: var(--olive); direction: ltr; display: flex; align-items: center; gap: 8px;
     }
-    .logo svg { width: 26px; height: 26px; color: var(--gold); }
-    .nav ul { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
+    .logo span { color: var(--gold); }
+    .nav ul { display: flex; gap: 28px; font-size: 0.95rem; font-weight: 500; }
     .nav a {
       position: relative; display: inline-block; padding-block: 6px;
-      color: var(--olive); text-decoration: none; transition: color .3s var(--ease);
+      transition: color .3s var(--ease);
     }
     .nav a::after {
       content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 1px;
       background: var(--gold); transform: scaleX(0); transition: transform .4s var(--ease);
     }
-    .nav a:hover, .nav a[aria-current="page"] { color: var(--gold-deep); }
+    .nav a:hover, .nav a[aria-current="page"] { color: var(--gold); }
     .nav a:hover::after, .nav a[aria-current="page"]::after { transform: scaleX(1); }
-    .nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
-    .nav-btn { display: none; }
 
-    /* =========================================================
-       4. البطاقات (كل بطاقة = شريحة)
-       ========================================================= */
-    .deck {
+    /* ---------- تدفق المحتوى ---------- */
+    .content-flow {
+      padding-block: 40px 60px;
       display: grid;
-      gap: clamp(24px, 4vw, 40px);
-      padding-block: clamp(28px, 5vw, 56px);
+      gap: 36px;
     }
-    .slide {
-      position: relative;
-      width: min(940px, calc(100% - 32px));
-      margin-inline: auto;
-      padding: calc(var(--pad) + 44px) var(--pad) var(--pad);
-      overflow: hidden;
-      background: var(--vanilla);
+
+    .section-card {
+      background: var(--card-bg);
       border: 1px solid var(--line);
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-    }
-    .slide--bleed { padding-top: 0; }
-
-    /* رقم الشريحة + الوسم الصغير */
-    .slide-meta {
-      position: absolute; z-index: 5; top: 20px; inset-inline: 22px;
-      display: flex; justify-content: space-between; align-items: flex-start;
-      pointer-events: none;
-    }
-    .counter {
-      direction: ltr;
-      padding: 5px 16px;
-      font-family: 'Playfair Display', serif; font-size: .95rem; letter-spacing: .06em;
-      color: var(--cream); background: rgba(60, 74, 52, .88);
-      border-radius: 999px;
-    }
-    .topic {
-      display: flex; flex-direction: column;
-      text-align: end; font-size: .82rem; line-height: 1.35; color: var(--muted);
-    }
-    .slide--bleed .topic { display: none; }
-
-    /* العناوين والنصوص الثنائية اللغة */
-    .narrow { position: relative; z-index: 1; max-width: 720px; margin-inline: auto; }
-    .center { text-align: center; }
-    .title-ar {
-      font-family: 'Amiri', serif; font-weight: 700;
-      font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.5; color: var(--olive);
-    }
-    .title-en {
-      font-family: 'Playfair Display', serif; font-weight: 600;
-      font-size: clamp(1.3rem, 2.8vw, 1.85rem); line-height: 1.35; color: var(--gold-deep);
-    }
-    .text-ar { margin-top: 24px; font-size: clamp(1.08rem, 1.6vw, 1.25rem); line-height: 1.95; }
-    .text-en {
-      margin-top: 14px;
-      font-family: 'Jost', sans-serif; font-size: clamp(1rem, 1.5vw, 1.14rem); line-height: 1.65;
-    }
-    .text-ar strong, .text-en strong { font-weight: 600; color: var(--olive); }
-
-    /* الصورة الدائرية (ميدالية) */
-    .medallion {
-      position: relative; flex-shrink: 0;
-      display: grid; place-items: center;
-      overflow: hidden; border-radius: 50%;
-      background: linear-gradient(160deg, #dcd8cf, #aca699);
-      color: #6f695e;
-      border: 4px solid var(--vanilla);
-      box-shadow: 0 0 0 2px var(--olive);
-    }
-    .medallion svg { width: 100%; height: 100%; }
-    .medallion img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
-
-    /* =========================================================
-       5. الشريحة 01 — القصة
-       ========================================================= */
-    .medallion--brand {
-      width: 128px; height: 128px; margin: 0 auto 26px;
-      background: linear-gradient(160deg, #ece5d4, #f8f4ec 55%, #e2d8c2);
-    }
-    .medallion--brand img { filter: none; }
-    .monogram {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: 4.2rem; line-height: 1; color: var(--gold-deep);
-    }
-    .quote-box {
-      position: relative;
-      max-width: 760px; margin: 48px auto 0;
-      padding: 44px var(--pad) 30px;
-      text-align: center;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-    }
-    .quote-box::before {
-      content: "\201D";
-      position: absolute; top: -40px; right: 34px;
-      font-family: 'Playfair Display', serif; font-weight: 700;
-      font-size: 6.5rem; line-height: 1; color: var(--gold);
-    }
-    .quote-box .ar {
-      font-family: 'Amiri', serif;
-      font-size: clamp(1.25rem, 2.3vw, 1.55rem); line-height: 1.85; color: var(--olive);
-    }
-    .quote-box .en {
-      margin-top: 12px;
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: 1.05rem; line-height: 1.6; color: var(--muted);
-    }
-    .quote-box figcaption { margin-top: 18px; font-size: .95rem; color: var(--gold-deep); }
-
-    /* =========================================================
-       6. الشريحة 02 — التعريف (مع زخارف طبيعية خفيفة)
-       ========================================================= */
-    .decor { position: absolute; z-index: 0; opacity: .42; pointer-events: none; height: auto; }
-    .decor--leaf1  { top: 70px;  left: 22%;   width: 110px; transform: rotate(-28deg); }
-    .decor--root   { top: 18px;  left: 46%;   width: 110px; }
-    .decor--leaf2  { top: 34px;  right: 15%;  width: 90px;  transform: rotate(150deg); }
-    .decor--citrus { top: 42%;   left: -42px; width: 120px; }
-    .decor--drop   { bottom: -24px; left: 6%; width: 52px;  transform: rotate(-14deg); }
-    .decor--petal  { bottom: 12px;  left: 46%; width: 44px; transform: rotate(60deg); }
-    .def .title-en { margin-top: 40px; }
-    .def .text-en { margin-top: 8px; }
-    .def .text-ar { margin-top: 10px; }
-
-    /* =========================================================
-       7. شرائط الصور المرسومة بالكود
-       ========================================================= */
-    .strip {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      margin-inline: calc(var(--pad) * -1);
-    }
-    .strip--3 {
-      grid-template-columns: repeat(3, 1fr);
-      margin-bottom: 36px;
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
-              mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
-    }
-    .tile {
-      position: relative; overflow: hidden;
-      display: grid; place-items: center;
-      aspect-ratio: 1 / .82;
-      color: var(--olive);
-    }
-    .strip--3 .tile { aspect-ratio: 1 / .62; }
-    .tile svg { width: 58%; height: auto; }
-    .strip--3 .tile svg { width: 46%; }
-    .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .tile:nth-child(1) { background: linear-gradient(160deg, #ebe2cd, #e0d4b9); }
-    .tile:nth-child(2) { background: linear-gradient(160deg, #e6e9da, #d5dbc3); }
-    .tile:nth-child(3) { background: linear-gradient(160deg, #f1e7d9, #e5d5bf); }
-    .tile:nth-child(4) { background: linear-gradient(160deg, #e3e7d9, #ced5bf); }
-
-    /* =========================================================
-       8. الشريحة 03 — فقاعة الاقتباس
-       ========================================================= */
-    .bubble {
-      direction: ltr;
-      display: grid; grid-template-columns: 170px 1fr; align-items: end;
-      margin-top: 64px;
-    }
-    .bubble-author {
-      position: relative; z-index: 2;
-      grid-column: 1; grid-row: 1;
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; line-height: 1.4;
-    }
-    .bubble-author .medallion { width: 150px; height: 150px; margin-bottom: 8px; }
-    .bubble-author .en { font-weight: 600; font-size: .95rem; }
-    .bubble-author .ar { font-size: .95rem; }
-    .bubble-body {
-      position: relative;
-      grid-column: 2; grid-row: 1;
-      margin-left: -86px; margin-bottom: 70px;
-      padding: 40px 44px 40px 104px;
-      color: var(--cream); background: var(--olive);
-      border-radius: 46px;
-    }
-    .bubble-body::before {
-      content: "\201D";
-      position: absolute; top: -48px; right: 30px;
-      font-family: 'Playfair Display', serif; font-weight: 700;
-      font-size: 7rem; line-height: 1; color: var(--gold);
-    }
-    .bubble-body .ar {
-      font-family: 'Amiri', serif;
-      font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.7;
-    }
-    .bubble-body .en { margin-top: 10px; font-size: clamp(1rem, 1.7vw, 1.15rem); line-height: 1.55; color: var(--gold-light); }
-
-    /* =========================================================
-       9. الشريحة 04 — المبادئ
-       ========================================================= */
-    .principles {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
-      max-width: 820px; margin: 44px auto 0;
-    }
-    .principle {
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column; justify-content: center;
-      min-height: 120px; padding: 22px 28px;
-      text-align: center;
-      background: var(--sage);
-      border-radius: 16px;
-      transition: transform .4s var(--ease), box-shadow .4s var(--ease);
-    }
-    .principle:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .p-icon {
-      position: absolute; top: 50%; inset-inline-start: 14px;
-      width: 86px; height: 86px; transform: translateY(-50%);
-      color: var(--olive); opacity: .17;
-    }
-    .principle:nth-child(even) .p-icon { inset-inline-start: auto; inset-inline-end: 14px; }
-    .principle .ar { position: relative; font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; line-height: 1.6; color: var(--olive); }
-    .principle .en { position: relative; font-size: clamp(1rem, 1.7vw, 1.15rem); line-height: 1.4; }
-
-    /* =========================================================
-       10. الشريحة 05 — قائمة العلاجات
-       ========================================================= */
-    .statement { max-width: 760px; margin: 38px auto 0; text-align: center; }
-    .statement .ar { font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.9; }
-    .statement .en { margin-top: 16px; font-size: clamp(1.02rem, 1.8vw, 1.25rem); line-height: 1.5; }
-    .statement strong { font-weight: 600; color: var(--olive); }
-    .pill {
-      display: inline-block; margin-top: 8px; padding: 3px 22px;
-      font-weight: 600; color: var(--cream); background: var(--olive);
-      border-radius: 12px;
-    }
-    .therapy-list {
-      display: grid; gap: 4px;
-      max-width: 760px; margin: 34px auto 0;
-      padding: 26px clamp(18px, 4vw, 40px);
-      background: var(--paper);
       border-radius: 24px;
+      padding: 40px clamp(20px, 4vw, 48px);
+      box-shadow: var(--shadow);
+      position: relative;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
     }
-    .therapy-list li { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
-    .therapy-list .ar, .therapy-list .en {
-      display: flex; align-items: center; gap: 14px;
-      font-size: clamp(1rem, 1.9vw, 1.22rem); line-height: 1.6;
+    .section-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -15px rgba(43, 56, 35, 0.22);
     }
-    .therapy-list .ar::before, .therapy-list .en::before {
-      content: ""; flex-shrink: 0;
-      width: 18px; height: 18px; border-radius: 50%;
-      background: var(--stone);
-    }
-    .therapy-list li:nth-child(even) .ar::before,
-    .therapy-list li:nth-child(even) .en::before { background: var(--sage-deep); }
 
-    /* =========================================================
-       11. الشريحة 06 — المخطط الشجري
-       ========================================================= */
-    .tree-lines {
-      width: calc(100% + var(--pad) * 2); height: 74px;
-      margin-inline: calc(var(--pad) * -1);
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 26px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--sage);
+      background: radial-gradient(circle at center, var(--accent-tint) 0%, transparent 80%);
+      border-radius: 12px;
+      padding-top: 10px;
+    }
+    .section-title {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
       color: var(--olive);
+      margin-bottom: 4px;
+      font-weight: 700;
     }
-    .tree-split { width: 100%; height: 56px; color: var(--olive); }
-    .tree-lines path, .tree-split path {
-      fill: none; stroke: currentColor; stroke-width: 2;
-      vector-effect: non-scaling-stroke;
+    .section-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--gold);
+      font-weight: 600;
     }
-    .tree-box {
-      max-width: 760px; margin-inline: auto;
-      padding: 30px clamp(20px, 4vw, 48px);
+
+    .text-block {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: var(--ink);
       text-align: center;
-      background: var(--box);
-      border-radius: 20px;
+      max-width: 740px;
+      margin-inline: auto;
     }
-    .tree-box .ar { font-size: clamp(1.12rem, 2vw, 1.38rem); line-height: 1.85; }
-    .tree-box .en { margin-top: 14px; font-size: clamp(1rem, 1.7vw, 1.18rem); line-height: 1.55; }
-    .tree-box u { text-decoration-color: var(--gold); text-decoration-thickness: 2px; text-underline-offset: 7px; }
-    .tree-leaves { display: grid; grid-template-columns: 1fr 1fr; }
-    .tree-leaves > div { padding-inline: 10px; }
-    .leaf-box {
-      height: 100%; padding: 22px 18px;
-      text-align: center;
+    .text-block + .text-block { margin-top: 16px; }
+
+    /* ---------- 1. قسم القصة ---------- */
+    .profile-hero {
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px;
+      margin-bottom: 24px;
+    }
+    .profile-img-wrap {
+      width: 90px; height: 90px; border-radius: 50%;
+      overflow: hidden; border: 3px solid var(--gold);
+      box-shadow: 0 8px 20px rgba(178, 147, 75, 0.25);
+      transition: transform .3s var(--ease);
+    }
+    .profile-img-wrap:hover { transform: scale(1.05); }
+    .profile-img-wrap img { width: 100%; height: 100%; }
+    .profile-text .ar { font-weight: 700; color: var(--olive); font-size: 1.25rem; }
+    .profile-text .en { font-size: 0.9rem; color: var(--muted); }
+
+    .hero-image-banner {
+      width: 100%; height: 210px; border-radius: 16px; overflow: hidden;
+      margin-bottom: 28px; border: 1px solid var(--line);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    }
+    .hero-image-banner img {
+      width: 100%; height: 100%;
+      transition: transform .6s var(--ease);
+    }
+    .hero-image-banner:hover img { transform: scale(1.03); }
+
+    /* ---------- 2. المبادئ مع تفاعل الـ Hover ---------- */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .principle-item {
       background: var(--sage);
-      border-radius: 18px;
+      padding: 18px 22px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid rgba(43, 56, 35, 0.15);
+      transition: transform .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
     }
-    .leaf-box .ar { font-size: clamp(1.05rem, 1.9vw, 1.2rem); font-weight: 600; line-height: 1.7; color: var(--olive); }
-    .leaf-box .en { margin-top: 6px; font-size: clamp(.95rem, 1.6vw, 1.05rem); line-height: 1.45; }
+    .principle-item:hover {
+      transform: translateY(-4px);
+      background: #d7e2d0;
+      box-shadow: 0 8px 20px rgba(43, 56, 35, 0.12);
+    }
+    .principle-item .ar { font-weight: 700; color: var(--olive); font-size: 1.08rem; }
+    .principle-item .en { font-size: 0.85rem; color: var(--muted); margin-top: 3px; }
 
-    /* =========================================================
-       12. الشريحة 07 — مقدمة التاريخ
-       ========================================================= */
-    .portraits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 40px; }
-    .portrait {
-      position: relative; overflow: hidden;
-      aspect-ratio: 1;
-      color: #6f695e;
-      background: linear-gradient(170deg, #dcd8cf, #a9a397);
-      border-radius: 6px;
+    /* ---------- 3. العلاجات مع تفاعل الأقراص ---------- */
+    .therapy-compact {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin-top: 20px;
     }
-    .portrait svg { position: absolute; left: 0; bottom: 0; width: 100%; height: 88%; }
-    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
-    .portrait figcaption {
-      position: absolute; z-index: 1; inset-inline: 0; bottom: 0;
-      padding: 22px 6px 6px;
-      font-family: 'Playfair Display', serif; font-size: .95rem; line-height: 1.3;
-      text-align: center; color: #fff;
-      background: linear-gradient(transparent, rgba(42, 46, 37, .62));
+    .therapy-pill {
+      background: var(--sage);
+      border: 1px solid var(--line);
+      padding: 9px 18px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--olive);
+      display: flex; gap: 8px; align-items: baseline;
+      transition: transform .25s var(--ease), background .25s var(--ease), color .25s var(--ease);
     }
-    .arrow-banner {
-      display: flex; align-items: center; justify-content: center;
-      width: fit-content; max-width: 100%; margin: 40px auto 0;
-      filter: drop-shadow(0 14px 18px rgba(60, 74, 52, .25));
-    }
-    .arrow-banner .body {
-      display: flex; flex-direction: column; align-items: center;
-      padding: 14px 34px;
-      text-align: center; line-height: 1.5; color: var(--cream);
+    .therapy-pill:hover {
+      transform: translateY(-2px);
       background: var(--olive);
-      border-start-start-radius: 14px; border-end-start-radius: 14px;
+      color: var(--card-bg);
     }
-    .arrow-banner .body .ar { font-size: 1.15rem; font-weight: 600; }
-    .arrow-banner .body .en { font-size: .98rem; font-weight: 500; color: var(--gold-light); }
-    .arrow-banner .head {
-      width: 70px; height: 124px; margin-inline-start: -1px;
-      background: var(--olive);
-      clip-path: polygon(100% 0, 0 50%, 100% 100%);
-    }
+    .therapy-pill:hover .en { color: var(--gold-light); }
+    .therapy-pill .en { font-size: 0.8rem; color: var(--muted); font-weight: 400; transition: color .25s; }
 
-    /* =========================================================
-       13. الشريحة 08 — الخط الزمني
-       ========================================================= */
-    .slide--timeline::before {
-      content: ""; position: absolute; z-index: 0;
-      top: 0; bottom: 0; left: 50%;
-      width: 6px; transform: translateX(-50%);
-      background: linear-gradient(to bottom, var(--olive), var(--gold));
+    /* ---------- 4. التاريخ والرواد مع الصور والحركة التفاعلية ---------- */
+    .timeline-compact {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
     }
-    .timeline { position: relative; z-index: 1; display: grid; gap: 44px; }
-    .t-item { display: grid; grid-template-columns: 1fr 150px 1fr; align-items: center; }
-    .t-medal { position: relative; grid-column: 2; grid-row: 1; justify-self: center; width: 118px; height: 118px; }
-    .t-medal .medallion { width: 100%; height: 100%; }
-    .t-year {
-      position: absolute; z-index: 2; top: -14px; left: 50%;
-      transform: translateX(-50%);
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 70px 65px 1fr;
+      align-items: center;
+      gap: 16px;
+      background: var(--sage);
+      padding: 14px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .timeline-row:hover {
+      transform: translateX(-4px);
+      box-shadow: 0 6px 18px rgba(43, 56, 35, 0.12);
+    }
+    .timeline-year {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--olive);
       direction: ltr;
-      padding: 1px 14px;
-      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.1rem; line-height: 1.5;
-      color: var(--cream); background: var(--olive);
-      border: 2px solid var(--vanilla); border-radius: 999px;
     }
-    .t-body { grid-column: 1; grid-row: 1; padding-inline: 20px; text-align: center; }
-    .t-item:nth-child(even) .t-body { grid-column: 3; }
-    .t-body .en-name { font-weight: 600; font-size: 1.12rem; line-height: 1.4; }
-    .t-body .ar-name { font-family: 'Amiri', serif; font-weight: 700; font-size: 1.35rem; line-height: 1.6; color: var(--olive); }
-    .t-body .ar-role { font-size: 1.05rem; line-height: 1.7; }
-    .t-body .en-role { font-size: .98rem; line-height: 1.4; color: var(--muted); }
+    .pioneer-avatar {
+      width: 54px; height: 54px; border-radius: 50%; overflow: hidden;
+      border: 2px solid var(--gold); background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform .3s var(--ease);
+    }
+    .timeline-row:hover .pioneer-avatar { transform: scale(1.08); }
+    .pioneer-avatar img { width: 100%; height: 100%; }
+    .timeline-info .ar { font-weight: 700; color: var(--olive); font-size: 1.05rem; }
+    .timeline-info .en { font-size: 0.85rem; color: var(--muted); }
 
-    /* =========================================================
-       14. التذييل
-       ========================================================= */
-    .site-footer { position: relative; overflow: hidden; background: var(--olive); color: rgba(250, 248, 243, .78); }
-    .footer-deco { position: absolute; inset-inline-end: 4%; bottom: -60px; width: 260px; height: auto; color: var(--gold); opacity: .08; pointer-events: none; }
-    .footer-grid {
-      position: relative;
-      display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 48px;
-      padding-block: clamp(64px, 8vw, 96px) 48px;
+    /* اقتباس فوغل المميز */
+    .mini-quote {
+      background: var(--olive);
+      color: var(--card-bg);
+      padding: 28px;
+      border-radius: 18px;
+      text-align: center;
+      margin-top: 24px;
+      box-shadow: 0 10px 25px rgba(43, 56, 35, 0.3);
     }
-    .logo--light { color: var(--cream); }
-    .footer-brand p { max-width: 34ch; margin-top: 18px; }
-    .footer-title { margin-bottom: 16px; font-family: 'Amiri', serif; font-size: 1.3rem; font-weight: 700; color: var(--gold-light); }
-    .footer-links li + li { margin-top: 8px; }
-    .footer-links a { text-decoration: none; transition: color .3s; }
-    .footer-links a:hover { color: var(--gold-light); }
-    .footer-cta p { margin-bottom: 22px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 12px 28px; font-weight: 500; text-decoration: none;
-      border-radius: 999px; transition: background .35s var(--ease), transform .35s var(--ease);
-    }
-    .btn--gold { background: var(--gold); color: var(--olive-deep); }
-    .btn--gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .footer-bottom {
-      position: relative;
-      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
-      padding-block: 22px;
-      font-size: .9rem; color: rgba(250, 248, 243, .6);
-      border-top: 1px solid rgba(217, 201, 158, .22);
-    }
-    .footer-bottom .caps { text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; }
+    .mini-quote .ar { font-family: 'Amiri', serif; font-size: 1.25rem; font-weight: 700; }
+    .mini-quote .en { font-size: 0.92rem; color: var(--gold-light); margin-top: 8px; font-style: italic; }
+    .mini-quote cite { display: block; margin-top: 12px; font-size: 0.88rem; color: var(--gold-light); font-style: normal; }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-
-    /* =========================================================
-       15. التجاوب مع الشاشات
-       ========================================================= */
-    @media (max-width: 860px) {
-      .header-inner { height: 68px; }
-      .nav-btn {
-        display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
-        width: 44px; height: 44px; cursor: pointer;
-      }
-      .nav-btn span { width: 22px; height: 1.5px; background: var(--olive); border-radius: 2px; transition: transform .35s var(--ease), opacity .25s; }
-      .nav {
-        position: absolute; top: 100%; inset-inline: 0;
-        max-height: 0; overflow: hidden; visibility: hidden;
-        background: var(--cream); border-bottom: 1px solid var(--line);
-        transition: max-height .45s var(--ease), visibility 0s .45s;
-      }
-      .nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 4px 24px 18px; }
-      .nav li + li { border-top: 1px solid var(--line); }
-      .nav a { display: block; padding-block: 14px; }
-      .nav a::after { display: none; }
-      .nav-toggle:checked ~ .nav { max-height: 340px; visibility: visible; transition: max-height .45s var(--ease); }
-      .nav-toggle:checked + .nav-btn span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-      .nav-toggle:checked + .nav-btn span:nth-child(2) { opacity: 0; }
-      .nav-toggle:checked + .nav-btn span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-      .nav-toggle:focus-visible + .nav-btn { outline: 2px solid var(--gold); outline-offset: 2px; }
-
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
+    /* التذييل */
+    .site-footer {
+      background: var(--olive);
+      color: rgba(245, 240, 232, 0.85);
+      padding: 36px 0;
+      text-align: center;
+      font-size: 0.92rem;
     }
 
     @media (max-width: 640px) {
-      .slide { width: calc(100% - 24px); border-radius: 24px; }
-
-      /* فقاعة الاقتباس */
-      .bubble { grid-template-columns: 1fr; margin-top: 56px; }
-      .bubble-body { grid-column: 1; margin: 0; padding: 40px 24px 84px; border-radius: 32px; }
-      .bubble-body::before { font-size: 5.5rem; top: -38px; }
-      .bubble-author { grid-column: 1; grid-row: 2; justify-self: center; margin-top: -70px; }
-      .bubble-author .medallion { width: 120px; height: 120px; }
-
-      /* المبادئ */
-      .principles { grid-template-columns: 1fr; gap: 14px; }
-      .principle { min-height: 104px; }
-
-      /* القائمة */
-      .therapy-list li { gap: 14px; }
-      .therapy-list .ar, .therapy-list .en { gap: 9px; }
-      .therapy-list .ar::before, .therapy-list .en::before { width: 12px; height: 12px; }
-
-      /* البانر */
-      .arrow-banner { width: 100%; }
-      .arrow-banner .body { flex: 1; padding: 12px 18px; }
-      .arrow-banner .head { width: 46px; height: 100px; }
-
-      /* الصور */
-      .portraits { gap: 8px; }
-      .portrait figcaption { font-size: .72rem; padding-top: 14px; }
-
-      /* الخط الزمني */
-      .slide--timeline::before { top: 72px; left: auto; right: calc(var(--pad) + 40px); transform: translateX(50%); }
-      .timeline { gap: 30px; }
-      .t-item { grid-template-columns: 80px 1fr; gap: 16px; }
-      .t-medal { grid-column: 1; width: 80px; height: 80px; }
-      .t-body, .t-item:nth-child(even) .t-body { grid-column: 2; padding-inline: 0; text-align: start; }
-      .t-year { top: -12px; padding: 0 10px; font-size: .9rem; }
-
-      /* الزخارف */
-      .decor { opacity: .3; }
-      .decor--root, .decor--petal, .decor--leaf1 { display: none; }
-      .decor--citrus { width: 80px; left: -36px; top: 55%; }
-      .decor--leaf2 { right: 30%; top: 26px; width: 64px; }
-
-      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-    }
-
-    @media (max-width: 380px) {
-      .tree-leaves > div { padding-inline: 5px; }
-      .leaf-box { padding: 16px 10px; }
+      .section-card { padding: 28px 18px; }
+      .timeline-row { grid-template-columns: 1fr; gap: 8px; text-align: center; justify-items: center; }
+      .timeline-year { direction: rtl; }
     }
   </style>
 </head>
-
 <body>
 
-  <!--
-    ملاحظة: كل الرسومات في هذه الصفحة مكتوبة بالكود (SVG).
-    لوضع صورة حقيقية مكان أي رسم، يكفي إضافة <img src="..." alt="..."> داخل العنصر
-    (الدائرة، المربع، أو صورة الرائد)، وستغطي الصورة الرسم تلقائيًا.
-  -->
-
-  <!-- ===================== رموز الرسومات ===================== -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <defs>
-      <!-- شعار الورقة -->
-      <symbol id="leaf-mark" viewBox="0 0 24 24">
-        <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 19C5 10.5 11 5 20 4c0 9-5.5 15-15 15z"/>
-          <path d="M5 19l8.5-8.5"/>
-        </g>
-      </symbol>
-
-      <!-- غصن زخرفي -->
-      <symbol id="branch" viewBox="0 0 200 260">
-        <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M100 258C100 196 95 124 112 14"/>
-          <path transform="translate(100 222) rotate(-158)" d="M0 0C12-13 38-15 56 0 38 15 12 13 0 0zM5 0h45"/>
-          <path transform="translate(99 190) rotate(-22)" d="M0 0C12-13 38-15 56 0 38 15 12 13 0 0zM5 0h45"/>
-          <path transform="translate(99 158) rotate(-152) scale(.92)" d="M0 0C12-13 38-15 56 0 38 15 12 13 0 0zM5 0h45"/>
-          <path transform="translate(101 122) rotate(-30) scale(.86)" d="M0 0C12-13 38-15 56 0 38 15 12 13 0 0zM5 0h45"/>
-          <path transform="translate(103 88) rotate(-146) scale(.76)" d="M0 0C12-13 38-15 56 0 38 15 12 13 0 0zM5 0h45"/>
-          <path transform="translate(106 58) rotate(-38) scale(.68)" d="M0 0C12-13 38-15 56 0 38 15 12 13 0 0zM5 0h45"/>
-        </g>
-      </symbol>
-
-      <!-- رسومات البطاقات -->
-      <symbol id="il-bottle" viewBox="0 0 100 100">
-        <path d="M6 80C28 56 60 52 94 66 70 86 34 92 6 80z" style="fill:#c9d2b8" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M12 79C40 70 64 68 88 66" fill="none" stroke="currentColor" stroke-width="1.2"/>
-        <rect x="37" y="30" width="26" height="40" rx="6" style="fill:#d9b98a" stroke="currentColor" stroke-width="2"/>
-        <rect x="43" y="22" width="14" height="9" rx="2" style="fill:#d9b98a" stroke="currentColor" stroke-width="2"/>
-        <rect x="41" y="13" width="18" height="10" rx="3" fill="currentColor"/>
-        <path d="M42 46h16M42 52h16" stroke="currentColor" stroke-width="1.2" opacity=".6"/>
-        <g style="fill:#fffdf9" stroke="currentColor" stroke-width="1.2">
-          <circle cx="68" cy="73" r="2.8"/><circle cx="75" cy="77" r="2.8"/><circle cx="66" cy="81" r="2.8"/><circle cx="79" cy="70" r="2.4"/>
-        </g>
-      </symbol>
-
-      <symbol id="il-sun" viewBox="0 0 100 100">
-        <path d="M22 82a28 28 0 0 1 56 0z" style="fill:#e7c98f"/>
-        <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".55">
-          <path d="M18 62l-6-4M82 62l6-4M14 74H6M86 74h8"/>
-        </g>
-        <path d="M6 82h88" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="50" cy="36" r="5" fill="currentColor"/>
-        <path d="M50 43v19M50 47 35 34M50 47l15-13M50 62l-6 20M50 62l6 20" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
-
-      <symbol id="il-sprout" viewBox="0 0 100 100">
-        <path d="M14 84c14-10 58-10 72 0z" style="fill:#d6c4a2" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M50 80V48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M50 58c-10-2-20-10-22-24 12 0 20 8 22 24z" style="fill:#b9c79f" stroke="currentColor" stroke-width="1.6"/>
-        <path d="M50 50c6-8 14-14 28-20-2 14-12 22-28 20z" style="fill:#c9d4ae" stroke="currentColor" stroke-width="1.6"/>
-      </symbol>
-
-      <symbol id="il-jars" viewBox="0 0 100 100">
-        <rect x="14" y="34" width="32" height="50" rx="7" style="fill:#fffdf9" stroke="currentColor" stroke-width="2"/>
-        <path d="M15 56h30v21a7 7 0 0 1-7 7H22a7 7 0 0 1-7-7z" style="fill:#c8743f" opacity=".75"/>
-        <rect x="16" y="25" width="28" height="10" rx="3" fill="currentColor"/>
-        <rect x="54" y="44" width="32" height="40" rx="7" style="fill:#fffdf9" stroke="currentColor" stroke-width="2"/>
-        <g fill="currentColor" opacity=".8">
-          <circle cx="62" cy="70" r="2.4"/><circle cx="69" cy="74" r="2.4"/><circle cx="77" cy="69" r="2.4"/>
-          <circle cx="65" cy="78" r="2.4"/><circle cx="74" cy="79" r="2.4"/><circle cx="80" cy="76" r="2.4"/><circle cx="70" cy="64" r="2.4"/>
-        </g>
-        <rect x="56" y="35" width="28" height="10" rx="3" fill="currentColor"/>
-        <path d="M60 52c8-10 18-10 22-6-6 6-14 8-22 6z" style="fill:#b9c79f" stroke="currentColor" stroke-width="1.2"/>
-      </symbol>
-
-      <symbol id="il-mortar" viewBox="0 0 100 100">
-        <path d="M60 52 82 20" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-        <path d="M30 48c-2-10 4-16 12-16-2 8-6 14-12 16z" style="fill:#b9c79f" stroke="currentColor" stroke-width="1.4"/>
-        <path d="M40 48c2-12 12-16 20-14-4 8-10 12-20 14z" style="fill:#c9d4ae" stroke="currentColor" stroke-width="1.4"/>
-        <path d="M18 50h64c-2 18-14 30-32 30S20 68 18 50z" style="fill:#fffdf9" stroke="currentColor" stroke-width="2.2"/>
-        <path d="M40 80l-3 7h26l-3-7" style="fill:#fffdf9" stroke="currentColor" stroke-width="2"/>
-        <path d="M14 50h72" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-      </symbol>
-
-      <symbol id="il-lotus" viewBox="0 0 100 100">
-        <g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
-          <path d="M50 72C34 75 18 68 10 56c14-3 30 2 40 16z" style="fill:#e9d6b0"/>
-          <path d="M50 72c16 3 32-4 40-16-14-3-30 2-40 16z" style="fill:#e9d6b0"/>
-          <path d="M50 72C38 66 28 54 27 38c13 5 21 18 23 34z" style="fill:#d9c08f"/>
-          <path d="M50 72c12-6 22-18 23-34-13 5-21 18-23 34z" style="fill:#d9c08f"/>
-          <path d="M50 26c9 12 10 32 0 46-10-14-9-34 0-46z" style="fill:#e7cfa0"/>
-        </g>
-        <path d="M18 84h64" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="6 6"/>
-      </symbol>
-
-      <!-- أيقونات المبادئ -->
-      <symbol id="p-leaf" viewBox="0 0 64 64">
-        <path d="M8 56C8 28 26 9 57 7c0 31-19 49-49 49z" fill="currentColor"/>
-        <path d="M8 56 3 61" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-      </symbol>
-      <symbol id="p-heart" viewBox="0 0 64 64">
-        <path d="M32 56C12 42 6 30 6 21 6 13 12 7 20 7c6 0 10 4 12 8 2-4 6-8 12-8 8 0 14 6 14 14 0 9-6 21-26 35z" fill="currentColor"/>
-      </symbol>
-      <symbol id="p-person" viewBox="0 0 64 64">
-        <path d="M32 3 61 59H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
-        <circle cx="32" cy="18" r="6" fill="currentColor"/>
-        <path d="M32 27v15M18 32h28M32 42l-8 14M32 42l8 14" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
-      <symbol id="p-search" viewBox="0 0 64 64">
-        <circle cx="26" cy="26" r="17" fill="none" stroke="currentColor" stroke-width="7"/>
-        <path d="M39 39 57 57" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
-      </symbol>
-      <symbol id="p-shield" viewBox="0 0 64 64">
-        <path d="M32 4 55 12v18c0 15-10 26-23 30C19 56 9 45 9 30V12z" fill="currentColor"/>
-        <path d="M21 31l8 8 15-16" fill="none" style="stroke:#e2e6d6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
-      <symbol id="p-teacher" viewBox="0 0 64 64">
-        <circle cx="45" cy="15" r="8" fill="currentColor"/>
-        <path d="M33 60V36c0-7 5-12 12-12s12 5 12 12v24z" fill="currentColor"/>
-        <rect x="4" y="8" width="26" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="3"/>
-        <path d="M36 34 22 24" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
-      </symbol>
-
-      <!-- صورة ظلية (مكان صور الروّاد) -->
-      <symbol id="bust" viewBox="0 0 100 100">
-        <ellipse cx="50" cy="40" rx="17" ry="20" fill="currentColor"/>
-        <path d="M14 100c0-22 16-36 36-36s36 14 36 36z" fill="currentColor"/>
-      </symbol>
-
-      <!-- زخارف شريحة التعريف -->
-      <symbol id="dec-leaf" viewBox="0 0 100 40">
-        <path d="M2 30C26 6 64 2 98 6 78 30 40 40 2 30z" style="fill:#a9b796"/>
-        <path d="M6 29C40 20 70 12 96 7" fill="none" style="stroke:#fffdf9" stroke-width="1.2" opacity=".7"/>
-      </symbol>
-      <symbol id="dec-citrus" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" style="fill:#d98d64"/>
-        <circle cx="50" cy="50" r="40" style="fill:#efb38f"/>
-        <path d="M50 12v76M12 50h76M23 23l54 54M77 23 23 77" style="stroke:#fff6ee" stroke-width="2.5"/>
-        <circle cx="50" cy="50" r="5" style="fill:#fff6ee"/>
-      </symbol>
-      <symbol id="dec-drop" viewBox="0 0 60 120">
-        <rect x="21" y="2" width="18" height="26" rx="9" style="fill:#3c4a34"/>
-        <rect x="17" y="26" width="26" height="12" rx="2" style="fill:#2f3a29"/>
-        <rect x="8" y="38" width="44" height="78" rx="8" style="fill:#8a5a2b" opacity=".85"/>
-        <rect x="12" y="62" width="36" height="28" rx="2" style="fill:#f3efe7" opacity=".7"/>
-      </symbol>
-      <symbol id="dec-petal" viewBox="0 0 60 80">
-        <path d="M30 2C52 14 60 46 30 78 4 56 6 22 30 2z" style="fill:#e7b7b0"/>
-      </symbol>
-      <symbol id="dec-root" viewBox="0 0 120 80">
-        <path d="M10 50c0-18 20-26 34-18 6-16 30-20 38-4 14-8 34 2 30 20-2 14-18 20-30 14-8 12-30 14-38 2-14 8-34 2-34-14z" style="fill:#e3d3b4"/>
-      </symbol>
-    </defs>
-  </svg>
-
-  <!-- ===================== القائمة العلوية ===================== -->
+  <!-- القائمة العلوية -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Nishdan — الصفحة الرئيسية">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#leaf-mark" width="24" height="24"/></svg>
-        Nishdan
-      </a>
-
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="فتح القائمة">
-      <label for="nav-toggle" class="nav-btn" aria-hidden="true"><span></span><span></span><span></span></label>
-
-      <nav class="nav" aria-label="القائمة الرئيسية">
+      <a href="../index.html" class="logo"><span>N</span>ishdan</a>
+      <nav class="nav">
         <ul>
-          <li><a href="#">الرئيسية</a></li>
-          <li><a href="#">الدورات</a></li>
-          <li><a href="#" aria-current="page">عنّي</a></li>
-          <li><a href="#">تواصل معنا</a></li>
+          <li><a href="../index.html">الرئيسية</a></li>
+          <li><a href="courses.html">الدورات</a></li>
+          <li><a href="about.html" aria-current="page">عنّي</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="deck">
+  <main class="container content-flow">
 
-    <!-- ===================== 01 · القصة والتعريف ===================== -->
-    <section class="slide" aria-labelledby="s1">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">01 / 08</span>
-        <span class="topic"><span class="en">About</span><span>عنّي</span></span>
-      </div>
-
-      <div class="narrow">
-        <div class="medallion medallion--brand">
-          <span class="monogram" aria-hidden="true">N</span>
-          <!-- <img src="nishdan.jpg" alt="نشدان"> -->
+    <!-- القسم الأول: قصتي والفلسفة مع صورة الأعشاب والتفاعلات الحية -->
+    <section class="section-card">
+      <div class="profile-hero">
+        <div class="profile-img-wrap">
+          <img src="../images/logoo.png" alt="نشدان">
         </div>
-
-        <h1 class="title-ar center" id="s1">قصتي وفلسفة الناتوروباثي</h1>
-        <p class="title-en center" lang="en" dir="ltr">My Story &amp; the Philosophy of Naturopathy</p>
-
-        <p class="text-ar">أنا <strong>نشدان</strong>، حاصلة على شهادة في الناتوروباثي وهو علاج شمولي طبيعي. هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من ديننا الحنيف والطب الشمولي بعيدًا عن صخب النصائح المعقدة، لتتعلمي كيف تكوني طبيبة نفسكِ وعائلتكِ بوعي تام وتطبيق يسير يناسب كل الظروف والثقافات.</p>
-        <p class="text-en" lang="en" dir="ltr">I'm <strong>Nishdan</strong>, certified in Naturopathy — a natural, holistic approach to healing. My aim is to place in your hands beneficial knowledge drawn from our faith and from holistic medicine, far from the noise of complicated advice, so you can learn to care for yourself and your family with full awareness and simple practice that suits every circumstance and culture.</p>
-      </div>
-
-      <figure class="quote-box">
-        <blockquote>
-          <p class="ar">الجسدُ بيتُ الروح، والعقلُ دليلُها؛ فإذا تناغمَ الثلاثة عادت الفطرةُ إلى موضعها، وصار الشفاءُ طريقًا يُسلَك، لا معجزةً تُنتظَر.</p>
-          <p class="en" lang="en" dir="ltr">The body is the home of the soul, and the mind its guide; when all three are in harmony, our innate nature returns — and healing becomes a path we walk, not a miracle we wait for.</p>
-        </blockquote>
-        <figcaption>— نشدان · <span class="en">Nishdan</span></figcaption>
-      </figure>
-    </section>
-
-    <!-- ===================== 02 · التعريف ===================== -->
-    <section class="slide def" aria-labelledby="s2">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">02 / 08</span>
-        <span class="topic"><span class="en">Naturopathy</span><span>ناتوروباثي</span></span>
-      </div>
-
-      <svg class="decor decor--leaf1"  viewBox="0 0 100 40"  aria-hidden="true"><use href="#dec-leaf"   width="100" height="40"/></svg>
-      <svg class="decor decor--root"   viewBox="0 0 120 80"  aria-hidden="true"><use href="#dec-root"   width="120" height="80"/></svg>
-      <svg class="decor decor--leaf2"  viewBox="0 0 100 40"  aria-hidden="true"><use href="#dec-leaf"   width="100" height="40"/></svg>
-      <svg class="decor decor--citrus" viewBox="0 0 100 100" aria-hidden="true"><use href="#dec-citrus" width="100" height="100"/></svg>
-      <svg class="decor decor--drop"   viewBox="0 0 60 120"  aria-hidden="true"><use href="#dec-drop"   width="60" height="120"/></svg>
-      <svg class="decor decor--petal"  viewBox="0 0 60 80"   aria-hidden="true"><use href="#dec-petal"  width="60" height="80"/></svg>
-
-      <div class="narrow">
-        <h2 class="title-ar" id="s2">المداواة الطبيعية أو الطب الناتوروباثي</h2>
-        <p class="text-ar">منهج صحي قائم على اعتقاد أن <strong>جسم الإنسان</strong> لديه <strong>القدرة</strong> على التشافي بشكل فطري، وأن العلاج موجود في الطبيعة.</p>
-
-        <p class="title-en" lang="en" dir="ltr">Naturopathy or Naturopathic Medicine</p>
-        <p class="text-en" lang="en" dir="ltr">is a health approach built on the belief that the <strong>human body</strong> has an <strong>inherent ability</strong> to heal itself, and that the remedy is found in nature.</p>
-      </div>
-    </section>
-
-    <!-- ===================== 03 · الجسم يعالج نفسه + اقتباس فوغل ===================== -->
-    <section class="slide" aria-labelledby="s3">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">03 / 08</span>
-        <span class="topic"><span class="en">Naturopathy</span><span>ناتوروباثي</span></span>
-      </div>
-      <h2 class="sr-only" id="s3">قدرة الجسم على التشافي</h2>
-
-      <div class="strip strip--3" aria-hidden="true">
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-sprout" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-sun" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-bottle" width="100" height="100"/></svg></div>
-      </div>
-
-      <div class="narrow">
-        <p class="text-ar" style="margin-top:0">فالجسم يستطيع علاج نفسه عند توفير البيئة المناسبة له للتشافي واستخدام العلاجات الطبيعية المُعينة.</p>
-        <p class="text-en" lang="en" dir="ltr">Given the right environment and the right natural support, the body is able to heal itself.</p>
-      </div>
-
-      <figure class="bubble">
-        <div class="bubble-body">
-          <blockquote>
-            <p class="ar" dir="rtl">أياً يكن المرض الذي صنعه الجسم، يمكن له أن يتخلص منه.</p>
-            <p class="en" lang="en">Whatever illness the body has created, it is also able to undo.</p>
-          </blockquote>
+        <div class="profile-text">
+          <p class="ar">أنا نشدان، حاصلة على شهادة في الناتوروباثي.</p>
+          <p class="en" lang="en">Certified Naturopath &amp; Holistic Guide</p>
         </div>
-        <figcaption class="bubble-author">
-          <span class="medallion">
-            <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-            <!-- <img src="vogel.jpg" alt="د. ألفريد فوغل"> -->
-          </span>
-          <span class="en" lang="en">Dr. A. Vogel</span>
-          <span class="ar" dir="rtl">د. ألفريد فوغل</span>
-        </figcaption>
-      </figure>
-    </section>
-
-    <!-- ===================== 04 · المبادئ ===================== -->
-    <section class="slide" aria-labelledby="s4">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">04 / 08</span>
-        <span class="topic"><span class="en">Naturopathy</span><span>ناتوروباثي</span></span>
       </div>
 
-      <h2 class="title-ar center" id="s4">مبادئ الناتوروباثي</h2>
-      <p class="title-en center" lang="en" dir="ltr">Principles of Naturopathy</p>
+      <!-- صورة طبيعية تعبيرية للأعشاب والطب الطبيعي -->
+      <div class="hero-image-banner">
+        <img src="../images/weight.jpg" alt="الأعشاب والطبيعة">
+      </div>
 
-      <ul class="principles">
-        <li class="principle">
-          <svg class="p-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#p-leaf" width="64" height="64"/></svg>
-          <span class="ar">قوة الطبيعة في العلاج</span>
-          <span class="en" lang="en">Healing Power of Nature</span>
+      <div class="section-title-wrap">
+        <h1 class="section-title">فلسفة المداواة الطبيعية</h1>
+        <p class="section-subtitle" lang="en" dir="ltr">Our Holistic Approach</p>
+      </div>
+      
+      <p class="text-block">
+        هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من ديننا الحنيف والطب الشمولي لتكوني طبيبة نفسكِ وعائلتكِ بوعي تام، بناءً على المنهج الصحي القائم على أن <strong>جسم الإنسان لديه القدرة على التشافي بشكل فطري</strong>، وأن العلاج الحقيقي موجود في الطبيعة.
+      </p>
+
+      <div class="mini-quote">
+        <p class="ar">“أياً يكن المرض الذي صنعه الجسم، يمكن له أن يتخلص منه.”</p>
+        <p class="en" lang="en">Whatever illness the body has created, it is also able to undo.</p>
+        <cite>— Dr. A. Vogel / د. ألفريد فوغل</cite>
+      </div>
+    </section>
+
+
+    <!-- القسم الثاني: المبادئ الستة -->
+    <section class="section-card">
+      <div class="section-title-wrap">
+        <h2 class="section-title">مبادئ الناتوروباثي</h2>
+        <p class="section-subtitle" lang="en" dir="ltr">Principles of Naturopathy</p>
+      </div>
+
+      <ul class="principles-grid">
+        <li class="principle-item">
+          <p class="ar">قوة الطبيعة في العلاج</p>
+          <p class="en" lang="en">Healing Power of Nature</p>
         </li>
-        <li class="principle">
-          <svg class="p-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#p-heart" width="64" height="64"/></svg>
-          <span class="ar">لا تؤذِ المريض</span>
-          <span class="en" lang="en">Do No Harm</span>
+        <li class="principle-item">
+          <p class="ar">لا تؤذِ المريض</p>
+          <p class="en" lang="en">Do No Harm</p>
         </li>
-        <li class="principle">
-          <svg class="p-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#p-person" width="64" height="64"/></svg>
-          <span class="ar">عالج المريض ككل</span>
-          <span class="en" lang="en">Treat the Whole Person</span>
+        <li class="principle-item">
+          <p class="ar">عالج المريض ككل</p>
+          <p class="en" lang="en">Treat the Whole Person</p>
         </li>
-        <li class="principle">
-          <svg class="p-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#p-search" width="64" height="64"/></svg>
-          <span class="ar">ابحث عن السبب وعالجه</span>
-          <span class="en" lang="en">Treat the Cause</span>
+        <li class="principle-item">
+          <p class="ar">ابحث عن السبب وعالجه</p>
+          <p class="en" lang="en">Treat the Cause</p>
         </li>
-        <li class="principle">
-          <svg class="p-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#p-shield" width="64" height="64"/></svg>
-          <span class="ar">الوقاية</span>
-          <span class="en" lang="en">Disease Prevention</span>
+        <li class="principle-item">
+          <p class="ar">الوقاية</p>
+          <p class="en" lang="en">Disease Prevention</p>
         </li>
-        <li class="principle">
-          <svg class="p-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#p-teacher" width="64" height="64"/></svg>
-          <span class="ar">الطبيب مُعلّم</span>
-          <span class="en" lang="en">Doctor as Teacher</span>
+        <li class="principle-item">
+          <p class="ar">الطبيب مُعلّم</p>
+          <p class="en" lang="en">Doctor as Teacher</p>
         </li>
       </ul>
     </section>
 
-    <!-- ===================== 05 · ممارسة متعددة التخصصات ===================== -->
-    <section class="slide slide--bleed" aria-labelledby="s5">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">05 / 08</span>
+
+    <!-- القسم الثالث: التخصصات والعلاجات المتعددة -->
+    <section class="section-card">
+      <div class="section-title-wrap">
+        <h2 class="section-title">التخصصات والعلاجات المتعددة</h2>
+        <p class="section-subtitle" lang="en" dir="ltr">Multidisciplinary Therapies</p>
       </div>
-      <h2 class="sr-only" id="s5">طبيعة العلاجات في الناتوروباثي</h2>
+      
+      <p class="text-block" style="font-size: 1rem; margin-bottom: 16px;">
+        يستخدم معالج الناتوروباثي مجموعة من العلاجات الآمنة والداعمة لآليات التشافي الذاتي في آنٍ واحد:
+      </p>
 
-      <div class="strip" aria-hidden="true">
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-bottle" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-lotus" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-mortar" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-jars" width="100" height="100"/></svg></div>
-      </div>
-
-      <div class="statement">
-        <p class="ar">الناتوروباثي هي <strong>ممارسة متعددة التخصصات</strong>، فيندرج تحتها<br><span class="pill">عدة علاجات مثل:</span></p>
-        <p class="en" lang="en" dir="ltr">Naturopathy is a <strong>multidisciplinary practice</strong> that brings together<br><span class="pill">many therapies, such as:</span></p>
-      </div>
-
-      <ul class="therapy-list">
-        <li><span class="ar">الطب الهندي</span><span class="en" lang="en" dir="ltr">Ayurveda</span></li>
-        <li><span class="ar">التغذية العلاجية</span><span class="en" lang="en" dir="ltr">Nutritional Therapy</span></li>
-        <li><span class="ar">الطب الصيني</span><span class="en" lang="en" dir="ltr">TCM</span></li>
-        <li><span class="ar">الزيوت العطرية</span><span class="en" lang="en" dir="ltr">Aromatherapy</span></li>
-        <li><span class="ar">العلاج بخلاصات الزهور</span><span class="en" lang="en" dir="ltr">Flower Essence Remedy</span></li>
-        <li><span class="ar">هوميوباثي</span><span class="en" lang="en" dir="ltr">Homeopathy</span></li>
-        <li><span class="ar">طب الأعشاب</span><span class="en" lang="en" dir="ltr">Herbal Medicine</span></li>
-        <li><span class="ar">يوغا</span><span class="en" lang="en" dir="ltr">Yoga</span></li>
-        <li><span class="ar">تأمل</span><span class="en" lang="en" dir="ltr">Meditation</span></li>
-        <li><span class="ar">تقويم العمود الفقري</span><span class="en" lang="en" dir="ltr">Chiropractic</span></li>
-        <li><span class="ar">مساج</span><span class="en" lang="en" dir="ltr">Massage</span></li>
-        <li><span class="ar">كايينيسيولوجي</span><span class="en" lang="en" dir="ltr">Kinesiology</span></li>
-      </ul>
-    </section>
-
-    <!-- ===================== 06 · المخطط الشجري ===================== -->
-    <section class="slide slide--bleed" aria-labelledby="s6">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">06 / 08</span>
-      </div>
-      <h2 class="sr-only" id="s6">خصائص العلاجات في الناتوروباثي</h2>
-
-      <div class="strip" aria-hidden="true">
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-bottle" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-lotus" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-mortar" width="100" height="100"/></svg></div>
-        <div class="tile"><svg viewBox="0 0 100 100"><use href="#il-jars" width="100" height="100"/></svg></div>
-      </div>
-
-      <svg class="tree-lines" viewBox="0 0 400 74" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M50 0 200 54M150 0 200 54M250 0 200 54M350 0 200 54M200 54V74"/>
-      </svg>
-
-      <div class="tree-box">
-        <p class="ar">يستخدم معالج الناتوروباثي <u>مجموعة من العلاجات</u> في آنٍ واحد، بما يتناسب مع الشخص وأحواله. وتتميّز هذه العلاجات بكونها:</p>
-        <p class="en" lang="en" dir="ltr">Naturopaths combine <u>several suitable therapies at once</u>, tailored to each person and their circumstances. These therapies are:</p>
-      </div>
-
-      <svg class="tree-split" viewBox="0 0 400 56" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M200 0V28M100 28H300M100 28V56M300 28V56"/>
-      </svg>
-
-      <div class="tree-leaves">
-        <div>
-          <div class="leaf-box">
-            <p class="ar">داعمة لآليات التشافي الذاتي للجسم</p>
-            <p class="en" lang="en" dir="ltr">Supporting the body's own healing mechanisms</p>
-          </div>
-        </div>
-        <div>
-          <div class="leaf-box">
-            <p class="ar">علاجات مريحة وفعّالة وغير عنيفة</p>
-            <p class="en" lang="en" dir="ltr">Gentle, effective &amp; non-invasive</p>
-          </div>
-        </div>
+      <div class="therapy-compact">
+        <div class="therapy-pill"><span>التغذية العلاجية</span> <span class="en">Nutritional Therapy</span></div>
+        <div class="therapy-pill"><span>الزيوت العطرية</span> <span class="en">Aromatherapy</span></div>
+        <div class="therapy-pill"><span>خلاصات الزهور</span> <span class="en">Flower Essence</span></div>
+        <div class="therapy-pill"><span>هوميوباثي</span> <span class="en">Homeopathy</span></div>
+        <div class="therapy-pill"><span>طب الأعشاب</span> <span class="en">Herbal Medicine</span></div>
+        <div class="therapy-pill"><span>يوغا وتأمل</span> <span class="en">Yoga &amp; Meditation</span></div>
+        <div class="therapy-pill"><span>تقويم العمود الفقري</span> <span class="en">Chiropractic</span></div>
+        <div class="therapy-pill"><span>مساج</span> <span class="en">Massage</span></div>
+        <div class="therapy-pill"><span>كايينيسيولوجي</span> <span class="en">Kinesiology</span></div>
       </div>
     </section>
 
-    <!-- ===================== 07 · تاريخ الناتوروباثي ===================== -->
-    <section class="slide" aria-labelledby="s7">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">07 / 08</span>
-        <span class="topic"><span class="en">Naturopathy</span><span>ناتوروباثي</span></span>
-      </div>
 
-      <div class="portraits">
-        <figure class="portrait">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-          <!-- <img src="priessnitz.jpg" alt="فنسنت بريزنتس"> -->
-          <figcaption lang="en">Priessnitz</figcaption>
-        </figure>
-        <figure class="portrait">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-          <!-- <img src="kneipp.jpg" alt="سباستيان كنايب"> -->
-          <figcaption lang="en">Kneipp</figcaption>
-        </figure>
-        <figure class="portrait">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-          <!-- <img src="peczely.jpg" alt="إيجيناز فون بيزلي"> -->
-          <figcaption lang="en">Peczely</figcaption>
-        </figure>
-        <figure class="portrait">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-          <!-- <img src="lust.jpg" alt="بينيديكت لوست"> -->
-          <figcaption lang="en">Lust</figcaption>
-        </figure>
+    <!-- القسم الرابع: تاريخ ورواد الناتوروباثي مع صورهم الحقيقية وتفاعلات الحركة -->
+    <section class="section-card">
+      <div class="section-title-wrap">
+        <h2 class="section-title">تاريخ وروّاد الناتوروباثي</h2>
+        <p class="section-subtitle" lang="en" dir="ltr">History &amp; Pioneers</p>
       </div>
+      
+      <p class="text-block" style="font-size: 1rem; margin-bottom: 16px;">
+        تعتمد الجذور على حركة (Nature Cure) التي نشأت بأوروبا في القرن الـ 19:
+      </p>
 
-      <div class="narrow">
-        <h2 class="title-ar center" id="s7">تاريخ الناتوروباثي</h2>
-        <p class="title-en center" lang="en" dir="ltr">History of Naturopathy</p>
-        <p class="text-ar">تمتد جذور الناتوروباثي إلى الحركة الصحية التي نشأت في أوروبا في القرن التاسع عشر، والمسمّاة <span style="white-space:nowrap">بـ <span lang="en">Nature Cure</span>.</span></p>
-        <p class="text-en" lang="en" dir="ltr">Naturopathy has its roots in the <strong>Nature Cure</strong> health movement that took shape in 19th-century Europe.</p>
-      </div>
-
-      <div class="arrow-banner">
-        <div class="body">
-          <span class="ar">بعض روّاد الناتوروباثي</span>
-          <span class="en" lang="en">Some of Naturopathy's Pioneers</span>
+      <div class="timeline-compact">
+        <div class="timeline-row">
+          <time class="timeline-year">1826</time>
+          <div class="pioneer-avatar">
+            <img src="../images/priessnitz.jpg" alt="د. فنسنت بريزنتس">
+          </div>
+          <div class="timeline-info">
+            <p class="ar">د. فنسنت بريزنتس — أبو العلاج بالماء</p>
+            <p class="en" lang="en">Dr. Vincent Priessnitz (Father of Hydrotherapy)</p>
+          </div>
         </div>
-        <span class="head" aria-hidden="true"></span>
+
+        <div class="timeline-row">
+          <time class="timeline-year">1840</time>
+          <div class="pioneer-avatar">
+            <img src="../images/kneipp.jpg" alt="سباستيان كنايب">
+          </div>
+          <div class="timeline-info">
+            <p class="ar">سباستيان كنايب — تطوير أساليب العلاج المائي</p>
+            <p class="en" lang="en">Sebastian Kneipp (Developed Hydrotherapy)</p>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <time class="timeline-year">1880</time>
+          <div class="pioneer-avatar">
+            <img src="../images/peczely.jpg" alt="د. إيجيناز فون بيزلي">
+          </div>
+          <div class="timeline-info">
+            <p class="ar">د. إيجيناز فون بيزلي — مؤسس علم التشخيص بالقزحية</p>
+            <p class="en" lang="en">Dr. Ignaz Von Peczely (Founder of Iridology)</p>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <time class="timeline-year">1885</time>
+          <div class="pioneer-avatar">
+            <img src="../images/scheel.jpg" alt="د. جون شيل">
+          </div>
+          <div class="timeline-info">
+            <p class="ar">د. جون شيل — صاغ مصطلح «ناتوروباثي»</p>
+            <p class="en" lang="en">Dr. John Scheel (Coined Naturopathy)</p>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <time class="timeline-year">1900</time>
+          <div class="pioneer-avatar">
+            <img src="../images/lust.jpg" alt="د. بينيديكت لوست">
+          </div>
+          <div class="timeline-info">
+            <p class="ar">د. بينيديكت لوست — أبو الناتوروباثي في أمريكا</p>
+            <p class="en" lang="en">Dr. Benedict Lust (Father of American Naturopathy)</p>
+          </div>
+        </div>
       </div>
-    </section>
-
-    <!-- ===================== 08 · الخط الزمني ===================== -->
-    <section class="slide slide--timeline" aria-labelledby="s8">
-      <div class="slide-meta" aria-hidden="true">
-        <span class="counter">08 / 08</span>
-        <span class="topic"><span class="en">Naturopathy</span><span>ناتوروباثي</span></span>
-      </div>
-      <h2 class="sr-only" id="s8">روّاد الناتوروباثي عبر الزمن</h2>
-
-      <ol class="timeline">
-        <li class="t-item">
-          <div class="t-medal">
-            <time class="t-year" datetime="1826">1826</time>
-            <span class="medallion">
-              <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-              <!-- <img src="priessnitz.jpg" alt="فنسنت بريزنتس"> -->
-            </span>
-          </div>
-          <div class="t-body">
-            <p class="en en-name" lang="en">Dr. Vincent Priessnitz</p>
-            <p class="ar-name">د. فنسنت بريزنتس</p>
-            <p class="ar-role">أبو العلاج بالماء</p>
-            <p class="en en-role" lang="en">Father of Hydrotherapy</p>
-          </div>
-        </li>
-
-        <li class="t-item">
-          <div class="t-medal">
-            <time class="t-year" datetime="1840">1840</time>
-            <span class="medallion">
-              <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-              <!-- <img src="kneipp.jpg" alt="سباستيان كنايب"> -->
-            </span>
-          </div>
-          <div class="t-body">
-            <p class="en en-name" lang="en">Sebastian Kneipp</p>
-            <p class="ar-name">سباستيان كنايب</p>
-            <p class="ar-role">طوّر وعزّز أساليب العلاج بالماء</p>
-            <p class="en en-role" lang="en">Further developed Hydrotherapy</p>
-          </div>
-        </li>
-
-        <li class="t-item">
-          <div class="t-medal">
-            <time class="t-year" datetime="1880">1880</time>
-            <span class="medallion">
-              <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-              <!-- <img src="peczely.jpg" alt="إيجيناز فون بيزلي"> -->
-            </span>
-          </div>
-          <div class="t-body">
-            <p class="en en-name" lang="en">Dr. Ignaz Von Peczely</p>
-            <p class="ar-name">د. إيجيناز فون بيزلي</p>
-            <p class="ar-role">مؤسس علم التشخيص بالقزحية</p>
-            <p class="en en-role" lang="en">Founder of Iridology</p>
-          </div>
-        </li>
-
-        <li class="t-item">
-          <div class="t-medal">
-            <time class="t-year" datetime="1885">1885</time>
-            <span class="medallion">
-              <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-            </span>
-          </div>
-          <div class="t-body">
-            <p class="en en-name" lang="en">Dr. John Scheel</p>
-            <p class="ar-name">د. جون شيل</p>
-            <p class="ar-role">صاغ مصطلح «ناتوروباثي»</p>
-            <p class="en en-role" lang="en">Coined the term Naturopathy</p>
-          </div>
-        </li>
-
-        <li class="t-item">
-          <div class="t-medal">
-            <time class="t-year" datetime="1900">1900</time>
-            <span class="medallion">
-              <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#bust" width="100" height="100"/></svg>
-              <!-- <img src="lust.jpg" alt="بينيديكت لوست"> -->
-            </span>
-          </div>
-          <div class="t-body">
-            <p class="en en-name" lang="en">Dr. Benedict Lust</p>
-            <p class="ar-name">د. بينيديكت لوست</p>
-            <p class="ar-role">أبو الناتوروباثي في أمريكا</p>
-            <p class="en en-role" lang="en">Father of American Naturopathy</p>
-          </div>
-        </li>
-      </ol>
     </section>
 
   </main>
 
-  <!-- ===================== التذييل ===================== -->
+  <!-- التذييل -->
   <footer class="site-footer">
-    <svg class="footer-deco" viewBox="0 0 200 260" aria-hidden="true"><use href="#branch" width="200" height="260"/></svg>
-
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="logo logo--light" aria-label="Nishdan — الصفحة الرئيسية">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#leaf-mark" width="24" height="24"/></svg>
-          Nishdan
-        </a>
-        <p>علمٌ نافع، ووعيٌ هادئ، وطريقٌ طبيعي نحو التوازن بين الروح والعقل والجسد.</p>
-      </div>
-
-      <nav aria-label="روابط التذييل">
-        <p class="footer-title">روابط</p>
-        <ul class="footer-links">
-          <li><a href="#">الرئيسية</a></li>
-          <li><a href="#">الدورات</a></li>
-          <li><a href="#">عنّي</a></li>
-          <li><a href="#">تواصل معنا</a></li>
-        </ul>
-      </nav>
-
-      <div class="footer-cta">
-        <p class="footer-title">ابدئي رحلتك</p>
-        <p>تعلّمي كيف تكوني طبيبة نفسكِ وعائلتكِ، بوعيٍ وتطبيقٍ يسير.</p>
-        <a href="#" class="btn btn--gold">استكشفي الدورات <span aria-hidden="true">←</span></a>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
+    <div class="container">
       <p><span dir="ltr">© 2026 Nishdan</span> — جميع الحقوق محفوظة</p>
-      <p class="en caps" lang="en">Natural · Holistic · Mindful</p>
     </div>
   </footer>
 
