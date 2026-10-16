@@ -61,7 +61,7 @@
         padding: 0 32px;
       }
 
-      /* ---------- HEADER (مُطابق للرئيسية تماماً) ---------- */
+      /* ---------- HEADER ---------- */
       .site-header {
         border-bottom: 1px solid var(--line);
         background: var(--cream);
@@ -96,7 +96,7 @@
       }
       .icon-btn svg { width: 19px; height: 19px; }
 
-      /* ---------- CONTENT FLOW (تدفق المحتوى المتقارب والمنسق) ---------- */
+      /* ---------- CONTENT FLOW ---------- */
       .content-flow {
         padding-block: 50px 70px;
         display: grid;
@@ -210,7 +210,7 @@
       .therapy-pill:hover .en { color: var(--gold); }
       .therapy-pill .en { font-size: 0.78rem; color: var(--ink-soft); }
 
-      /* Timeline & Pioneers */
+      /* Timeline & Pioneers (بدون صور) */
       .timeline-compact {
         display: grid;
         gap: 14px;
@@ -218,7 +218,7 @@
       }
       .timeline-row {
         display: grid;
-        grid-template-columns: 70px 55px 1fr;
+        grid-template-columns: 70px 1fr;
         align-items: center;
         gap: 16px;
         background: var(--cream-2);
@@ -235,11 +235,6 @@
         color: var(--green-deep);
         direction: ltr;
       }
-      .pioneer-avatar {
-        width: 48px; height: 48px; border-radius: 50%; overflow: hidden;
-        border: 2px solid var(--gold); background: #fff;
-      }
-      .pioneer-avatar img { width: 100%; height: 100%; }
       .timeline-info .ar { font-weight: 600; color: var(--green-deep); font-size: 1rem; }
       .timeline-info .en { font-size: 0.82rem; color: var(--ink-soft); }
 
@@ -252,11 +247,11 @@
         text-align: center;
         margin-top: 22px;
       }
-      .mini-quote .ar { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; }
+      .mini-quote .ar { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: #ffffff; }
       .mini-quote .en { font-size: 0.88rem; color: var(--gold); margin-top: 6px; font-style: italic; }
       .mini-quote cite { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--gold); font-style: normal; }
 
-      /* ---------- FOOTER (مُطابق للرئيسية تماماً) ---------- */
+      /* ---------- FOOTER ---------- */
       .site-footer { background: var(--green-deep); color: #dfe3da; padding: 64px 0 0; }
       .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding: 0 32px 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
       .footer-brand h3 { color: var(--white); font-size: 1.25rem; line-height: 1.3; margin-bottom: 14px; }
@@ -272,7 +267,7 @@
       }
       @media (max-width: 560px) {
         .section-card { padding: 24px 16px; }
-        .timeline-row { grid-template-columns: 1fr; gap: 6px; text-align: center; justify-items: center; }
+        .timeline-row { grid-template-columns: 1fr; gap: 4px; text-align: center; }
         .timeline-year { direction: rtl; }
         .footer-grid { grid-template-columns: 1fr; }
       }
@@ -316,8 +311,8 @@
             <img src="../images/logoo.png" alt="Nishdan" />
           </div>
           <div class="profile-text ar-text">
-            <p class="ar">أنا نشدان، حاصلة على شهادة في الناتوروباثي.</p>
-            <p class="en" lang="en">Certified Naturopath &amp; Holistic Guide</p>
+            <p class="ar">نشدان استشارية ومدربة صحة حاصلة على شهادة في الناتوروباثي وهو طب شمولي تغذوي وعلاج بالطبيعة.</p>
+            <p class="en" lang="en">Nishdan is a health consultant and coach certified in naturopathy — nutritional holistic medicine and nature cure.</p>
           </div>
         </div>
 
@@ -331,7 +326,7 @@
         </div>
         
         <p class="text-block ar-text">
-          هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من ديننا الحنيف والطب الشمولي لتكوني طبيبة نفسكِ وعائلتكِ بوعي تام، بناءً على المنهج الصحي القائم على أن <strong>جسم الإنسان لديه القدرة على التشافي بشكل فطري</strong>، وأن العلاج الحقيقي موجود في الطبيعة.
+          هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من الطب النبوي والطب الشمولي لتكوني مطببة نفسكِ وعائلتكِ بوعي تام، بناءً على المنهج الصحي القائم على أن <strong>جسم الإنسان لديه القدرة على التشافي بشكل فطري</strong>، وأن العلاج الحقيقي موجود في الطبيعة.
         </p>
 
         <div class="mini-quote ar-text">
@@ -354,7 +349,7 @@
             <p class="en" lang="en">Healing Power of Nature</p>
           </li>
           <li class="principle-item">
-            <p class="ar">لا تؤذِ المريض</p>
+            <p class="ar">الدواء يجب ألا يضر</p>
             <p class="en" lang="en">Do No Harm</p>
           </li>
           <li class="principle-item">
@@ -376,7 +371,61 @@
         </ul>
       </section>
 
-      <!-- القسم الثالث: العلاجات -->
+      <!-- القسم الثالث: التاريخ والرواد (تم نقله ليصبح مباشرة بعد المبادئ) -->
+      <section class="section-card">
+        <div class="section-title-wrap ar-text">
+          <h2 class="section-title">تاريخ وروّاد الناتوروباثي</h2>
+          <span class="section-subtitle" lang="en" dir="ltr">History &amp; Pioneers</span>
+        </div>
+        
+        <p class="text-block ar-text" style="margin-bottom: 16px;">
+          تعتمد الجذور على حركة (Nature Cure) التي نشأت بأوروبا في القرن الـ 19:
+        </p>
+
+        <div class="timeline-compact ar-text">
+          <div class="timeline-row">
+            <time class="timeline-year">1826</time>
+            <div class="timeline-info">
+              <p class="ar">د. فنسنت بريزنتس — أبو العلاج بالماء</p>
+              <p class="en" lang="en">Dr. Vincent Priessnitz (Father of Hydrotherapy)</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <time class="timeline-year">1840</time>
+            <div class="timeline-info">
+              <p class="ar">سباستيان كنايب — تطوير أساليب العلاج المائي</p>
+              <p class="en" lang="en">Sebastian Kneipp (Developed Hydrotherapy)</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <time class="timeline-year">1880</time>
+            <div class="timeline-info">
+              <p class="ar">د. إيجيناز فون بيزلي — مؤسس علم التشخيص بالقزحية</p>
+              <p class="en" lang="en">Dr. Ignaz Von Peczely (Founder of Iridology)</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <time class="timeline-year">1885</time>
+            <div class="timeline-info">
+              <p class="ar">د. جون شيل — صاغ مصطلح «ناتوروباثي»</p>
+              <p class="en" lang="en">Dr. John Scheel (Coined Naturopathy)</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <time class="timeline-year">1900</time>
+            <div class="timeline-info">
+              <p class="ar">د. بينيديكت لوست — أبو الناتوروباثي في أمريكا</p>
+              <p class="en" lang="en">Dr. Benedict Lust (Father of American Naturopathy)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- القسم الرابع: العلاجات -->
       <section class="section-card">
         <div class="section-title-wrap ar-text">
           <h2 class="section-title">التخصصات والعلاجات المتعددة</h2>
@@ -397,75 +446,6 @@
           <div class="therapy-pill"><span>تقويم العمود الفقري</span> <span class="en">Chiropractic</span></div>
           <div class="therapy-pill"><span>مساج</span> <span class="en">Massage</span></div>
           <div class="therapy-pill"><span>كايينيسيولوجي</span> <span class="en">Kinesiology</span></div>
-        </div>
-      </section>
-
-      <!-- القسم الرابع: التاريخ والرواد -->
-      <section class="section-card">
-        <div class="section-title-wrap ar-text">
-          <h2 class="section-title">تاريخ وروّاد الناتوروباثي</h2>
-          <span class="section-subtitle" lang="en" dir="ltr">History &amp; Pioneers</span>
-        </div>
-        
-        <p class="text-block ar-text" style="margin-bottom: 16px;">
-          تعتمد الجذور على حركة (Nature Cure) التي نشأت بأوروبا في القرن الـ 19:
-        </p>
-
-        <div class="timeline-compact ar-text">
-          <div class="timeline-row">
-            <time class="timeline-year">1826</time>
-            <div class="pioneer-avatar">
-              <img src="../images/priessnitz.jpg" alt="Dr. Vincent Priessnitz" />
-            </div>
-            <div class="timeline-info">
-              <p class="ar">د. فنسنت بريزنتس — أبو العلاج بالماء</p>
-              <p class="en" lang="en">Dr. Vincent Priessnitz (Father of Hydrotherapy)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1840</time>
-            <div class="pioneer-avatar">
-              <img src="../images/kneipp.jpg" alt="Sebastian Kneipp" />
-            </div>
-            <div class="timeline-info">
-              <p class="ar">سباستيان كنايب — تطوير أساليب العلاج المائي</p>
-              <p class="en" lang="en">Sebastian Kneipp (Developed Hydrotherapy)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1880</time>
-            <div class="pioneer-avatar">
-              <img src="../images/peczely.jpg" alt="Dr. Ignaz Von Peczely" />
-            </div>
-            <div class="timeline-info">
-              <p class="ar">د. إيجيناز فون بيزلي — مؤسس علم التشخيص بالقزحية</p>
-              <p class="en" lang="en">Dr. Ignaz Von Peczely (Founder of Iridology)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1885</time>
-            <div class="pioneer-avatar">
-              <img src="../images/scheel.jpg" alt="Dr. John Scheel" />
-            </div>
-            <div class="timeline-info">
-              <p class="ar">د. جون شيل — صاغ مصطلح «ناتوروباثي»</p>
-              <p class="en" lang="en">Dr. John Scheel (Coined Naturopathy)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1900</time>
-            <div class="pioneer-avatar">
-              <img src="../images/lust.jpg" alt="Dr. Benedict Lust" />
-            </div>
-            <div class="timeline-info">
-              <p class="ar">د. بينيديكت لوست — أبو الناتوروباثي في أمريكا</p>
-              <p class="en" lang="en">Dr. Benedict Lust (Father of American Naturopathy)</p>
-            </div>
-          </div>
         </div>
       </section>
 
