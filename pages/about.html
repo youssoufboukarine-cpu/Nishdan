@@ -85,7 +85,7 @@
         display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
       }
       
-      /* جعل الشعار الأول في الهيدر مطابقاً للشعار الثاني تماماً (دائرة ذهبية بداخلها اللوغو) */
+      /* الشعار الأول في الهيدر */
       .logo-icon-wrap {
         width: 48px;
         height: 48px;
@@ -164,7 +164,7 @@
       }
       .text-block + .text-block { margin-top: 14px; }
 
-      /* Profile Hero */
+      /* Profile Hero (الشعار الثاني) */
       .profile-hero {
         display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
         margin-bottom: 22px;
@@ -175,6 +175,8 @@
         box-shadow: 0 6px 16px rgba(184, 160, 106, 0.25);
       }
       .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+      .profile-text .ar { font-weight: 600; color: var(--green-deep); font-size: 1.15rem; }
+      .profile-text .en { font-size: 0.85rem; color: var(--ink-soft); }
 
       /* تنسيق بانر صورة الترويسة */
       .hero-image-banner {
@@ -291,6 +293,7 @@
         .footer-grid { grid-template-columns: repeat(2, 1fr); }
       }
 
+      /* تنسيقات تصغير الخطوط في الجوال لراحة العين */
       @media (max-width: 560px) {
         .container { padding: 0 16px; }
         .section-card { padding: 22px 14px; }
@@ -311,7 +314,7 @@
   </head>
   <body>
 
-    <!-- HEADER -->
+    <!-- HEADER (الشعار الأول) -->
     <header class="site-header">
       <div class="header-inner">
         <a href="../index.html" class="logo-link">
@@ -342,7 +345,7 @@
     <!-- CONTENT FLOW -->
     <main class="container content-flow">
 
-      <!-- القسم الأول: قصتي والفلسفة -->
+      <!-- القسم الأول: قصتي والفلسفة (الشعار الثاني) -->
       <section class="section-card">
         <div class="profile-hero">
           <div class="profile-img-wrap">
