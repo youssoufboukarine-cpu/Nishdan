@@ -61,7 +61,7 @@
         padding: 0 32px;
       }
 
-      /* ---------- HEADER ---------- */
+      /* ---------- HEADER & LOGO CIRCLE ---------- */
       .site-header {
         border-bottom: 1px solid var(--line);
         background: var(--cream);
@@ -75,16 +75,32 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 18px;
-        padding-bottom: 18px;
+        padding-top: 14px;
+        padding-bottom: 14px;
         padding-left: 32px;
         padding-right: 32px;
       }
       .logo-link { text-decoration: none; color: inherit; display: inline-block; }
       .logo {
-        display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+        display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
       }
-      .logo-icon { width: 80px; height: 65px; color: var(--green-deep); }
+      /* إطار دائري متناسق وفخم للشعار العلوي */
+      .logo-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2px solid var(--gold);
+        background: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(184, 160, 106, 0.2);
+        transition: transform .3s var(--ease);
+      }
+      .logo-link:hover .logo-icon-wrap { transform: scale(1.05); }
+      .logo-icon { width: 34px; height: 34px; object-fit: contain; }
+
       .main-nav { display: flex; gap: 34px; }
       .main-nav a {
         font-size: 0.85rem; letter-spacing: 0.4px; color: var(--ink); transition: color 0.2s; text-transform: uppercase; font-weight: 500;
@@ -161,7 +177,7 @@
       .profile-text .ar { font-weight: 600; color: var(--green-deep); font-size: 1.15rem; }
       .profile-text .en { font-size: 0.85rem; color: var(--ink-soft); }
 
-      /* تنسيق بانر صورة الترويسة لضمان عرضها بوضوح */
+      /* تنسيق بانر صورة الترويسة */
       .hero-image-banner {
         width: 100%; 
         height: 220px; 
@@ -302,8 +318,10 @@
       <div class="header-inner">
         <a href="../index.html" class="logo-link">
           <span class="logo">
-            <img src="../images/logoo.png" alt="Nishdan Logo" class="logo-icon" />
-            NISHDAN
+            <span class="logo-icon-wrap">
+              <img src="../images/logoo.png" alt="Nishdan Logo" class="logo-icon" />
+            </span>
+            Nishdan
           </span>
         </a>
         <nav class="main-nav">
@@ -338,7 +356,7 @@
           </div>
         </div>
 
-        <!-- صورة الترويسة (تأكدي من توفر ملف باسم herbs.jpg أو استبداله باسم الصورة الفعلية لديك في مجلد images) -->
+        <!-- صورة الترويسة -->
         <div class="hero-image-banner">
           <img src="../images/herbs.jpg" alt="Natural Herbs & Plants" onerror="this.src='../images/weight.jpg';" />
         </div>
@@ -488,7 +506,6 @@
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </div>
-        .visuals
         <div class="footer-col">
           <h4>Resources</h4>
           <a href="#">Blog</a>
