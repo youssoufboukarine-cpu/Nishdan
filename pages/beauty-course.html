@@ -50,7 +50,7 @@
         padding: 0 20px;
       }
 
-      /* ---------- HEADER & LOGO FIX ---------- */
+      /* ---------- HEADER ---------- */
       .site-header {
         background: var(--white);
         border-bottom: 1px solid var(--line);
@@ -151,6 +151,11 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         position: sticky;
         top: 75px;
+      }
+
+      /* عنصر الصورة المستقل (يظهر أولاً على الموبايل فوق كل شيء) */
+      .mobile-img-wrapper {
+        display: none; /* مخفي على الديسكتوب، يظهر حصراً على الموبايل */
       }
 
       .checkout-img-wrap {
@@ -262,15 +267,36 @@
       /* ---------- RESPONSIVE MOBILE ---------- */
       @media (max-width: 850px) {
         .sales-grid {
-          grid-template-columns: 1fr;
+          display: flex;
+          flex-direction: column;
           gap: 20px;
+        }
+        /* إظهار الصورة المنفصلة في أعلى الصفحة على الموبايل بحجم صغير ومرتب */
+        .mobile-img-wrapper {
+          display: block;
+          width: 100%;
+          height: 170px;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid var(--line);
+          order: -2; /* تجعلها في قمة الصفحة تماماً */
+          margin-bottom: -5px;
+        }
+        .mobile-img-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        /* إخفاء الصورة الموجودة داخل بطاقة الشعار بالأسفل على الموبايل لتجنب التكرار */
+        .desktop-checkout-img {
+          display: none;
         }
         .checkout-card {
           position: static;
-          order: -1;
+          order: 2; /* تجعل بطاقة الشراء تحت المحتوى أو حسب الرغبة */
         }
-        .checkout-img-wrap {
-          height: 150px;
+        .course-main-info {
+          order: 1; /* المحتوى يأتي بعد الصورة مباشرة */
         }
         .course-title {
           font-size: 1.4rem;
@@ -301,6 +327,12 @@
 
     <!-- MAIN SALES CONTAINER -->
     <main class="container sales-container">
+      
+      <!-- صورة تظهر حصراً في قمة الصفحة على الموبايل -->
+      <div class="mobile-img-wrapper">
+        <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
+      </div>
+
       <div class="sales-grid">
         
         <!-- LEFT COLUMN: Content & Details -->
@@ -317,7 +349,7 @@
               وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل، حيث تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم.
             </p>
             <p class="text-p">
-              ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف في الاعتدال؛ (فكلي واشربي وقري عيناً)، فإن استقرار وطمأنينة النفس ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
+              ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف في الاعتدال؛ فكما جاء في قوله تعالى: (فكلي واشربي وقري عيناً)، فإن استقرار وملامح وطمأنينة العين ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
             </p>
           </div>
 
@@ -343,7 +375,8 @@
         <!-- RIGHT COLUMN: Checkout Card -->
         <div>
           <div class="checkout-card">
-            <div class="checkout-img-wrap">
+            <!-- هذه الصورة تظهر على الديسكتوب فقط داخل بطاقة الشراء -->
+            <div class="checkout-img-wrap desktop-checkout-img">
               <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
             </div>
             <div class="checkout-body ar">
