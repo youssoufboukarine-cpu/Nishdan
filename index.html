@@ -1,387 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nishdan — Integrative Health & Naturopathy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دورات الصحة والعافية</title>
     <style>
-      :root {
-        --cream: #faf8f3;
-        --cream-2: #f3efe7;
-        --ink: #2b2a26;
-        --ink-soft: #5a5850;
-        --green-deep: #3c4a34;
-        --green-mid: #7c8f6e;
-        --green-sage: #a9b99a;
-        --gold: #b8a06a;
-        --line: #dcd6c8;
-        --white: #ffffff;
-        --font-display: "Playfair Display", Georgia, serif;
-        --font-body: "Jost", "Segoe UI", sans-serif;
-        --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
-        --ease: cubic-bezier(.22, .61, .36, 1);
-      }
-
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        font-family: var(--font-body);
-        color: var(--ink);
-        background: var(--cream);
-        line-height: 1.6;
-        direction: ltr;
-      }
-      .ar-text {
-        direction: rtl;
-        font-family: var(--font-arabic);
-      }
-      h1, h2, h3 {
-        font-family: var(--font-display);
-        color: var(--ink);
-        margin: 0;
-        font-weight: 600;
-      }
-      p {
-        margin: 0 0 1em 0;
-        color: var(--ink-soft);
-        font-size: 0.98rem;
-      }
-      a { color: inherit; text-decoration: none; }
-      .container {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
-
-      /* ---------- HEADER ---------- */
-      .site-header {
-        border-bottom: 1px solid var(--line);
-        background: var(--cream);
-        position: sticky;
-        top: 0;
-        z-index: 50;
-      }
-      .header-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 14px;
-        padding-bottom: 14px;
-      }
-      .logo-link { text-decoration: none; color: inherit; display: inline-block; }
-      .logo {
-        display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
-      }
-      
-      .logo-icon-wrap {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 2.5px solid var(--gold);
-        background: var(--white);
-        box-shadow: 0 4px 12px rgba(184, 160, 106, 0.25);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform .3s var(--ease);
-      }
-      .logo-link:hover .logo-icon-wrap { transform: scale(1.05); }
-      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
-
-      .main-nav { display: flex; gap: 34px; }
-      .main-nav a {
-        font-size: 0.85rem; letter-spacing: 0.4px; color: var(--ink); transition: color 0.2s; text-transform: uppercase; font-weight: 500;
-      }
-      .main-nav a:hover { color: var(--green-deep); }
-      
-      .header-actions { display: flex; align-items: center; gap: 16px; }
-      .header-icons { display: flex; gap: 16px; }
-      .icon-btn {
-        background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center; transition: color 0.2s;
-      }
-      .icon-btn svg { width: 19px; height: 19px; }
-
-      /* زر الخطوط الثلاثة للموبايل (Hamburger Menu) */
-      .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--ink);
-        padding: 4px;
-      }
-      .menu-toggle svg { width: 24px; height: 24px; }
-
-      /* ---------- HERO ---------- */
-      .divider { display: inline-block; width: 56px; height: 2px; background: var(--green-mid); }
-      .divider.small { width: 42px; margin: 14px 0; }
-      .divider.center { margin-left: auto; margin-right: auto; display: block; }
-
-      .btn {
-        display: inline-flex; align-items: center; width: fit-content; padding: 10px 18px; border-radius: 4px; font-size: 0.82rem; letter-spacing: 0.3px; transition: transform 0.15s, background 0.2s; border: none; cursor: pointer;
-      }
-      .btn-dark { background: var(--green-deep); color: var(--white); }
-      .btn-dark:hover { background: #2d3728; }
-      .btn-dark.small { padding: 9px 22px; font-size: 0.8rem; margin: 0 auto; }
-      .btn-outline { background: transparent; border: 1px solid var(--ink); color: var(--ink); }
-
-      /* ---------- ABOUT ---------- */
-      .about { background: var(--cream-2); padding: 80px 0; }
-      .eyebrow { display: block; font-size: 0.78rem; letter-spacing: 2px; color: var(--green-mid); font-weight: 600; margin-bottom: 10px; }
-      .about-text h2 { font-size: 2.1rem; margin-bottom: 2px; }
-      .about-text p { margin-top: 18px; }
-
-      /* ---------- COURSES ---------- */
-      .protocols { padding: 40px 0; }
-      .section-heading { text-align: center; max-width: 650px; margin: 0 auto 50px; }
-      .section-heading h2 { font-size: 2.1rem; }
-      .section-sub { margin-top: 18px; line-height: 1.7; }
-      .protocol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
-      .protocol-card {
-        background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; padding-bottom: 24px; text-align: center; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;
-      }
-      .protocol-card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -18px rgba(0, 0, 0, 0.2); }
-      .protocol-photo { height: 190px; position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0; }
-      .protocol-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-      .protocol-icon {
-        width: 52px; height: 52px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-deep); transform: translateY(50%); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); position: relative; z-index: 2;
-      }
-      .protocol-icon svg { width: 24px; height: 24px; }
-      .protocol-card h3 { font-size: 1.1rem; margin: 38px 16px 12px; line-height: 1.4; font-weight: 600; }
-      .protocol-card p { font-size: 0.88rem; margin: 0 20px 20px; flex-grow: 1; }
-      .see-all { text-align: center; margin-top: 44px; }
-
-      .protocol-img-link {
-        position: absolute;
-        inset: 0;
-        z-index: 3;
-      }
-
-      /* ---------- FOOTER ---------- */
-      .site-footer { background: var(--green-deep); color: #dfe3da; padding: 64px 0 0; }
-      .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
-      .footer-brand h3 { color: var(--white); font-size: 1.25rem; line-height: 1.3; margin-bottom: 14px; }
-      .footer-brand p { color: #c3c9bc; font-size: 0.88rem; }
-      .footer-col h4 { color: var(--white); font-family: var(--font-body); font-size: 0.9rem; letter-spacing: 0.4px; margin-bottom: 16px; font-weight: 600; }
-      .footer-col a { display: block; font-size: 0.87rem; color: #c3c9bc; margin-bottom: 10px; transition: color 0.2s; }
-      .footer-col a:hover { color: var(--white); }
-      .newsletter p { color: #c3c9bc; font-size: 0.85rem; }
-      .newsletter-form { display: flex; margin: 14px 0 18px; border-radius: 4px; overflow: hidden; }
-      .newsletter-form input { flex: 1; padding: 10px 12px; border: none; font-family: var(--font-body); font-size: 0.85rem; }
-      .newsletter-form button { background: var(--gold); border: none; color: var(--white); padding: 0 16px; cursor: pointer; }
-      .social-icons { display: flex; gap: 12px; }
-      .social-icons a { width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-      .social-icons svg { width: 15px; height: 15px; color: var(--white); }
-      .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: 22px 0; }
-
-      .banner { width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
-      .banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-      /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
-      @media (max-width: 960px) {
-        .main-nav {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: var(--white);
-          flex-direction: column;
-          align-items: center;
-          padding: 20px 0;
-          border-bottom: 1px solid var(--line);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-          gap: 16px;
+        :root {
+            --primary-color: #2c5e4a;
+            --secondary-color: #e8f5e9;
+            --accent-color: #d4a373;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
         }
-        .main-nav.active {
-          display: flex;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
-        .menu-toggle {
-          display: inline-flex;
-          align-items: center;
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #1b3b2e);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
         }
-        .protocol-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-      @media (max-width: 560px) {
-        .protocol-grid, .footer-grid { grid-template-columns: 1fr; }
-      }
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            position: relative;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .btn-buy {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            text-align: center;
+        }
+        .btn-buy:hover {
+            background-color: #1b3b2e;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
     </style>
-  </head>
-  <body>
-    
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html" class="logo-link">
-          <span class="logo">
-            <span class="logo-icon-wrap">
-              <img src="images/logoo.png" alt="Nishdan Logo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%233c4a34\'><circle cx=\'12\' cy=\'12\' r=\'10\' fill=\'%23faf8f3\' stroke=\'%23b8a06a\' stroke-width=\'2\'/><text x=\'12\' y=\'16\' font-family=\'serif\' font-size=\'12\' font-weight=\'bold\' text-anchor=\'middle\' fill=\'%233c4a34\'>N</text></svg>';" />
-            </span>
-            Nishdan
-          </span>
-        </a>
-        
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html">Home</a>
-          <a href="pages/courses.html">Courses</a>
-          <a href="pages/about.html">About</a>
-          <a href="pages/contact.html">Contact</a>
-        </nav>
+</head>
+<body>
 
-        <div class="header-actions">
-          <div class="header-icons">
-            <button aria-label="Search" class="icon-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-            </button>
-            <a href="pages/account.html" aria-label="Account" class="icon-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-            </a>
-          </div>
-          <!-- زر الخطوط الثلاثة للموبايل -->
-          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-          </button>
-        </div>
-      </div>
+    <header>
+        <h1>دورات الصحة والعافية</h1>
+        <p>استثمري في صحتك وعافية عائلتك بطرق علمية وعضوية موثوقة</p>
     </header>
 
-    <section class="banner">
-      <img src="images/barre.jpeg" alt="Banner" />
-    </section>
-
-    <!-- COURSES (ARABIC CONTENT) -->
-    <section class="protocols">
-      <div class="container">
-        <div class="section-heading ar-text">
-          <h2> منصة دورات توعوية بالصحة </h2>
-          <span class="divider small center"></span>
-          <p class="section-sub">
-            برامج تمنحك خبرة وفهمًا أعمق ومعارف جديدة، لبناء عادات مستدامة وحياة صحية
-          </p>
-        </div>
-
-        <div class="protocol-grid">
-          <!-- COURSE 1: Weight Control -->
-          <div class="protocol-card">
-            <div class="protocol-photo">
-              <a href="pages/weight-course.html" class="protocol-img-link"></a>
-              <img src="images/weight.jpg" alt="Weight Control Setup" class="protocol-img" />
-              <span class="protocol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" /></svg></span>
+    <div class="container">
+        <!-- الدورة الأولى: التحكم بالوزن -->
+        <div class="card">
+            <div class="card-content">
+                <h3>كيف أتحكم في وزني</h3>
+                <p>افهمي جسدك وقيّمي وزنكِ بوعي بعيداً عن الحميات الضارة.</p>
+                <div class="card-footer">
+                    <span class="price">$45 USD</span>
+                    <a href="https://jannat180.gumroad.com/l/xlqtre" target="_blank" class="btn-buy">اشتري الآن</a>
+                </div>
             </div>
-            <h3 class="ar-text"><a href="pages/weight-course.html">كيف أتحكم بوزني</a></h3>
-            <p class="ar-text">افهمي جسمك وقيّمي وزنك بوعي أكبر.</p>
-            <a href="pages/weight-course.html" class="btn btn-dark small">Discover</a>
-          </div>
+        </div>
 
-          <!-- COURSE 2: Beauty & Health -->
-          <div class="protocol-card">
-            <div class="protocol-photo">
-              <a href="pages/beauty-course.html" class="protocol-img-link"></a>
-              <img src="images/beauty.jpg" alt="Beauty and Health" class="protocol-img" />
-              <span class="protocol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" /></svg></span>
+        <!-- الدورة الثانية: الجمال والصحة -->
+        <div class="card">
+            <div class="card-content">
+                <h3>الجمال والصحة</h3>
+                <p>العلاقة بين المكونات العضوية والوظائف الفسيولوجية وتأثيرها على مظهرك.</p>
+                <div class="card-footer">
+                    <span class="price">$45 USD</span>
+                    <a href="https://jannat180.gumroad.com/l/qqlkuy" target="_blank" class="btn-buy">اشتري الآن</a>
+                </div>
             </div>
-            <h3 class="ar-text"><a href="pages/beauty-course.html">الجمال الحقيقي</a></h3>
-            <p class="ar-text">أظهري جمالك العميق واكتشفي ملامحك الصحية وكوني على أفضل نسخة منك.</p>
-            <a href="pages/beauty-course.html" class="btn btn-dark small">Discover</a>
-          </div>
+        </div>
 
-          <!-- COURSE 3: Child Care, Nutrition & Brain Development -->
-          <div class="protocol-card">
-            <div class="protocol-photo">
-              <a href="pages/child-care-course.html" class="protocol-img-link"></a>
-              <img src="images/kids.jpg" alt="Child care and brain development" class="protocol-img" />
-              <span class="protocol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z" /><path d="M12 6v6l4 2" /></svg></span>
+        <!-- الدورة الثالثة: صحة الطفل -->
+        <div class="card">
+            <div class="card-content">
+                <h3>صحة طفلك العقلية والعصبية</h3>
+                <p>دليل الأم الواعية لاكتشاف الرابط الخفي بين الغذاء السليم والتربية ونمو الدماغ.</p>
+                <div class="card-footer">
+                    <span class="price">$40 USD</span>
+                    <a href="https://jannat180.gumroad.com/l/zwzvau" target="_blank" class="btn-buy">اشتري الآن</a>
+                </div>
             </div>
-            <h3 class="ar-text"><a href="pages/child-care-course.html">صحة طفلك النفسية والعصبية تبدأ من غذاءه وتربيته</a></h3>
-            <p class="ar-text">دليل الأم الواعية لاكتشاف العلاقة الخفية بين الغذاء السليم، أساليب التربية، وتطور دماغ طفلك العصبي.</p>
-            <a href="pages/child-care-course.html" class="btn btn-dark small">Discover</a>
-          </div>
+        </div>
 
-          <!-- COURSE 4: Healthy Cooking -->
-          <div class="protocol-card">
-            <div class="protocol-photo">
-              <a href="pages/cooking-workshop.html" class="protocol-img-link"></a>
-              <img src="images/cooking.jpg" alt="Healthy cooking workshop" class="protocol-img" />
-              <span class="protocol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c2 0 3 1.5 3 3s-1 2-1 3 1 1.5 1 3-1.5 3-3 3-2-1-3-1-2.5 1-4 1-3-1.5-3-3 1-2 1-3-1-2-1-3 1.5-3 3-3 2 1 3 1 2-1 4-1z" /></svg></span>
+        <!-- الدورة الرابعة: ورشة الطبخ -->
+        <div class="card">
+            <div class="card-content">
+                <h3>ورشة عمل الطبخ الصحي</h3>
+                <p>تعلمي فن إعداد وجبات لذيذة ومغذية تدعم صحتك دون التضحية بالمذاق.</p>
+                <div class="card-footer">
+                    <span class="price">$40 USD</span>
+                    <a href="https://jannat180.gumroad.com/l/xsdmoz" target="_blank" class="btn-buy">اشتري الآن</a>
+                </div>
             </div>
-            <h3 class="ar-text"><a href="pages/cooking-workshop.html">ورشة الطبخ الصحي</a></h3>
-            <p class="ar-text">تعلمي فنون تحضير وجبات لذيذة ومغذية تدعم صحتك دون التضحية بالمذاق الرائع.</p>
-            <a href="pages/cooking-workshop.html" class="btn btn-dark small">Discover</a>
-          </div>
         </div>
+    </div>
 
-        <div class="see-all">
-          <a href="pages/courses.html" class="btn btn-outline">View all courses &nbsp;→</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT ME (ARABIC) -->
-    <section class="about">
-      <div class="container" style="max-width: 800px; text-align: center;">
-        <div class="about-text ar-text">
-          <span class="eyebrow" style="direction: ltr;">عنّي</span>
-          <h2>أنا نشدان</h2>
-          <span class="divider small center"></span>
-          <p style="font-size: 1.05rem; margin-top: 20px;"> استشارية ومدربة صحة حاصلة على شهادة في الناتوروباثي وهو طب شمولي تغذوي وعلاج بالطبيعة. هدفي أن أضع بين يديك علمًا نافعًا مستنبط من الطب النبوي والطب الشمولي بعيدًا عن صخب النصائح المعقدة، لتتعلمي كيف تكوني مطببة نفسكِ وعائلتك بوعي تام وتطبيق يسير يتناسب مع كل الظروف والثقافات.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-brand">
-          <h3>Nishdan<br />Integrative Health</h3>
-          <p>Evidence-based naturopathy serving your lifelong health.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <a href="index.html">Home</a>
-          <a href="pages/articles.html">Articles</a>
-          <a href="pages/courses.html">Courses</a>
-          <a href="pages/about.html">About</a>
-          <a href="pages/contact.html">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <a href="#">Blog</a>
-          <a href="#">FAQ</a>
-          <a href="#">Legal Notice</a>
-          <a href="#">Privacy Policy</a>
-        </div>
-        <div class="footer-col newsletter">
-          <h4>Stay Connected</h4>
-          <p>Receive exclusive tips and content every week.</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Your email address" required />
-            <button type="submit" aria-label="Subscribe">➤</button>
-          </form>
-          <div class="social-icons">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" /></svg></a>
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 9h3V6h-3a3 3 0 00-3 3v2H9v3h2v7h3v-7h3l1-3h-4v-2a1 1 0 011-1z" /></svg></a>
-            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="5" width="20" height="14" rx="3" /><path d="M10 9l5 3-5 3z" /></svg></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">© 2026 Nishdan Integrative Health — All rights reserved.</div>
+    <footer>
+        <p>&copy; 2026 جميع الحقوق محفوظة</p>
     </footer>
 
-    <!-- سكريبت لتشغيل قائمة الموبايل -->
-    <script>
-      const menuToggle = document.getElementById('menuToggle');
-      const mainNav = document.getElementById('mainNav');
-
-      menuToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-      });
-    </script>
-  </body>
+</body>
 </html>
