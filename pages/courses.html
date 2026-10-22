@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دوراتنا التوعوية — Nishdan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #faf8f3;
+        --cream-2: #f3efe7;
+        --ink: #2b2a26;
+        --ink-soft: #5a5850;
+        --green-deep: #3c4a34;
+        --green-mid: #7c8f6e;
+        --gold: #b8a06a;
+        --line: #dcd6c8;
+        --white: #ffffff;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "Jost", "Segoe UI", sans-serif;
+        --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.6;
+        direction: ltr;
+        font-size: 0.96rem;
+      }
+      .ar {
+        direction: rtl;
+        font-family: var(--font-arabic);
+        text-align: right;
+      }
+      h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
+      a { text-decoration: none; color: inherit; }
+      img { display: block; width: 100%; object-fit: cover; }
+      
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* ---------- HEADER ---------- */
+      .site-header {
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px;
+        position: relative;
+      }
+      .logo {
+        display: flex; align-items: center; gap: 10px;
+        font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+      }
+      .logo-icon-wrap {
+        width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+        border: 2px solid var(--gold); background: var(--white);
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      }
+      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+      .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
+      .nav-links a:hover, .nav-links a.active { color: var(--green-deep); }
+
+      /* زر الخطوط الثلاثة في زاوية اليمين تماماً على الموبايل */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink);
+        padding: 4px;
+      }
+      .menu-toggle svg { width: 24px; height: 24px; }
+
+      /* ---------- PAGE TITLE / HERO ---------- */
+      .page-hero {
+        padding: 50px 0 30px;
+        text-align: center;
+      }
+      .page-hero h1 {
+        font-size: 2.2rem;
+        color: var(--green-deep);
+        margin-bottom: 10px;
+      }
+      .page-hero p {
+        font-size: 1rem;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- COURSES GRID ---------- */
+      .courses-section {
+        padding: 20px 0 60px;
+      }
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .course-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        transition: transform .2s, box-shadow .2s;
+        display: flex;
+        flex-direction: column;
+      }
+      .course-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      }
+
+      .course-img-link {
+        display: block;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+      }
+      .course-img-link img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .3s;
+      }
+      .course-card:hover .course-img-link img {
+        transform: scale(1.03);
+      }
+
+      .course-body {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-between;
+      }
+
+      .course-title-link {
+        font-size: 1.25rem;
+        color: var(--green-deep);
+        margin-bottom: 10px;
+        font-weight: 600;
+        transition: color .2s;
+      }
+      .course-title-link:hover {
+        color: var(--gold);
+      }
+
+      .course-desc {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .course-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .course-price {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--green-deep);
+      }
+
+      .btn-details {
+        background: var(--green-deep);
+        color: var(--white);
+        padding: 9px 18px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: background .2s;
+      }
+      .btn-details:hover {
+        background: var(--green-mid);
+      }
+
+      /* ---------- FOOTER ---------- */
+      .site-footer {
+        background: var(--green-deep);
+        color: #dfe3da;
+        padding: 40px 0;
+        text-align: center;
+        font-size: 0.82rem;
+      }
+
+      /* ---------- RESPONSIVE MOBILE ---------- */
+      @media (max-width: 850px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 1px solid var(--line);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+          gap: 16px;
+          z-index: 200;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+        }
+        .courses-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .page-hero h1 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-wrap">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon-wrap">
+            <img src="../images/logoo.png" alt="Logo" />
+          </div>
+          Nishdan
+        </a>
+
+        <nav class="nav-links" id="mainNav">
+          <a href="../index.html">Home</a>
+          <a href="courses.html" class="active">Courses</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <!-- زر الخطوط الثلاثة للموبايل -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero ar">
+      <div class="container">
+        <h1>دوراتنا التوعوية والصحية</h1>
+        <p>برامج متخصصة تمنحك فهماً عميقاً وعادات مستدامة لحياة صحية ومتوازنة.</p>
+      </div>
+    </section>
+
+    <!-- COURSES GRID SECTION -->
+    <main class="container courses-section">
+      <div class="courses-grid">
+        
+        <!-- COURSE 1: Weight Control -->
+        <div class="course-card">
+          <a href="weight-course.html" class="course-img-link">
+            <img src="../images/weight.jpg" alt="كيف أتحكم بوزني" />
+          </a>
+          <div class="course-body ar">
+            <div>
+              <a href="weight-course.html" class="course-title-link">كيف أتحكم بوزني</a>
+              <p class="course-desc">افهمي جسمك وقيّمي وزنك بوعي أكبر بعيداً عن الحميات المؤذية والتجويع العشوائي.</p>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$45 USD</span>
+              <a href="weight-course.html" class="btn-details">التفاصيل والشراء</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COURSE 2: Beauty & Health -->
+        <div class="course-card">
+          <a href="beauty-course.html" class="course-img-link">
+            <img src="../images/beauty.jpg" alt="الجمال والصحة" />
+          </a>
+          <div class="course-body ar">
+            <div>
+              <a href="beauty-course.html" class="course-title-link">الجمال والصحة: الارتباط العضوي والفيزيولوجي</a>
+              <p class="course-desc">فهم كيف تؤثر عمليات الجسم الداخلية على مظهركِ الخارجي وملامحكِ بطريقة علمية واضحة.</p>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$45 USD</span>
+              <a href="beauty-course.html" class="btn-details">التفاصيل والشراء</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COURSE 3: Child Care -->
+        <div class="course-card">
+          <a href="child-care-course.html" class="course-img-link">
+            <img src="../images/kids.jpg" alt="صحة طفلك" />
+          </a>
+          <div class="course-body ar">
+            <div>
+              <a href="child-care-course.html" class="course-title-link">صحة طفلك النفسية والعصبية تبدأ من غذائه وتربيته</a>
+              <p class="course-desc">دليل الأم الواعية لاكتشاف العلاقة الخفية بين الغذاء السليم وأساليب التربية وتطور الدماغ.</p>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$40 USD</span>
+              <a href="child-care-course.html" class="btn-details">التفاصيل والشراء</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COURSE 4: Healthy Cooking -->
+        <div class="course-card">
+          <a href="courses.html" class="course-img-link" style="pointer-events: none;"> <!-- سيتم توجيهها لورشة الطبخ -->
+            <a href="cooking-workshop.html" class="course-img-link">
+              <img src="../images/cooking.jpg" alt="ورشة الطبخ الصحي" />
+            </a>
+          </a>
+          <div class="course-body ar">
+            <div>
+              <a href="cooking-workshop.html" class="course-title-link">ورشة الطبخ الصحي</a>
+              <p class="course-desc">تعلمي فنون تحضير وجبات لذيذة ومغذية تدعم صحتك دون التضحية بالمذاق الرائع.</p>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$40 USD</span>
+              <a href="cooking-workshop.html" class="btn-details">التفاصيل والشراء</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Nishdan Integrative Health. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- سكريبت تشغيل القائمة للموبايل -->
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+      });
+    </script>
+  </body>
+</html>
