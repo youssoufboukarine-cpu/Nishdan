@@ -65,6 +65,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 12px 20px;
+        position: relative;
       }
       .logo {
         display: flex; align-items: center; gap: 10px;
@@ -86,6 +87,17 @@
 
       .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
       .nav-links a:hover { color: var(--green-deep); }
+
+      /* زر الخطوط الثلاثة (مخفي على الديسكتوب، يظهر على الموبايل في يمين الشاشة) */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink);
+        padding: 4px;
+      }
+      .menu-toggle svg { width: 24px; height: 24px; }
 
       /* ---------- SALES PAGE LAYOUT ---------- */
       .sales-container {
@@ -142,7 +154,7 @@
       }
       .text-p:last-child { margin-bottom: 0; }
 
-      /* Right Side: Checkout Card */
+      /* Right Side: Checkout Card (Centered Price & Content) */
       .checkout-card {
         background: var(--white);
         border: 1px solid var(--line);
@@ -165,23 +177,25 @@
       .checkout-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
       .checkout-body {
-        padding: 18px;
+        padding: 20px 18px;
+        text-align: center; /* توسيط كامل لمحتويات بطاقة الشراء */
       }
 
       .price-row {
         display: flex;
         align-items: baseline;
+        justify-content: center; /* توسيط السعر تماماً في المنتصف */
         gap: 8px;
         margin-bottom: 14px;
       }
       .price-val {
         font-family: var(--font-display);
-        font-size: 1.7rem;
+        font-size: 1.9rem;
         font-weight: 700;
         color: var(--green-deep);
       }
       .price-curr {
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         color: var(--ink-soft);
       }
 
@@ -191,7 +205,7 @@
         background: var(--green-deep);
         color: var(--white);
         text-align: center;
-        padding: 12px;
+        padding: 13px;
         border-radius: 8px;
         font-weight: 600;
         font-size: 0.95rem;
@@ -199,7 +213,7 @@
         cursor: pointer;
         transition: background .2s;
         box-shadow: 0 4px 12px rgba(60, 74, 52, 0.2);
-        margin-bottom: 12px;
+        margin-bottom: 14px;
       }
       .btn-checkout:hover {
         background: var(--green-mid);
@@ -210,11 +224,12 @@
         display: flex;
         flex-direction: column;
         gap: 6px;
-        margin-top: 12px;
-        padding-top: 12px;
+        margin-top: 14px;
+        padding-top: 14px;
         border-top: 1px solid var(--line);
         font-size: 0.85rem;
         color: var(--ink-soft);
+        text-align: right; /* محاذاة النقاط لليمين لتكون مريحة للقراءة العربية */
       }
       .checkout-perks li {
         display: flex;
@@ -265,6 +280,28 @@
 
       /* ---------- RESPONSIVE MOBILE ---------- */
       @media (max-width: 850px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 1px solid var(--line);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+          gap: 16px;
+          z-index: 200;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+        }
         .sales-container {
           padding-top: 10px;
         }
@@ -275,14 +312,11 @@
         }
         .mobile-img-wrapper {
           display: block;
-          width: 100vw; /* تمديد عرض الصورة ليلتصق بالحواف تماماً إذا أردتِ أو حسب الحاوية */
           margin-left: -20px;
           margin-right: -20px;
           width: calc(100% + 40px);
           height: 170px;
-          border-radius: 0; /* إزالة الانحناء الحاد لتبدو مدمجة تماماً */
-          border-left: none;
-          border-right: none;
+          border-radius: 0;
           border-top: 1px solid var(--line);
           border-bottom: 1px solid var(--line);
           order: -2;
@@ -307,7 +341,6 @@
         .course-title {
           font-size: 1.45rem;
         }
-        .nav-links { display: none; }
       }
     </style>
   </head>
@@ -316,25 +349,33 @@
     <!-- HEADER -->
     <header class="site-header">
       <div class="header-wrap">
+        <!-- اللوغو جهة اليسار -->
         <a href="../index.html" class="logo">
           <div class="logo-icon-wrap">
             <img src="../images/logoo.png" alt="Logo" />
           </div>
           Nishdan
         </a>
-        <nav class="nav-links">
+
+        <!-- روابط التنقل (تظهر كقائمة منسدلة عند الضغط على زر الموبايل) -->
+        <nav class="nav-links" id="mainNav">
           <a href="../index.html">Home</a>
           <a href="courses.html">Courses</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
+
+        <!-- زر الخطوط الثلاثة في زاوية اليمين تماماً على الموبايل -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </header>
 
     <!-- MAIN SALES CONTAINER -->
     <main class="container sales-container">
       
-      <!-- صورة الموبايل الملاصقة تماماً بدون فراغات -->
+      <!-- صورة الموبايل الملاصقة -->
       <div class="mobile-img-wrapper">
         <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
       </div>
@@ -378,13 +419,14 @@
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: Checkout Card -->
+        <!-- RIGHT COLUMN: Checkout Card (Centered Price & Button) -->
         <div>
           <div class="checkout-card">
             <div class="checkout-img-wrap desktop-checkout-img">
               <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
             </div>
             <div class="checkout-body ar">
+              <!-- السعر ومربع العرض في المنتصف تماماً -->
               <div class="price-row">
                 <span class="price-val">$45</span>
                 <span class="price-curr">USD</span>
@@ -411,5 +453,14 @@
       </div>
     </footer>
 
+    <!-- سكريبت لتشغيل قائمة الموبايل -->
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
