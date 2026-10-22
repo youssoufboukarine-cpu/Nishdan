@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الجمال الحقيقي — Nishdan</title>
+    <title>الجمال والصحة — Nishdan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
@@ -17,11 +17,9 @@
         --ink-soft: #5a5850;
         --green-deep: #3c4a34;
         --green-mid: #7c8f6e;
-        --green-sage: #a9b99a;
         --gold: #b8a06a;
         --line: #dcd6c8;
         --white: #ffffff;
-        --accent-tint: #f4efe6;
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
         --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
@@ -41,6 +39,7 @@
       .ar-text {
         direction: rtl;
         font-family: var(--font-arabic);
+        text-align: right;
       }
       h1, h2, h3 {
         font-family: var(--font-display);
@@ -51,7 +50,6 @@
       p {
         margin: 0;
         color: var(--ink-soft);
-        font-size: 0.98rem;
       }
       a { color: inherit; text-decoration: none; }
       img { display: block; max-width: 100%; object-fit: cover; }
@@ -75,10 +73,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 14px;
-        padding-bottom: 14px;
-        padding-left: 32px;
-        padding-right: 32px;
+        padding: 14px 32px;
       }
       .logo-link { text-decoration: none; color: inherit; display: inline-block; }
       .logo {
@@ -107,15 +102,13 @@
       .main-nav a:hover, .main-nav a.active { color: var(--green-deep); }
       .header-icons { display: flex; gap: 16px; }
       .icon-btn {
-        background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center; transition: color 0.2s;
+        background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center;
       }
       .icon-btn svg { width: 19px; height: 19px; }
 
-      /* ---------- COURSE HERO & CONTENT ---------- */
+      /* ---------- COURSE CONTENT ---------- */
       .course-content {
-        padding-block: 50px 70px;
-        display: grid;
-        gap: 32px;
+        padding: 50px 0 70px;
       }
       .course-card {
         background: var(--white);
@@ -135,17 +128,17 @@
       .course-banner img { width: 100%; height: 100%; object-fit: cover; }
 
       .course-title {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
         color: var(--green-deep);
         text-align: center;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
       }
       .course-subtitle {
         text-align: center;
-        font-size: 1.05rem;
+        font-size: 1rem;
         color: var(--gold);
         font-weight: 600;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         display: block;
       }
 
@@ -155,44 +148,74 @@
         align-items: baseline;
         gap: 12px;
         background: var(--cream-2);
-        padding: 16px;
+        padding: 14px;
         border-radius: 8px;
         border: 1px solid var(--line);
-        margin: 24px 0;
+        margin: 20px 0 30px;
       }
       .price-main {
         font-family: var(--font-display);
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         font-weight: 700;
         color: var(--green-deep);
       }
       .price-sub {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         color: var(--ink-soft);
       }
 
-      .intro-text {
-        font-size: 1.05rem;
-        line-height: 1.9;
-        color: var(--ink-soft);
-        text-align: center;
-        max-width: 760px;
-        margin-inline: auto;
+      .section-block {
         margin-bottom: 30px;
+      }
+      .section-block h3 {
+        font-size: 1.25rem;
+        color: var(--green-deep);
+        margin-bottom: 12px;
+        border-bottom: 1.5px solid var(--line);
+        padding-bottom: 8px;
+      }
+
+      .course-text {
+        font-size: 0.98rem;
+        line-height: 1.8;
+        color: var(--ink-soft);
+        margin-bottom: 16px;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .features-list li {
+        position: relative;
+        padding-right: 22px;
+        font-size: 0.96rem;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+      .features-list li::before {
+        content: "•";
+        position: absolute;
+        right: 0;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 1.2rem;
       }
 
       .btn-enroll {
         display: block;
         width: 100%;
-        max-width: 280px;
-        margin: 30px auto 0;
+        max-width: 260px;
+        margin: 36px auto 0;
         background: var(--green-deep);
         color: var(--white);
         text-align: center;
-        padding: 14px 24px;
+        padding: 13px 20px;
         border-radius: 30px;
         font-weight: 600;
-        letter-spacing: 0.5px;
         transition: background .2s, transform .2s;
         border: none;
         cursor: pointer;
@@ -210,7 +233,7 @@
       .footer-col h4 { color: var(--white); font-family: var(--font-body); font-size: 0.9rem; letter-spacing: 0.4px; margin-bottom: 16px; font-weight: 600; }
       .footer-col a { display: block; font-size: 0.87rem; color: #c3c9bc; margin-bottom: 10px; transition: color 0.2s; }
       .footer-col a:hover { color: var(--white); }
-      .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: مرتين 22px 0; }
+      .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: 22px 0; }
 
       @media (max-width: 960px) {
         .main-nav { display: none; }
@@ -252,21 +275,50 @@
     <main class="container course-content">
       <section class="course-card">
         <div class="course-banner">
-          <img src="../images/beauty.jpg" alt="True Beauty Course" />
+          <img src="../images/beauty.jpg" alt="Beauty and Health Course" />
         </div>
 
         <div class="ar-text">
-          <h1 class="course-title">الجمال الحقيقي: إشراقة الروح ونقاء الطبيعة</h1>
-          <span class="course-subtitle">دورة شاملة لاستعادة النضارة الفطرية والعناية العميقة بالبشرة</span>
+          <h1 class="course-title">الجمال والصحة: الارتباط العضوي والفيزيولوجي</h1>
+          <span class="course-subtitle">فهم كيف تؤثر عمليات الجسم الداخلية على مظهركِ الخارجي وملامحكِ</span>
           
           <div class="price-tag">
             <span class="price-main">€40 EUR</span>
             <span class="price-sub">($44 USD)</span>
           </div>
 
-          <p class="intro-text">
-            الجمال ليس مجرد قناع خارجي، بل هو انعكاس حقيقي لصحة داخلكِ ونقاء خلاياكِ. في هذه الدورة المصممة بعناية وفق منهج الناتوروباثي والطب الشمولي، سنأخذكِ في رحلة فريدة لتكتشفي كيف يتحدث جسدكِ من خلال ملامحكِ وبشرتكِ. ستتعلمي كيفية التخلص من السموم المتراكمة بطرق طبيعية آمنة، وتغذية بشرتكِ من الجذور، وبناء روتين عناية مستدام يعيد لملامحكِ إشراقتها الحقيقية والساطعة دون الحاجة لمنتجات معقدة أو باهظة الثمن.
-          </p>
+          <!-- الفقرة الأولى -->
+          <div class="section-block">
+            <p class="course-text">
+              وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل، حيث تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم.
+            </p>
+          </div>
+
+          <!-- الفقرة الثانية -->
+          <div class="section-block">
+            <p class="course-text">
+              ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف؛ وأن (فكلي واشربي وقري عيناً)، فإن استقرار وطمأنينة النفس ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
+            </p>
+          </div>
+
+          <!-- ماذا ستتعلمين -->
+          <div class="section-block">
+            <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
+            <ul class="features-list">
+              <li>قراءة وفهم الرسائل التي تُظهرها بشرتكِ عن الحالة الصحية لداخلكِ.</li>
+              <li>تأثير الهرمونات المباشر على شكل الوجه، توزيع الدهون، والملامح العامة.</li>
+              <li>دور منافذ الجسم وطريقة دعمها في التخلص من الفضلات لتصفية البشرة.</li>
+              <li>أهمية العناصر الغذائية الأساسية في تجدد خلايا الجلد.</li>
+              <li>توظيف حقائق التغذية من الهدي النبوي والأسس العلمية لبناء روتين مستدام.</li>
+            </ul>
+          </div>
+
+          <!-- فقرة الختام -->
+          <div class="section-block">
+            <p class="course-text">
+              صُمم هذا البرنامج ليعطيكِ خلاصة علمية ومنهجية واضحة، تناسب جدول حياتكِ اليومية وتبعد عنكِ الإحباط، لتتمكني من العناية بمظهركِ وصحتكِ بيسر وطمأنينة.
+            </p>
+          </div>
 
           <button class="btn-enroll">انضمي الآن إلى الدورة</button>
         </div>
