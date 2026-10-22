@@ -54,7 +54,7 @@
       a { color: inherit; text-decoration: none; }
       img { display: block; max-width: 100%; object-fit: cover; }
       .container {
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
         padding: 0 32px;
       }
@@ -106,119 +106,147 @@
       }
       .icon-btn svg { width: 19px; height: 19px; }
 
-      /* ---------- COURSE CONTENT ---------- */
+      /* ---------- COURSE CONTENT (GRID LAYOUT) ---------- */
       .course-content {
         padding: 50px 0 70px;
       }
-      .course-card {
+
+      /* Hero top section: Image on left, details on right */
+      .course-hero {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px;
+        align-items: center;
         background: var(--white);
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 16px;
         padding: 40px;
         box-shadow: 0 10px 30px -15px rgba(0,0,0,0.05);
+        margin-bottom: 30px;
       }
+
       .course-banner {
         width: 100%;
-        height: 280px;
-        border-radius: 10px;
+        height: 350px;
+        border-radius: 12px;
         overflow: hidden;
-        margin-bottom: 24px;
         border: 1px solid var(--line);
       }
       .course-banner img { width: 100%; height: 100%; object-fit: cover; }
 
       .course-title {
-        font-size: 2.1rem;
+        font-size: 1.9rem;
         color: var(--green-deep);
-        text-align: center;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
+        line-height: 1.3;
       }
       .course-subtitle {
-        text-align: center;
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: var(--gold);
         font-weight: 600;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         display: block;
       }
 
       .price-tag {
-        display: flex;
-        justify-content: center;
+        display: inline-flex;
         align-items: baseline;
         gap: 12px;
         background: var(--cream-2);
-        padding: 14px;
+        padding: 10px 20px;
         border-radius: 8px;
         border: 1px solid var(--line);
-        margin: 20px 0 30px;
+        margin-bottom: 20px;
       }
       .price-main {
         font-family: var(--font-display);
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: var(--green-deep);
       }
       .price-sub {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: var(--ink-soft);
-      }
-
-      .section-block {
-        margin-bottom: 30px;
-      }
-      .section-block h3 {
-        font-size: 1.25rem;
-        color: var(--green-deep);
-        margin-bottom: 12px;
-        border-bottom: 1.5px solid var(--line);
-        padding-bottom: 8px;
       }
 
       .course-text {
-        font-size: 0.98rem;
-        line-height: 1.8;
+        font-size: 0.93rem;
+        line-height: 1.7;
         color: var(--ink-soft);
-        margin-bottom: 16px;
+        margin-bottom: 14px;
       }
 
-      .features-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+      /* Two columns grid for introduction paragraphs */
+      .intro-grid {
         display: grid;
-        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 30px;
       }
-      .features-list li {
-        position: relative;
-        padding-right: 22px;
-        font-size: 0.96rem;
+      .info-box {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 5px 20px -10px rgba(0,0,0,0.03);
+      }
+
+      /* Features Grid (Boxes side by side) */
+      .section-block {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 20px -10px rgba(0,0,0,0.03);
+      }
+      .section-block h3 {
+        font-size: 1.3rem;
+        color: var(--green-deep);
+        margin-bottom: 20px;
+        border-bottom: 1.5px solid var(--line);
+        padding-bottom: 10px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .feature-item {
+        background: var(--cream);
+        border: 1px solid var(--line);
+        padding: 16px 20px;
+        border-radius: 8px;
+        font-size: 0.92rem;
         color: var(--ink-soft);
-        line-height: 1.6;
+        line-height: 1.5;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
       }
-      .features-list li::before {
-        content: "•";
-        position: absolute;
-        right: 0;
+      .feature-item::before {
+        content: "◆";
         color: var(--gold);
-        font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 0.8rem;
+        margin-top: 3px;
       }
 
       .btn-enroll {
         display: block;
         width: 100%;
-        max-width: 260px;
-        margin: 36px auto 0;
+        max-width: 280px;
+        margin: 30px auto 0;
         background: var(--green-deep);
         color: var(--white);
         text-align: center;
-        padding: 13px 20px;
+        padding: 14px 20px;
         border-radius: 30px;
         font-weight: 600;
         transition: background .2s, transform .2s;
         border: none;
         cursor: pointer;
+        font-size: 1rem;
       }
       .btn-enroll:hover {
         background: var(--green-mid);
@@ -237,6 +265,7 @@
 
       @media (max-width: 960px) {
         .main-nav { display: none; }
+        .course-hero, .intro-grid, .features-grid { grid-template-columns: 1fr; }
         .footer-grid { grid-template-columns: repeat(2, 1fr); }
       }
     </style>
@@ -273,12 +302,13 @@
 
     <!-- COURSE CONTENT -->
     <main class="container course-content">
-      <section class="course-card">
+      
+      <!-- HERO SECTION: Image left / Info right -->
+      <div class="course-hero ar-text">
         <div class="course-banner">
           <img src="../images/beauty.jpg" alt="Beauty and Health Course" />
         </div>
-
-        <div class="ar-text">
+        <div>
           <h1 class="course-title">الجمال والصحة: الارتباط العضوي والفيزيولوجي</h1>
           <span class="course-subtitle">فهم كيف تؤثر عمليات الجسم الداخلية على مظهركِ الخارجي وملامحكِ</span>
           
@@ -287,42 +317,44 @@
             <span class="price-sub">($44 USD)</span>
           </div>
 
-          <!-- الفقرة الأولى -->
-          <div class="section-block">
-            <p class="course-text">
-              وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل، حيث تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم.
-            </p>
-          </div>
-
-          <!-- الفقرة الثانية -->
-          <div class="section-block">
-            <p class="course-text">
-              ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف؛ وأن (فكلي واشربي وقري عيناً)، فإن استقرار وطمأنينة النفس ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
-            </p>
-          </div>
-
-          <!-- ماذا ستتعلمين -->
-          <div class="section-block">
-            <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
-            <ul class="features-list">
-              <li>قراءة وفهم الرسائل التي تُظهرها بشرتكِ عن الحالة الصحية لداخلكِ.</li>
-              <li>تأثير الهرمونات المباشر على شكل الوجه، توزيع الدهون، والملامح العامة.</li>
-              <li>دور منافذ الجسم وطريقة دعمها في التخلص من الفضلات لتصفية البشرة.</li>
-              <li>أهمية العناصر الغذائية الأساسية في تجدد خلايا الجلد.</li>
-              <li>توظيف حقائق التغذية من الهدي النبوي والأسس العلمية لبناء روتين مستدام.</li>
-            </ul>
-          </div>
-
-          <!-- فقرة الختام -->
-          <div class="section-block">
-            <p class="course-text">
-              صُمم هذا البرنامج ليعطيكِ خلاصة علمية ومنهجية واضحة، تناسب جدول حياتكِ اليومية وتبعد عنكِ الإحباط، لتتمكني من العناية بمظهركِ وصحتكِ بيسر وطمأنينة.
-            </p>
-          </div>
-
-          <button class="btn-enroll">انضمي الآن إلى الدورة</button>
+          <p class="course-text">
+            وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل.
+          </p>
         </div>
-      </section>
+      </div>
+
+      <!-- INTRO GRID: Two side-by-side text boxes -->
+      <div class="intro-grid ar-text">
+        <div class="info-box">
+          <p class="course-text" style="margin:0;">
+            تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم. تطرح هذه الدورة فهماً علمياً مباشراً يؤكد أن العناية الصحيحة تبدأ من الداخل بعيداً عن الحلول السطحية والمؤقتة.
+          </p>
+        </div>
+        <div class="info-box">
+          <p class="course-text" style="margin:0;">
+            ترتكز الدورة على دمج الحقائق العلمية مع هدي الطب النبوي الشريف في الاعتدال؛ (فكلي واشربي وقري عيناً)، فإن طمأنينة النفس ترتبط ارتباطاً وثيقاً بالتوازن الصحي دون حرمان مؤذٍ.
+          </p>
+        </div>
+      </div>
+
+      <!-- FEATURES GRID: Modern grid boxes -->
+      <div class="section-block ar-text">
+        <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
+        <div class="features-grid">
+          <div class="feature-item">قراءة وفهم الرسائل التي تُظهرها بشرتكِ عن الحالة الصحية لداخلكِ.</div>
+          <div class="feature-item">تأثير الهرمونات المباشر على شكل الوجه، توزيع الدهون، والملامح العامة.</div>
+          <div class="feature-item">دور منافذ الجسم وطريقة دعمها في التخلص من الفضلات لتصفية البشرة.</div>
+          <div class="feature-item">أهمية العناصر الغذائية الأساسية في تجدد خلايا الجلد وأنسجته.</div>
+          <div class="feature-item" style="grid-column: span 2;">توظيف حقائق التغذية من الهدي النبوي والأسس العلمية لبناء روتين مستدام وخالٍ من التعقيد.</div>
+        </div>
+
+        <p class="course-text" style="margin-top: 24px; text-align: center;">
+          صُمم هذا البرنامج ليعطيكِ خلاصة علمية ومنهجية واضحة، تناسب جدول حياتكِ اليومية وتبعد عنكِ الإحباط، لتتمكني من العناية بمظهركِ وصحتكِ بيسر وطمأنينة.
+        </p>
+
+        <button class="btn-enroll">انضمي الآن إلى الدورة</button>
+      </div>
+
     </main>
 
     <!-- FOOTER -->
