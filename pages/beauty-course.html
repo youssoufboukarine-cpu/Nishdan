@@ -88,7 +88,7 @@
       .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
       .nav-links a:hover { color: var(--green-deep); }
 
-      /* زر الخطوط الثلاثة (مخفي على الديسكتوب، يظهر على الموبايل في يمين الشاشة) */
+      /* زر الخطوط الثلاثة في أقصى اليمين */
       .menu-toggle {
         display: none;
         background: none;
@@ -99,103 +99,103 @@
       }
       .menu-toggle svg { width: 24px; height: 24px; }
 
-      /* ---------- SALES PAGE LAYOUT ---------- */
+      /* ---------- SALES PAGE LAYOUT (CENTERED) ---------- */
       .sales-container {
-        padding: 24px 0 60px;
+        padding: 30px 0 60px;
       }
       
-      .sales-grid {
-        display: grid;
-        grid-template-columns: 1fr 360px;
-        gap: 30px;
-        align-items: start;
+      /* توسيط حاوية الصفحة بالكامل وجعلها بعمود واحد متناسق في المنتصف */
+      .sales-center-wrapper {
+        max-width: 720px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
       }
 
-      /* Left Side: Course Info & Content */
       .course-main-info {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 18px;
       }
 
       .course-title {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
         color: var(--green-deep);
         line-height: 1.25;
+        text-align: center;
       }
 
       .course-subtitle {
-        font-size: 0.95rem;
+        font-size: 0.98rem;
         color: var(--ink-soft);
         line-height: 1.5;
+        text-align: center;
       }
 
       .section-box {
         background: var(--white);
         border: 1px solid var(--line);
         border-radius: 12px;
-        padding: 18px;
+        padding: 22px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.02);
       }
 
       .section-box h3 {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         color: var(--green-deep);
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         padding-bottom: 6px;
         border-bottom: 1px solid var(--line);
       }
 
       .text-p {
-        font-size: 0.92rem;
+        font-size: 0.94rem;
         color: var(--ink-soft);
-        line-height: 1.65;
-        margin-bottom: 10px;
+        line-height: 1.7;
+        margin-bottom: 12px;
       }
       .text-p:last-child { margin-bottom: 0; }
 
-      /* Right Side: Checkout Card (Centered Price & Content) */
+      /* بطاقة الشراء في المنتصف تماماً وبشكل أنيق */
       .checkout-card {
         background: var(--white);
         border: 1px solid var(--line);
         border-radius: 14px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        position: sticky;
-        top: 75px;
-      }
-
-      .mobile-img-wrapper {
-        display: none;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
       }
 
       .checkout-img-wrap {
         width: 100%;
-        height: 180px;
+        height: 220px;
         border-bottom: 1px solid var(--line);
       }
       .checkout-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
       .checkout-body {
-        padding: 20px 18px;
-        text-align: center; /* توسيط كامل لمحتويات بطاقة الشراء */
+        padding: 24px;
+        text-align: center;
       }
 
       .price-row {
         display: flex;
         align-items: baseline;
-        justify-content: center; /* توسيط السعر تماماً في المنتصف */
+        justify-content: center;
         gap: 8px;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
       }
       .price-val {
         font-family: var(--font-display);
-        font-size: 1.9rem;
+        font-size: 2.1rem;
         font-weight: 700;
         color: var(--green-deep);
       }
       .price-curr {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         color: var(--ink-soft);
       }
 
@@ -205,15 +205,15 @@
         background: var(--green-deep);
         color: var(--white);
         text-align: center;
-        padding: 13px;
+        padding: 14px;
         border-radius: 8px;
         font-weight: 600;
-        font-size: 0.95rem;
+        font-size: 1rem;
         border: none;
         cursor: pointer;
         transition: background .2s;
         box-shadow: 0 4px 12px rgba(60, 74, 52, 0.2);
-        margin-bottom: 14px;
+        margin-bottom: 16px;
       }
       .btn-checkout:hover {
         background: var(--green-mid);
@@ -223,18 +223,18 @@
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 6px;
-        margin-top: 14px;
-        padding-top: 14px;
+        gap: 8px;
+        margin-top: 16px;
+        padding-top: 16px;
         border-top: 1px solid var(--line);
-        font-size: 0.85rem;
+        font-size: 0.88rem;
         color: var(--ink-soft);
-        text-align: right; /* محاذاة النقاط لليمين لتكون مريحة للقراءة العربية */
+        text-align: right;
       }
       .checkout-perks li {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
       }
       .checkout-perks li::before {
         content: "✓";
@@ -246,19 +246,19 @@
       .syllabus-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
-        margin-top: 8px;
+        gap: 10px;
+        margin-top: 10px;
       }
       .syllabus-item {
         background: var(--cream);
         border: 1px solid var(--line);
-        padding: 10px 14px;
+        padding: 12px 16px;
         border-radius: 8px;
-        font-size: 0.9rem;
+        font-size: 0.92rem;
         color: var(--ink-soft);
         display: flex;
         align-items: flex-start;
-        gap: 8px;
+        gap: 10px;
       }
       .syllabus-item::before {
         content: "•";
@@ -273,7 +273,7 @@
         background: var(--green-deep);
         color: #dfe3da;
         padding: 30px 0;
-        margin-top: 40px;
+        margin-top: 50px;
         font-size: 0.8rem;
         text-align: center;
       }
@@ -305,22 +305,15 @@
         .sales-container {
           padding-top: 10px;
         }
-        .sales-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
         .mobile-img-wrapper {
           display: block;
           margin-left: -20px;
           margin-right: -20px;
           width: calc(100% + 40px);
-          height: 170px;
-          border-radius: 0;
+          height: 180px;
           border-top: 1px solid var(--line);
           border-bottom: 1px solid var(--line);
-          order: -2;
-          margin-bottom: 4px;
+          margin-bottom: 15px;
         }
         .mobile-img-wrapper img {
           width: 100%;
@@ -330,16 +323,12 @@
         .desktop-checkout-img {
           display: none;
         }
-        .checkout-card {
-          position: static;
-          order: 2;
-        }
-        .course-main-info {
-          order: 1;
-          gap: 12px;
-        }
         .course-title {
-          font-size: 1.45rem;
+          font-size: 1.5rem;
+          text-align: center;
+        }
+        .course-subtitle {
+          text-align: center;
         }
       }
     </style>
@@ -357,7 +346,7 @@
           Nishdan
         </a>
 
-        <!-- روابط التنقل (تظهر كقائمة منسدلة عند الضغط على زر الموبايل) -->
+        <!-- القائمة (منسدلة للموبايل) -->
         <nav class="nav-links" id="mainNav">
           <a href="../index.html">Home</a>
           <a href="courses.html">Courses</a>
@@ -365,7 +354,7 @@
           <a href="contact.html">Contact</a>
         </nav>
 
-        <!-- زر الخطوط الثلاثة في زاوية اليمين تماماً على الموبايل -->
+        <!-- زر الخطوط الثلاثة في زاوية اليمين تماماً -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
@@ -375,72 +364,69 @@
     <!-- MAIN SALES CONTAINER -->
     <main class="container sales-container">
       
-      <!-- صورة الموبايل الملاصقة -->
-      <div class="mobile-img-wrapper">
+      <!-- صورة الموبايل في قمة الصفحة بالعرض الكامل -->
+      <div class="mobile-img-wrapper" style="display: none;">
         <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
       </div>
 
-      <div class="sales-grid">
+      <!-- الحاوية المركزية لجميع محتويات الصفحة -->
+      <div class="sales-center-wrapper ar">
         
-        <!-- LEFT COLUMN: Content & Details -->
-        <div class="course-main-info ar">
-          <div>
-            <h1 class="course-title">الجمال والصحة: الارتباط العضوي والفيزيولوجي</h1>
-            <p class="course-subtitle" style="margin-top: 4px;">فهم كيف تؤثر عمليات الجسم الداخلية على مظهركِ الخارجي وملامحكِ بطريقة علمية ومنهجية واضحة.</p>
-          </div>
+        <!-- عنوان الدورة ووصفها في المنتصف -->
+        <div>
+          <h1 class="course-title">الجمال والصحة: الارتباط العضوي والفيزيولوجي</h1>
+          <p class="course-subtitle" style="margin-top: 6px;">فهم كيف تؤثر عمليات الجسم الداخلية على مظهركِ الخارجي وملامحكِ بطريقة علمية ومنهجية واضحة.</p>
+        </div>
 
-          <!-- Overview Box -->
-          <div class="section-box">
-            <h3>لماذا هذه الدورة؟</h3>
-            <p class="text-p">
-              وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل، حيث تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم.
-            </p>
-            <p class="text-p">
-              ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف في الاعتدال؛ فكما جاء في قوله تعالى: (فكلي واشربي وقري عيناً)، فإن استقرار وملامح وطمأنينة العين ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
-            </p>
+        <!-- بطاقة الشراء البارزة في المنتصف تماماً -->
+        <div class="checkout-card">
+          <div class="checkout-img-wrap desktop-checkout-img">
+            <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
           </div>
-
-          <!-- Syllabus / What you will learn -->
-          <div class="section-box">
-            <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
-            <div class="syllabus-grid">
-              <div class="syllabus-item">قراءة وفهم الرسائل التي تُظهرها بشرتكِ عن الحالة الصحية لداخلكِ.</div>
-              <div class="syllabus-item">تأثير الهرمونات المباشر على شكل الوجه، توزيع الدهون، والملامح العامة.</div>
-              <div class="syllabus-item">دور منافذ الجسم وطريقة دعمها في التخلص من الفضلات لتصفية البشرة.</div>
-              <div class="syllabus-item">أهمية العناصر الغذائية الأساسية في تجدد خلايا الجلد وأنسجته.</div>
-              <div class="syllabus-item">توظيف حقائق التغذية من الهدي النبوي والأسس العلمية لبناء روتين مستدام وخالٍ من التعقيد.</div>
+          <div class="checkout-body">
+            <div class="price-row">
+              <span class="price-val">$45</span>
+              <span class="price-curr">USD</span>
             </div>
-          </div>
 
-          <div class="section-box" style="background: var(--cream-2); padding: 14px;">
-            <p class="text-p" style="text-align: center; color: var(--green-deep); font-weight: 500; margin: 0;">
-              صُمم هذا البرنامج ليعطيكِ خلاصة علمية ومنهجية واضحة، تناسب جدول حياتكِ اليومية وتبعد عنكِ الإحباط، لتتمكني من العناية بمظهركِ وصحتكِ بيسر وطمأنينة.
-            </p>
+            <button class="btn-checkout">شراء الدورة الآن</button>
+            
+            <ul class="checkout-perks">
+              <li>وصول فوري ودائم لمحتوى الدورة</li>
+              <li>محتوى مركز يغنيكِ عن التجارب العشوائية</li>
+              <li>ضمان المحتوى العلمي الموثوق</li>
+            </ul>
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: Checkout Card (Centered Price & Button) -->
-        <div>
-          <div class="checkout-card">
-            <div class="checkout-img-wrap desktop-checkout-img">
-              <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
-            </div>
-            <div class="checkout-body ar">
-              <!-- السعر ومربع العرض في المنتصف تماماً -->
-              <div class="price-row">
-                <span class="price-val">$45</span>
-                <span class="price-curr">USD</span>
-              </div>
+        <!-- صندوق لماذا هذه الدورة؟ -->
+        <div class="section-box">
+          <h3>لماذا هذه الدورة؟</h3>
+          <p class="text-p">
+            وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل، حيث تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم.
+          </p>
+          <p class="text-p">
+            ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف في الاعتدال؛ فكما جاء في قوله تعالى: (فكلي واشربي وقري عيناً)، فإن استقرار وملامح وطمأنينة العين ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
+          </p>
+        </div>
 
-              <button class="btn-checkout">شراء الدورة الآن</button>
-              
-              <ul class="checkout-perks">
-                <li>وصول فوري ودائم لمحتوى الدورة</li>
-                <li>محتوى مركز يغنيكِ عن التجارب العشوائية</li>
-                <li>ضمان المحتوى العلمي الموثوق</li>
-              </ul>
-            </div>
+        <!-- صندوق ماذا ستتعلمين؟ -->
+        <div class="section-box">
+          <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
+          <div class="syllabus-grid">
+            <div class="syllabus-item">قراءة وفهم الرسائل التي تُظهرها بشرتكِ عن الحالة الصحية لداخلكِ.</div>
+            <div class="syllabus-item">تأثير الهرمونات المباشر على شكل الوجه، توزيع الدهون، والملامح العامة.</div>
+            <div class="syllabus-item">دور منافذ الجسم وطريقة دعمها في التخلص من الفضلات لتصفية البشرة.</div>
+            <div class="syllabus-item">أهمية العناصر الغذائية الأساسية في تجدد خلايا الجلد وأنسجته.</div>
+            <div class="syllabus-item">توظيف حقائق التغذية من الهدي النبوي والأسس العلمية لبناء روتين مستدام وخالٍ من التعقيد.</div>
           </div>
+        </div>
+
+        <!-- صندوق الختام -->
+        <div class="section-box" style="background: var(--cream-2); padding: 16px;">
+          <p class="text-p" style="text-align: center; color: var(--green-deep); font-weight: 500; margin: 0;">
+            صُمم هذا البرنامج ليعطيكِ خلاصة علمية ومنهجية واضحة، تناسب جدول حياتكِ اليومية وتبعد عنكِ الإحباط، لتتمكني من العناية بمظهركِ وصحتكِ بيسر وطمأنينة.
+          </p>
         </div>
 
       </div>
