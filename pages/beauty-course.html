@@ -33,7 +33,7 @@
         background: var(--cream);
         line-height: 1.6;
         direction: ltr;
-        font-size: 0.91rem;
+        font-size: 0.95rem; /* تحسين وتكبير الخط قليلاً لراحة القراءة */
       }
       .ar {
         direction: rtl;
@@ -107,13 +107,13 @@
       }
 
       .course-title {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         color: var(--green-deep);
         line-height: 1.25;
       }
 
       .course-subtitle {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--ink-soft);
         line-height: 1.5;
       }
@@ -127,7 +127,7 @@
       }
 
       .section-box h3 {
-        font-size: 1rem;
+        font-size: 1.05rem;
         color: var(--green-deep);
         margin-bottom: 10px;
         padding-bottom: 6px;
@@ -135,9 +135,9 @@
       }
 
       .text-p {
-        font-size: 0.86rem;
+        font-size: 0.92rem; /* تكبير خط الفقرات ليكون مريحاً على الموبايل */
         color: var(--ink-soft);
-        line-height: 1.6;
+        line-height: 1.65;
         margin-bottom: 10px;
       }
       .text-p:last-child { margin-bottom: 0; }
@@ -153,9 +153,9 @@
         top: 75px;
       }
 
-      /* عنصر الصورة المستقل (يظهر أولاً على الموبايل فوق كل شيء) */
+      /* عنصر الصورة المستقل للموبايل */
       .mobile-img-wrapper {
-        display: none; /* مخفي على الديسكتوب، يظهر حصراً على الموبايل */
+        display: none;
       }
 
       .checkout-img-wrap {
@@ -195,7 +195,7 @@
         padding: 12px;
         border-radius: 8px;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         border: none;
         cursor: pointer;
         transition: background .2s;
@@ -214,7 +214,7 @@
         margin-top: 12px;
         padding-top: 12px;
         border-top: 1px solid var(--line);
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         color: var(--ink-soft);
       }
       .checkout-perks li {
@@ -240,7 +240,7 @@
         border: 1px solid var(--line);
         padding: 10px 14px;
         border-radius: 8px;
-        font-size: 0.84rem;
+        font-size: 0.9rem;
         color: var(--ink-soft);
         display: flex;
         align-items: flex-start;
@@ -266,40 +266,42 @@
 
       /* ---------- RESPONSIVE MOBILE ---------- */
       @media (max-width: 850px) {
+        .sales-container {
+          padding-top: 15px; /* تقليل الفراغ العلوي العام */
+        }
         .sales-grid {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 15px; /* تقليل التباعد بين العناصر لتفادي أي فراغات غير جميلة */
         }
-        /* إظهار الصورة المنفصلة في أعلى الصفحة على الموبايل بحجم صغير ومرتب */
         .mobile-img-wrapper {
           display: block;
           width: 100%;
-          height: 170px;
-          border-radius: 12px;
+          height: 160px;
+          border-radius: 10px;
           overflow: hidden;
           border: 1px solid var(--line);
-          order: -2; /* تجعلها في قمة الصفحة تماماً */
-          margin-bottom: -5px;
+          order: -2;
+          margin-bottom: 0; /* إلغاء أي فراغ تحت الصورة */
         }
         .mobile-img-wrapper img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
-        /* إخفاء الصورة الموجودة داخل بطاقة الشعار بالأسفل على الموبايل لتجنب التكرار */
         .desktop-checkout-img {
           display: none;
         }
         .checkout-card {
           position: static;
-          order: 2; /* تجعل بطاقة الشراء تحت المحتوى أو حسب الرغبة */
+          order: 2;
         }
         .course-main-info {
-          order: 1; /* المحتوى يأتي بعد الصورة مباشرة */
+          order: 1;
+          gap: 12px; /* تقليل الفراغات بين الصناديق على الموبايل */
         }
         .course-title {
-          font-size: 1.4rem;
+          font-size: 1.45rem;
         }
         .nav-links { display: none; }
       }
@@ -328,7 +330,7 @@
     <!-- MAIN SALES CONTAINER -->
     <main class="container sales-container">
       
-      <!-- صورة تظهر حصراً في قمة الصفحة على الموبايل -->
+      <!-- صورة الموبايل في قمة الصفحة بدون فراغات مزعجة -->
       <div class="mobile-img-wrapper">
         <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
       </div>
@@ -375,7 +377,6 @@
         <!-- RIGHT COLUMN: Checkout Card -->
         <div>
           <div class="checkout-card">
-            <!-- هذه الصورة تظهر على الديسكتوب فقط داخل بطاقة الشراء -->
             <div class="checkout-img-wrap desktop-checkout-img">
               <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
             </div>
