@@ -33,7 +33,7 @@
         background: var(--cream);
         line-height: 1.6;
         direction: ltr;
-        font-size: 0.95rem;
+        font-size: 0.96rem;
       }
       .ar {
         direction: rtl;
@@ -45,7 +45,7 @@
       img { display: block; width: 100%; object-fit: cover; }
       
       .container {
-        max-width: 960px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 0 20px;
       }
@@ -59,7 +59,7 @@
         z-index: 100;
       }
       .header-wrap {
-        max-width: 1040px;
+        max-width: 980px;
         margin: 0 auto;
         display: flex;
         align-items: center;
@@ -69,26 +69,19 @@
       }
       .logo {
         display: flex; align-items: center; gap: 10px;
-        font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+        font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
       }
       .logo-icon-wrap {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 2px solid var(--gold);
-        background: var(--white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+        width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+        border: 2px solid var(--gold); background: var(--white);
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
       }
       .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
       .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
       .nav-links a:hover { color: var(--green-deep); }
 
-      /* زر الخطوط الثلاثة في أقصى اليمين */
+      /* زر الخطوط الثلاثة في زاوية اليمين تماماً على الموبايل */
       .menu-toggle {
         display: none;
         background: none;
@@ -99,23 +92,40 @@
       }
       .menu-toggle svg { width: 24px; height: 24px; }
 
-      /* ---------- SALES PAGE LAYOUT (TWO COLUMNS) ---------- */
-      .sales-container {
-        padding: 30px 0 60px;
-      }
-      
-      .sales-grid {
-        display: grid;
-        grid-template-columns: 1fr 370px; /* العمود الأيمن مخصص لبطاقة السعر والصورة ومزاح لليمين أكثر */
-        gap: 35px;
-        align-items: start;
+      /* ---------- E-COMMERCE HERO / PRODUCT SECTION ---------- */
+      .product-section {
+        padding: 40px 0 30px;
       }
 
-      /* Left Side: Course Info & Content */
-      .course-main-info {
+      .product-showcase {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .product-img-box {
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        border-right: 1px solid var(--line);
+      }
+      .product-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product-buy-panel {
+        padding: 32px;
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        justify-content: center;
+        gap: 20px;
       }
 
       .course-title {
@@ -125,146 +135,122 @@
       }
 
       .course-subtitle {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         color: var(--ink-soft);
         line-height: 1.5;
       }
 
-      .section-box {
-        background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 18px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-      }
-
-      .section-box h3 {
-        font-size: 1.05rem;
-        color: var(--green-deep);
-        margin-bottom: 10px;
-        padding-bottom: 6px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .text-p {
-        font-size: 0.92rem;
-        color: var(--ink-soft);
-        line-height: 1.65;
-        margin-bottom: 10px;
-      }
-      .text-p:last-child { margin-bottom: 0; }
-
-      /* Right Side: Checkout Card (Image + Price + Button) */
-      .checkout-card {
-        background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        position: sticky;
-        top: 75px;
-      }
-
-      .mobile-img-wrapper {
-        display: none;
-      }
-
-      .checkout-img-wrap {
-        width: 100%;
-        height: 180px;
-        border-bottom: 1px solid var(--line);
-      }
-      .checkout-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-
-      .checkout-body {
-        padding: 18px;
-        text-align: center; /* توسيط السعر وزر الشراء داخل المربع */
-      }
-
-      .price-row {
+      .price-box {
         display: flex;
         align-items: baseline;
-        justify-content: center;
         gap: 8px;
-        margin-bottom: 14px;
       }
       .price-val {
         font-family: var(--font-display);
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         font-weight: 700;
         color: var(--green-deep);
       }
       .price-curr {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         color: var(--ink-soft);
       }
 
-      .btn-checkout {
+      .btn-buy-now {
         display: block;
         width: 100%;
         background: var(--green-deep);
         color: var(--white);
         text-align: center;
-        padding: 12px;
-        border-radius: 8px;
+        padding: 15px;
+        border-radius: 10px;
         font-weight: 600;
-        font-size: 0.95rem;
+        font-size: 1.05rem;
         border: none;
         cursor: pointer;
-        transition: background .2s;
-        box-shadow: 0 4px 12px rgba(60, 74, 52, 0.2);
-        margin-bottom: 12px;
+        transition: background .2s, transform .1s;
+        box-shadow: 0 6px 16px rgba(60, 74, 52, 0.25);
       }
-      .btn-checkout:hover {
+      .btn-buy-now:hover {
         background: var(--green-mid);
+        transform: translateY(-1px);
       }
 
-      .checkout-perks {
+      .perks-list {
         list-style: none;
         display: flex;
         flex-direction: column;
         gap: 6px;
-        margin-top: 12px;
-        padding-top: 12px;
-        border-top: 1px solid var(--line);
-        font-size: 0.85rem;
+        font-size: 0.84rem;
         color: var(--ink-soft);
-        text-align: right;
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
       }
-      .checkout-perks li {
+      .perks-list li {
         display: flex;
         align-items: center;
         gap: 6px;
       }
-      .checkout-perks li::before {
+      .perks-list li::before {
         content: "✓";
         color: var(--green-deep);
         font-weight: bold;
       }
 
-      /* Syllabus Grid */
-      .syllabus-grid {
+      /* ---------- CONTENT SECTIONS (CLEAN CARDS) ---------- */
+      .content-section {
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .info-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      }
+
+      .info-card h3 {
+        font-size: 1.2rem;
+        color: var(--green-deep);
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .desc-text {
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+        line-height: 1.75;
+        margin-bottom: 12px;
+      }
+      .desc-text:last-child { margin-bottom: 0; }
+
+      .syllabus-list {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
-        margin-top: 8px;
+        gap: 10px;
+        margin-top: 12px;
       }
-      .syllabus-item {
+      .syllabus-row {
         background: var(--cream);
         border: 1px solid var(--line);
-        padding: 10px 14px;
-        border-radius: 8px;
-        font-size: 0.9rem;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 0.92rem;
         color: var(--ink-soft);
         display: flex;
         align-items: flex-start;
-        gap: 8px;
+        gap: 10px;
       }
-      .syllabus-item::before {
+      .syllabus-row::before {
         content: "•";
         color: var(--gold);
         font-weight: bold;
-        font-size: 1rem;
+        font-size: 1.2rem;
         line-height: 1;
       }
 
@@ -272,10 +258,9 @@
       .site-footer {
         background: var(--green-deep);
         color: #dfe3da;
-        padding: 30px 0;
-        margin-top: 40px;
-        font-size: 0.8rem;
+        padding: 40px 0;
         text-align: center;
+        font-size: 0.82rem;
       }
 
       /* ---------- RESPONSIVE MOBILE ---------- */
@@ -302,40 +287,17 @@
           display: inline-flex;
           align-items: center;
         }
-        .sales-container {
-          padding-top: 10px;
+        .product-showcase {
+          grid-template-columns: 1fr;
         }
-        .sales-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-        }
-        .mobile-img-wrapper {
-          display: block;
-          margin-left: -20px;
-          margin-right: -20px;
-          width: calc(100% + 40px);
-          height: 170px;
-          border-top: 1px solid var(--line);
+        .product-img-box {
+          height: 220px;
+          min-height: auto;
+          border-right: none;
           border-bottom: 1px solid var(--line);
-          order: -2;
-          margin-bottom: 0;
         }
-        .mobile-img-wrapper img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .desktop-checkout-img {
-          display: none;
-        }
-        .checkout-card {
-          position: static;
-          order: 2;
-        }
-        .course-main-info {
-          order: 1;
-          gap: 12px;
+        .product-buy-panel {
+          padding: 24px;
         }
         .course-title {
           font-size: 1.45rem;
@@ -362,83 +324,83 @@
           <a href="contact.html">Contact</a>
         </nav>
 
+        <!-- زر الخطوط الثلاثة في أقصى اليمين -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
     </header>
 
-    <!-- MAIN SALES CONTAINER -->
-    <main class="container sales-container">
+    <!-- MAIN PRODUCT & SALES SECTION -->
+    <main class="container">
       
-      <!-- صورة الموبايل في قمة الصفحة -->
-      <div class="mobile-img-wrapper">
-        <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
-      </div>
+      <section class="product-section">
+        <div class="product-showcase">
+          
+          <!-- صورة المنتج البارزة -->
+          <div class="product-img-box">
+            <img src="../images/beauty.jpg" alt="Beauty and Health Course" />
+          </div>
 
-      <div class="sales-grid">
+          <!-- لوحة الشراء والسعر (متجر حقيقي) -->
+          <div class="product-buy-panel ar">
+            <div>
+              <h1 class="course-title">الجمال والصحة: الارتباط العضوي والفيزيولوجي</h1>
+              <p class="course-subtitle" style="margin-top: 8px;">فهم كيف تؤثر عمليات الجسم الداخلية على مظهركِ الخارجي وملامحكِ.</p>
+            </div>
+
+            <div class="price-box">
+              <span class="price-val">$45</span>
+              <span class="price-curr">USD</span>
+            </div>
+
+            <button class="btn-buy-now">شراء الدورة الآن</button>
+
+            <ul class="perks-list">
+              <li>وصول فوري ودائم لمحتوى الدورة</li>
+              <li>محتوى مركز يغنيكِ عن التجارب العشوائية</li>
+              <li>ضمان المحتوى العلمي الموثوق</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- تفاصيل المحتوى والبرنامج -->
+      <section class="content-section">
         
-        <!-- LEFT COLUMN: Content & Details -->
-        <div class="course-main-info ar">
-          <div>
-            <h1 class="course-title">الجمال والصحة: الارتباط العضوي والفيزيولوجي</h1>
-            <p class="course-subtitle" style="margin-top: 4px;">فهم كيف تؤثر عمليات الجسم الداخلية على مظهركِ الخارجي وملامحكِ بطريقة علمية ومنهجية واضحة.</p>
-          </div>
+        <!-- لماذا هذه الدورة -->
+        <div class="info-card ar">
+          <h3>لماذا هذه الدورة؟</h3>
+          <p class="desc-text">
+            وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل، حيث تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم.
+          </p>
+          <p class="desc-text">
+            ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف في الاعتدال؛ فكما جاء في قوله تعالى: (فكلي واشربي وقري عيناً)، فإن استقرار وملامح وطمأنينة العين ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
+          </p>
+        </div>
 
-          <!-- Overview Box -->
-          <div class="section-box">
-            <h3>لماذا هذه الدورة؟</h3>
-            <p class="text-p">
-              وفّري على نفسكِ تشتت وسائل التواصل الاجتماعي، وحلقات الحرمان العشوائي التي ترهق نفسيتكِ وتضيع أموالكِ بلا نتيجة. فالحل ليس في التجويع أو المنتجات المؤقتة، بل في فهم أن جمالكِ الخارجي هو انعكاس حقيقي لصحتكِ من الداخل، حيث تتأثر بشرتكِ وملامحكِ مباشرة بكفاءة الأيض، الهرمونات، ومنافذ الجسم.
-            </p>
-            <p class="text-p">
-              ترتكز هذه الدورة على دمج الحقائق العلمية الدقيقة مع هدي الطب النبوي الشريف في الاعتدال؛ فكما جاء في قوله تعالى: (فكلي واشربي وقري عيناً)، فإن استقرار وملامح وطمأنينة العين ترتبط ارتباطاً وثيقاً بالتغذية السليمة والتوازن الداخلي، بعيداً عن أي حرمان مؤذٍ.
-            </p>
-          </div>
-
-          <!-- Syllabus / What you will learn -->
-          <div class="section-box">
-            <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
-            <div class="syllabus-grid">
-              <div class="syllabus-item">قراءة وفهم الرسائل التي تُظهرها بشرتكِ عن الحالة الصحية لداخلكِ.</div>
-              <div class="syllabus-item">تأثير الهرمونات المباشر على شكل الوجه، توزيع الدهون، والجوانب العامة.</div>
-              <div class="syllabus-item">دور منافذ الجسم وطريقة دعمها في التخلص من الفضلات لتصفية البشرة.</div>
-              <div class="syllabus-item">أهمية العناصر الغذائية الأساسية في تجدد خلايا الجلد وأنسجته.</div>
-              <div class="syllabus-item">توظيف حقائق التغذية من الهدي النبوي والأسس العلمية لبناء روتين مستدام وخالٍ من التعقيد.</div>
-            </div>
-          </div>
-
-          <div class="section-box" style="background: var(--cream-2); padding: 14px;">
-            <p class="text-p" style="text-align: center; color: var(--green-deep); font-weight: 500; margin: 0;">
-              صُمم هذا البرنامج ليعطيكِ خلاصة علمية ومنهجية واضحة، تناسب جدول حياتكِ اليومية وتبعد عنكِ الإحباط، لتتمكني من العناية بمظهركِ وصحتكِ بيسر وطمأنينة.
-            </p>
+        <!-- محاور الدورة -->
+        <div class="info-card ar">
+          <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
+          <div class="syllabus-list">
+            <div class="syllabus-row">قراءة وفهم الرسائل التي تُظهرها بشرتكِ عن الحالة الصحية لداخلكِ.</div>
+            <div class="syllabus-row">تأثير الهرمونات المباشر على شكل الوجه، توزيع الدهون، والملامح العامة.</div>
+            <div class="syllabus-row">دور منافذ الجسم وطريقة دعمها في التخلص من الفضلات لتصفية البشرة.</div>
+            <div class="syllabus-row">أهمية العناصر الغذائية الأساسية في تجدد خلايا الجلد وأنسجته.</div>
+            <div class="syllabus-row">توظيف حقائق التغذية من الهدي النبوي والأسس العلمية لبناء روتين مستدام وخالٍ من التعقيد.</div>
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: Checkout Card (Image + Price + Button on Right) -->
-        <div>
-          <div class="checkout-card">
-            <div class="checkout-img-wrap desktop-checkout-img">
-              <img src="../images/beauty.jpg" alt="Beauty Course Banner" />
-            </div>
-            <div class="checkout-body">
-              <div class="price-row">
-                <span class="price-val">$45</span>
-                <span class="price-curr">USD</span>
-              </div>
-
-              <button class="btn-checkout">شراء الدورة الآن</button>
-              
-              <ul class="checkout-perks">
-                <li>وصول فوري ودائم لمحتوى الدورة</li>
-                <li>محتوى مركز يغنيكِ عن التجارب العشوائية</li>
-                <li>ضمان المحتوى العلمي الموثوق</li>
-              </ul>
-            </div>
-          </div>
+        <!-- رسالة ختامية -->
+        <div class="info-card ar" style="background: var(--cream-2); text-align: center;">
+          <p class="desc-text" style="color: var(--green-deep); font-weight: 500; margin: 0;">
+            صُمم هذا البرنامج ليعطيكِ خلاصة علمية ومنهجية واضحة، تناسب جدول حياتكِ اليومية وتبعد عنكِ الإحباط، لتتمكني من العناية بمظهركِ وصحتكِ بيسر وطمأنينة.
+          </p>
         </div>
 
-      </div>
+      </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -448,7 +410,7 @@
       </div>
     </footer>
 
-    <!-- سكريبت لتشغيل قائمة الموبايل -->
+    <!-- سكريبت تشغيل القائمة للموبايل -->
     <script>
       const menuToggle = document.getElementById('menuToggle');
       const mainNav = document.getElementById('mainNav');
