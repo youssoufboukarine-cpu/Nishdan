@@ -79,7 +79,6 @@
         display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
       }
       
-      /* إطار الشعار الدائري المطابق */
       .logo-icon-wrap {
         width: 48px;
         height: 48px;
@@ -101,11 +100,24 @@
         font-size: 0.85rem; letter-spacing: 0.4px; color: var(--ink); transition: color 0.2s; text-transform: uppercase; font-weight: 500;
       }
       .main-nav a:hover { color: var(--green-deep); }
+      
+      .header-actions { display: flex; align-items: center; gap: 16px; }
       .header-icons { display: flex; gap: 16px; }
       .icon-btn {
         background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center; transition: color 0.2s;
       }
       .icon-btn svg { width: 19px; height: 19px; }
+
+      /* زر الخطوط الثلاثة للموبايل (Hamburger Menu) */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink);
+        padding: 4px;
+      }
+      .menu-toggle svg { width: 24px; height: 24px; }
 
       /* ---------- HERO ---------- */
       .divider { display: inline-block; width: 56px; height: 2px; background: var(--green-mid); }
@@ -146,7 +158,6 @@
       .protocol-card p { font-size: 0.88rem; margin: 0 20px 20px; flex-grow: 1; }
       .see-all { text-align: center; margin-top: 44px; }
 
-      /* رابط الصورة لتكون قابلة للنقر */
       .protocol-img-link {
         position: absolute;
         inset: 0;
@@ -170,16 +181,37 @@
       .social-icons svg { width: 15px; height: 15px; color: var(--white); }
       .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: 22px 0; }
 
+      .banner { width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
+      .banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+      /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
       @media (max-width: 960px) {
-        .main-nav { display: none; }
+        .main-nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 1px solid var(--line);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+          gap: 16px;
+        }
+        .main-nav.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+        }
         .protocol-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
       }
       @media (max-width: 560px) {
         .protocol-grid, .footer-grid { grid-template-columns: 1fr; }
       }
-
-      .banner { width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
-      .banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
     </style>
   </head>
   <body>
@@ -195,19 +227,27 @@
             Nishdan
           </span>
         </a>
-        <nav class="main-nav">
+        
+        <nav class="main-nav" id="mainNav">
           <a href="index.html">Home</a>
           <a href="pages/courses.html">Courses</a>
           <a href="pages/about.html">About</a>
           <a href="pages/contact.html">Contact</a>
         </nav>
-        <div class="header-icons">
-          <button aria-label="Search" class="icon-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+
+        <div class="header-actions">
+          <div class="header-icons">
+            <button aria-label="Search" class="icon-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+            </button>
+            <a href="pages/account.html" aria-label="Account" class="icon-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+            </a>
+          </div>
+          <!-- زر الخطوط الثلاثة للموبايل -->
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
-          <a href="pages/account.html" aria-label="Account" class="icon-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-          </a>
         </div>
       </div>
     </header>
@@ -333,5 +373,15 @@
       </div>
       <div class="footer-bottom">© 2026 Nishdan Integrative Health — All rights reserved.</div>
     </footer>
+
+    <!-- سكريبت لتشغيل قائمة الموبايل -->
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
