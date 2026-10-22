@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Glow From Within Course — NaturoPatra</title>
+    <title>الجمال الحقيقي — Nishdan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
@@ -17,108 +17,290 @@
         --ink-soft: #5a5850;
         --green-deep: #3c4a34;
         --green-mid: #7c8f6e;
+        --green-sage: #a9b99a;
         --gold: #b8a06a;
         --line: #dcd6c8;
         --white: #ffffff;
+        --accent-tint: #f4efe6;
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
         --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+        --ease: cubic-bezier(.22, .61, .36, 1);
       }
+
       * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
-        margin: 0; font-family: var(--font-body); color: var(--ink); background: var(--cream); line-height: 1.6; direction: ltr;
+        margin: 0;
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.7;
+        direction: ltr;
       }
-      .ar-text { direction: rtl; font-family: var(--font-arabic); text-align: right; }
-      h1, h2, h3 { font-family: var(--font-display); color: var(--ink); margin: 0; font-weight: 600; }
-      p { margin: 0 0 1em 0; color: var(--ink-soft); font-size: 1rem; }
+      .ar-text {
+        direction: rtl;
+        font-family: var(--font-arabic);
+      }
+      h1, h2, h3 {
+        font-family: var(--font-display);
+        color: var(--ink);
+        margin: 0;
+        font-weight: 600;
+      }
+      p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.98rem;
+      }
       a { color: inherit; text-decoration: none; }
-      .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
+      img { display: block; max-width: 100%; object-fit: cover; }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
 
-      .site-header { border-bottom: 1px solid var(--line); background: var(--cream); position: sticky; top: 0; z-index: 50; }
-      .header-inner { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
-      .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+      /* ---------- HEADER ---------- */
+      .site-header {
+        border-bottom: 1px solid var(--line);
+        background: var(--cream);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .header-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+      .logo-link { text-decoration: none; color: inherit; display: inline-block; }
+      .logo {
+        display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
+      }
+      .logo-icon-wrap {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2.5px solid var(--gold);
+        background: var(--white);
+        box-shadow: 0 4px 12px rgba(184, 160, 106, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform .3s var(--ease);
+      }
+      .logo-link:hover .logo-icon-wrap { transform: scale(1.05); }
+      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
       .main-nav { display: flex; gap: 34px; }
-      .main-nav a { font-size: 0.85rem; text-transform: uppercase; font-weight: 500; }
-      .main-nav a:hover { color: var(--green-deep); }
-      .icon-btn { background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center; }
-      .cart-badge { position: absolute; top: -2px; right: -2px; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+      .main-nav a {
+        font-size: 0.85rem; letter-spacing: 0.4px; color: var(--ink); transition: color 0.2s; text-transform: uppercase; font-weight: 500;
+      }
+      .main-nav a:hover, .main-nav a.active { color: var(--green-deep); }
+      .header-icons { display: flex; gap: 16px; }
+      .icon-btn {
+        background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center; transition: color 0.2s;
+      }
+      .icon-btn svg { width: 19px; height: 19px; }
 
-      .course-hero { padding: 60px 0 40px; text-align: center; }
-      .course-hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--green-deep); }
-      .divider { display: inline-block; width: 50px; height: 2px; background: var(--gold); margin: 15px 0; }
+      /* ---------- COURSE HERO & CONTENT ---------- */
+      .course-content {
+        padding-block: 50px 70px;
+        display: grid;
+        gap: 32px;
+      }
+      .course-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 10px 30px -15px rgba(0,0,0,0.05);
+      }
+      .course-banner {
+        width: 100%;
+        height: 280px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 24px;
+        border: 1px solid var(--line);
+      }
+      .course-banner img { width: 100%; height: 100%; object-fit: cover; }
 
-      .course-content { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding-bottom: 80px; }
-      .course-main-info { background: var(--white); padding: 40px; border-radius: 8px; border: 1px solid var(--line); }
-      .course-main-info h3 { margin-top: 25px; margin-bottom: 10px; font-size: 1.3rem; color: var(--green-deep); }
-      .course-img-large { width: 100%; height: 350px; object-fit: cover; border-radius: 6px; margin-bottom: 25px; }
-      
-      .purchase-card { background: var(--cream-2); border: 1px solid var(--line); border-radius: 8px; padding: 30px; height: fit-content; position: sticky; top: 100px; text-align: center; }
-      .price-tag { font-size: 2rem; font-weight: 700; color: var(--green-deep); margin-bottom: 20px; }
-      .btn-buy { display: block; width: 100%; background: var(--green-deep); color: var(--white); border: none; padding: 14px; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px; text-align: center; }
-      .btn-buy:hover { background: #2d3728; }
-      .features-list { list-style: none; padding: 0; margin: 20px 0 0 0; text-align: left; font-size: 0.9rem; }
-      .features-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 8px; color: var(--ink-soft); }
+      .course-title {
+        font-size: 2.2rem;
+        color: var(--green-deep);
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      .course-subtitle {
+        text-align: center;
+        font-size: 1.05rem;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 24px;
+        display: block;
+      }
 
-      .site-footer { background: var(--green-deep); color: #dfe3da; padding: 40px 0; text-align: center; font-size: 0.85rem; }
+      .price-tag {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 12px;
+        background: var(--cream-2);
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        margin: 24px 0;
+      }
+      .price-main {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--green-deep);
+      }
+      .price-sub {
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+      }
 
-      @media (max-width: 768px) { .course-content { grid-template-columns: 1fr; } .main-nav { display: none; } }
+      .intro-text {
+        font-size: 1.05rem;
+        line-height: 1.9;
+        color: var(--ink-soft);
+        text-align: center;
+        max-width: 760px;
+        margin-inline: auto;
+        margin-bottom: 30px;
+      }
+
+      .btn-enroll {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 30px auto 0;
+        background: var(--green-deep);
+        color: var(--white);
+        text-align: center;
+        padding: 14px 24px;
+        border-radius: 30px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: background .2s, transform .2s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-enroll:hover {
+        background: var(--green-mid);
+        transform: translateY(-2px);
+      }
+
+      /* ---------- FOOTER ---------- */
+      .site-footer { background: var(--green-deep); color: #dfe3da; padding: 64px 0 0; }
+      .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding: 0 32px 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+      .footer-brand h3 { color: var(--white); font-size: 1.25rem; line-height: 1.3; margin-bottom: 14px; }
+      .footer-brand p { color: #c3c9bc; font-size: 0.88rem; }
+      .footer-col h4 { color: var(--white); font-family: var(--font-body); font-size: 0.9rem; letter-spacing: 0.4px; margin-bottom: 16px; font-weight: 600; }
+      .footer-col a { display: block; font-size: 0.87rem; color: #c3c9bc; margin-bottom: 10px; transition: color 0.2s; }
+      .footer-col a:hover { color: var(--white); }
+      .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: مرتين 22px 0; }
+
+      @media (max-width: 960px) {
+        .main-nav { display: none; }
+        .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      }
     </style>
   </head>
   <body>
+
+    <!-- HEADER -->
     <header class="site-header">
-      <div class="container header-inner">
-        <a href="../index.html" class="logo">NaturoPatra</a>
+      <div class="header-inner">
+        <a href="../index.html" class="logo-link">
+          <span class="logo">
+            <span class="logo-icon-wrap">
+              <img src="../images/logoo.png" alt="Nishdan Logo" />
+            </span>
+            Nishdan
+          </span>
+        </a>
         <nav class="main-nav">
           <a href="../index.html">Home</a>
-          <a href="articles.html">Articles</a>
-          <a href="courses.html">Courses</a>
+          <a href="courses.html" class="active">Courses</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
         <div class="header-icons">
-          <a href="shop.html" aria-label="Cart" class="icon-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6h15l-1.5 9h-12z" /><path d="M6 6L4 2H2" /><circle cx="9" cy="20" r="1" /><circle cx="17" cy="20" r="1" /></svg>
-            <span class="cart-badge" id="cart-count">0</span>
+          <button aria-label="Search" class="icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+          </button>
+          <a href="account.html" aria-label="Account" class="icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
           </a>
         </div>
       </div>
     </header>
 
-    <section class="course-hero">
-      <div class="container">
-        <h1 class="ar-text">التألق من الداخل للخارج</h1>
-        <span class="divider"></span>
-        <p class="ar-text" style="max-width: 600px; margin: 0 auto; text-align: center;">
-          اكتشفي سر الجمال الحقيقي للوصول إلى أفضل نسخة من نفسك من خلال نمط حياة صحي ومتوازن.
-        </p>
-      </div>
-    </section>
-
-    <div class="container">
-      <div class="course-content">
-        <div class="course-main-info ar-text">
-          <img src="https://images.unsplash.com/photo-1608248597359-9d7b407a51c9?w=800&q=80" alt="Beauty & Health" class="course-img-large" />
-          <h2>عن هذه الدورة التدريبية</h2>
-          <p>الجمال الحقيقي ليس مظهرًا خارجيًا مؤقتاً، بل هو انعكاس لصحة خلايا جسمك ونقاء أمعائك وتوازنك الداخلي.</p>
-          <h3>ماذا ستتعلمين في هذه الدورة؟</h3>
-          <p>• <strong>النضارة والإشراقة الطبيعية:</strong> تأثير التغذية السليمة على صفاء البشرة.<br>• <strong>الترطيب العميق:</strong> آليات العناية الطبيعية بالخلايا.<br>• <strong>التخلص من السموم:</strong> تنقية الجسم لمكافحة البهتان.</p>
+    <!-- COURSE CONTENT -->
+    <main class="container course-content">
+      <section class="course-card">
+        <div class="course-banner">
+          <img src="../images/beauty.jpg" alt="True Beauty Course" />
         </div>
 
-        <div class="purchase-card">
-          <div class="price-tag">€49.00</div>
-          <button class="btn-buy" onclick="alert('Added to cart successfully!')">Add to Cart 🛒</button>
-          <p style="font-size: 0.85rem; color: var(--ink-soft);">Instant digital access to all video lessons and guides.</p>
-          <ul class="features-list">
-            <li>✅ Full lifetime access</li>
-            <li>✅ Downloadable PDF guides</li>
-            <li>✅ Audio modules included</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+        <div class="ar-text">
+          <h1 class="course-title">الجمال الحقيقي: إشراقة الروح ونقاء الطبيعة</h1>
+          <span class="course-subtitle">دورة شاملة لاستعادة النضارة الفطرية والعناية العميقة بالبشرة</span>
+          
+          <div class="price-tag">
+            <span class="price-main">€40 EUR</span>
+            <span class="price-sub">($44 USD)</span>
+          </div>
 
+          <p class="intro-text">
+            الجمال ليس مجرد قناع خارجي، بل هو انعكاس حقيقي لصحة داخلكِ ونقاء خلاياكِ. في هذه الدورة المصممة بعناية وفق منهج الناتوروباثي والطب الشمولي، سنأخذكِ في رحلة فريدة لتكتشفي كيف يتحدث جسدكِ من خلال ملامحكِ وبشرتكِ. ستتعلمي كيفية التخلص من السموم المتراكمة بطرق طبيعية آمنة، وتغذية بشرتكِ من الجذور، وبناء روتين عناية مستدام يعيد لملامحكِ إشراقتها الحقيقية والساطعة دون الحاجة لمنتجات معقدة أو باهظة الثمن.
+          </p>
+
+          <button class="btn-enroll">انضمي الآن إلى الدورة</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer class="site-footer">
-      <div class="container"><p>© 2026 NaturoPatra Integrative Health — All rights reserved.</p></div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <h3>Nishdan<br />Integrative Health</h3>
+          <p>Evidence-based naturopathy serving your lifelong health.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="../index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Blog</a>
+          <a href="#">FAQ</a>
+          <a href="#">Legal Notice</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+        <div class="footer-col newsletter">
+          <h4>Stay Connected</h4>
+          <p>Receive exclusive tips and content every week.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Nishdan Integrative Health — All rights reserved.</div>
     </footer>
+
   </body>
 </html>
