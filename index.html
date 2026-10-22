@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nishdan</title>
+    <title>Nishdan — Integrative Health & Naturopathy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
@@ -24,6 +24,7 @@
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
         --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+        --ease: cubic-bezier(.22, .61, .36, 1);
       }
 
       * { box-sizing: border-box; }
@@ -70,14 +71,31 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 18px;
-        padding-bottom: 18px;
+        padding-top: 14px;
+        padding-bottom: 14px;
       }
       .logo-link { text-decoration: none; color: inherit; display: inline-block; }
       .logo {
-        display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.3px;
+        display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
       }
-      .logo-icon { width: 80px; height: 65px; color: var(--green-deep); }
+      
+      /* إطار الشعار الدائري المطابق لصفحة عنّي */
+      .logo-icon-wrap {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2.5px solid var(--gold);
+        background: var(--white);
+        box-shadow: 0 4px 12px rgba(184, 160, 106, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform .3s var(--ease);
+      }
+      .logo-link:hover .logo-icon-wrap { transform: scale(1.05); }
+      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
       .main-nav { display: flex; gap: 34px; }
       .main-nav a {
         font-size: 0.85rem; letter-spacing: 0.4px; color: var(--ink); transition: color 0.2s; text-transform: uppercase; font-weight: 500;
@@ -159,13 +177,15 @@
   </head>
   <body>
     
-<!-- HEADER -->
+    <!-- HEADER -->
     <header class="site-header">
       <div class="container header-inner">
-        <a href="/" class="logo-link">
+        <a href="index.html" class="logo-link">
           <span class="logo">
-            <img src="images/logoo.png" alt="Nishdan Logo" class="logo-icon" />
-           Nishdan
+            <span class="logo-icon-wrap">
+              <img src="images/logoo.png" alt="Nishdan Logo" />
+            </span>
+            Nishdan
           </span>
         </a>
         <nav class="main-nav">
