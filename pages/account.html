@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>حسابي — Nishdan Integrative Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #faf8f3;
+        --cream-2: #f3efe7;
+        --ink: #2b2a26;
+        --ink-soft: #5a5850;
+        --green-deep: #3c4a34;
+        --green-mid: #7c8f6e;
+        --gold: #b8a06a;
+        --line: #dcd6c8;
+        --white: #ffffff;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "Jost", "Segoe UI", sans-serif;
+        --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.6;
+        direction: ltr;
+        font-size: 0.96rem;
+      }
+      .ar {
+        direction: rtl;
+        font-family: var(--font-arabic);
+        text-align: right;
+      }
+      h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
+      a { text-decoration: none; color: inherit; }
+      img { display: block; width: 100%; object-fit: cover; }
+      
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* ---------- HEADER ---------- */
+      .site-header {
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px;
+        position: relative;
+      }
+      .logo {
+        display: flex; align-items: center; gap: 10px;
+        font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+      }
+      .logo-icon-wrap {
+        width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+        border: 2px solid var(--gold); background: var(--white);
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      }
+      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+      .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
+      .nav-links a:hover, .nav-links a.active { color: var(--green-deep); }
+
+      /* زر الخطوط الثلاثة في أقصى اليمين على الموبايل */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink);
+        padding: 4px;
+      }
+      .menu-toggle svg { width: 24px; height: 24px; }
+
+      /* ---------- AUTH SECTION ---------- */
+      .auth-section {
+        padding: 50px 0 70px;
+      }
+
+      .auth-container {
+        max-width: 480px;
+        margin: 0 auto;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 35px 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      }
+
+      /* التبويبات (تسجيل الدخول / إنشاء حساب) */
+      .auth-tabs {
+        display: flex;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 24px;
+      }
+      .tab-btn {
+        flex: 1;
+        background: none;
+        border: none;
+        padding: 12px;
+        font-family: var(--font-arabic);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+        cursor: pointer;
+        position: relative;
+        transition: color .2s;
+      }
+      .tab-btn.active {
+        color: var(--green-deep);
+      }
+      .tab-btn.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--green-deep);
+      }
+
+      /* النماذج (Forms) */
+      .auth-form {
+        display: none;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .auth-form.active {
+        display: flex;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-group label {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .form-group input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        background: var(--cream);
+        color: var(--ink);
+        outline: none;
+        transition: border-color .2s;
+      }
+      .form-group input:focus {
+        border-color: var(--green-deep);
+        background: var(--white);
+      }
+
+      .btn-submit {
+        display: block;
+        width: 100%;
+        background: var(--green-deep);
+        color: var(--white);
+        text-align: center;
+        padding: 13px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.98rem;
+        border: none;
+        cursor: pointer;
+        transition: background .2s;
+        box-shadow: 0 4px 12px rgba(60, 74, 52, 0.2);
+        margin-top: 6px;
+      }
+      .btn-submit:hover {
+        background: var(--green-mid);
+      }
+
+      .auth-note {
+        text-align: center;
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+        margin-top: 10px;
+      }
+
+      /* ---------- FOOTER ---------- */
+      .site-footer {
+        background: var(--green-deep);
+        color: #dfe3da;
+        padding: 40px 0;
+        text-align: center;
+        font-size: 0.82rem;
+      }
+
+      /* ---------- RESPONSIVE MOBILE ---------- */
+      @media (max-width: 850px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 1px solid var(--line);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+          gap: 16px;
+          z-index: 200;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+        }
+        .auth-container {
+          padding: 24px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-wrap">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon-wrap">
+            <img src="../images/logoo.png" alt="Logo" />
+          </div>
+          Nishdan
+        </a>
+
+        <nav class="nav-links" id="mainNav">
+          <a href="../index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <!-- زر الخطوط الثلاثة في زاوية اليمين تماماً -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- AUTH SECTION -->
+    <main class="container auth-section">
+      <div class="auth-container ar">
+        
+        <!-- التبويبات -->
+        <div class="auth-tabs">
+          <button class="tab-btn active" onclick="switchTab('login')">تسجيل الدخول</button>
+          <button class="tab-btn" onclick="switchTab('register')">إنشاء حساب جديد</button>
+        </div>
+
+        <!-- نموذج تسجيل الدخول -->
+        <form class="auth-form active" id="loginForm" onsubmit="event.preventDefault(); alert('تم تسجيل الدخول بنجاح!');">
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" placeholder="name@example.com" required />
+          </div>
+          <div class="form-group">
+            <label>كلمة المرور</label>
+            <input type="password" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn-submit">دخول إلى حسابي</button>
+          <p class="auth-note">سجل دخولك لتتمكن من الوصول لجميع دوراتك المدفوعة بكل سهولة.</p>
+        </form>
+
+        <!-- نموذج إنشاء حساب -->
+        <form class="auth-form" id="registerForm" onsubmit="event.preventDefault(); alert('تم إنشاء الحساب بنجاح!');">
+          <div class="form-group">
+            <label>الاسم الكامل</label>
+            <input type="text" placeholder="اسمك الكريم" required />
+          </div>
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" placeholder="name@example.com" required />
+          </div>
+          <div class="form-group">
+            <label>كلمة المرور</label>
+            <input type="password" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn-submit">إنشاء الحساب والشراء</button>
+          <p class="auth-note">بإنشاء حسابك، ستتمكن من حفظ دوراتك وإتمام عمليات الشراء بأمان.</p>
+        </form>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Nishdan Integrative Health. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- سكريبت تبديل التبويبات وقائمة الموبايل -->
+    <script>
+      // قائمة الموبايل
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+      });
+
+      // تبديل بين نموذج تسجيل الدخول وإنشاء الحساب
+      function switchTab(tab) {
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+
+        tabBtns.forEach(btn => btn.classList.remove('active'));
+
+        if (tab === 'login') {
+          loginForm.classList.add('active');
+          registerForm.classList.remove('active');
+          tabBtns[0].classList.add('active');
+        } else {
+          registerForm.classList.add('active');
+          loginForm.classList.remove('active');
+          tabBtns[1].classList.add('active');
+        }
+      }
+    </script>
+  </body>
+</html>
