@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — Nishdan</title>
+    <title>عنّي — Nishdan Integrative Health</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -17,298 +17,167 @@
         --ink-soft: #5a5850;
         --green-deep: #3c4a34;
         --green-mid: #7c8f6e;
-        --green-sage: #a9b99a;
         --gold: #b8a06a;
         --line: #dcd6c8;
         --white: #ffffff;
-        --accent-tint: #f4efe6;
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
         --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
-        --ease: cubic-bezier(.22, .61, .36, 1);
       }
 
-      * { box-sizing: border-box; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
       body {
-        margin: 0;
         font-family: var(--font-body);
         color: var(--ink);
         background: var(--cream);
-        line-height: 1.7;
+        line-height: 1.6;
         direction: ltr;
+        font-size: 0.96rem;
       }
-      .ar-text {
+      .ar {
         direction: rtl;
         font-family: var(--font-arabic);
+        text-align: right;
       }
-      h1, h2, h3 {
-        font-family: var(--font-display);
-        color: var(--ink);
-        margin: 0;
-        font-weight: 600;
-      }
-      p {
-        margin: 0;
-        color: var(--ink-soft);
-        font-size: 0.98rem;
-      }
-      a { color: inherit; text-decoration: none; }
-      img { display: block; max-width: 100%; object-fit: cover; }
+      h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
+      a { text-decoration: none; color: inherit; }
+      img { display: block; width: 100%; object-fit: cover; }
+      
       .container {
         max-width: 900px;
         margin: 0 auto;
-        padding: 0 32px;
+        padding: 0 20px;
       }
 
       /* ---------- HEADER ---------- */
       .site-header {
+        background: var(--white);
         border-bottom: 1px solid var(--line);
-        background: var(--cream);
         position: sticky;
         top: 0;
-        z-index: 50;
+        z-index: 100;
       }
-      .header-inner {
-        max-width: 1180px;
+      .header-wrap {
+        max-width: 980px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 14px;
-        padding-bottom: 14px;
-        padding-left: 32px;
-        padding-right: 32px;
+        padding: 12px 20px;
+        position: relative;
       }
-      .logo-link { text-decoration: none; color: inherit; display: inline-block; }
       .logo {
-        display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
+        display: flex; align-items: center; gap: 10px;
+        font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
       }
-      
-      /* الشعار الأول في الهيدر */
       .logo-icon-wrap {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 2.5px solid var(--gold);
-        background: var(--white);
-        box-shadow: 0 4px 12px rgba(184, 160, 106, 0.25);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform .3s var(--ease);
+        width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+        border: 2px solid var(--gold); background: var(--white);
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
       }
-      .logo-link:hover .logo-icon-wrap { transform: scale(1.05); }
       .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
-      .main-nav { display: flex; gap: 34px; }
-      .main-nav a {
-        font-size: 0.85rem; letter-spacing: 0.4px; color: var(--ink); transition: color 0.2s; text-transform: uppercase; font-weight: 500;
-      }
-      .main-nav a:hover, .main-nav a.active { color: var(--green-deep); }
-      .header-icons { display: flex; gap: 16px; }
-      .icon-btn {
-        background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center; transition: color 0.2s;
-      }
-      .icon-btn svg { width: 19px; height: 19px; }
+      .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
+      .nav-links a:hover, .nav-links a.active { color: var(--green-deep); }
 
-      /* ---------- CONTENT FLOW ---------- */
-      .content-flow {
-        padding-block: 50px 70px;
-        display: grid;
-        gap: 32px;
+      /* زر الخطوط الثلاثة في زاوية اليمين تماماً على الموبايل */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink);
+        padding: 4px;
+      }
+      .menu-toggle svg { width: 24px; height: 24px; }
+
+      /* ---------- ABOUT CONTENT SECTION ---------- */
+      .about-section {
+        padding: 60px 0 80px;
       }
 
-      .section-card {
+      .about-card {
         background: var(--white);
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 16px;
         padding: 40px;
-        box-shadow: 0 10px 30px -15px rgba(0,0,0,0.05);
-        transition: transform .3s var(--ease), box-shadow .3s var(--ease);
-      }
-      .section-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 35px -15px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
       }
 
-      .section-title-wrap {
-        text-align: center;
-        margin-bottom: 24px;
-        padding-bottom: 12px;
-        border-bottom: 2px solid var(--cream-2);
-        background: radial-gradient(circle at center, var(--accent-tint) 0%, transparent 80%);
-        border-radius: 8px;
-        padding-top: 8px;
-      }
-      .section-title {
-        font-size: 2rem;
+      .about-card h1 {
+        font-size: 2.2rem;
         color: var(--green-deep);
-        margin-bottom: 4px;
+        margin-bottom: 6px;
       }
-      .section-subtitle {
-        font-size: 0.95rem;
-        color: var(--gold);
+
+      .about-card .eyebrow {
+        display: block;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        color: var(--green-mid);
         font-weight: 600;
-        letter-spacing: 0.5px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
       }
 
-      .text-block {
-        font-size: 1.02rem;
-        line-height: 1.85;
+      .divider {
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: var(--gold);
+        margin: 20px 0;
+      }
+
+      .about-text {
+        font-size: 1.05rem;
         color: var(--ink-soft);
-        text-align: center;
-        max-width: 720px;
-        margin-inline: auto;
+        line-height: 1.85;
+        margin-bottom: 20px;
       }
-      .text-block + .text-block { margin-top: 14px; }
-
-      /* Profile Hero (الشعار الثاني) */
-      .profile-hero {
-        display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
-        margin-bottom: 22px;
+      .about-text:last-child {
+        margin-bottom: 0;
       }
-      .profile-img-wrap {
-        width: 85px; height: 85px; border-radius: 50%;
-        overflow: hidden; border: 3px solid var(--gold);
-        box-shadow: 0 6px 16px rgba(184, 160, 106, 0.25);
-      }
-      .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-      .profile-text .ar { font-weight: 600; color: var(--green-deep); font-size: 1.15rem; }
-      .profile-text .en { font-size: 0.85rem; color: var(--ink-soft); }
-
-      /* تنسيق بانر صورة الترويسة */
-      .hero-image-banner {
-        width: 100%; 
-        height: 220px; 
-        border-radius: 10px; 
-        overflow: hidden;
-        margin-bottom: 24px; 
-        border: 1px solid var(--line);
-        background-color: var(--cream-2);
-      }
-      .hero-image-banner img { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
-      }
-
-      /* Principles Grid */
-      .principles-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 14px;
-        margin-top: 18px;
-      }
-      .principle-item {
-        background: var(--cream-2);
-        padding: 16px 20px;
-        border-radius: 8px;
-        text-align: center;
-        border: 1px solid var(--line);
-        transition: transform .25s, background .25s;
-      }
-      .principle-item:hover { transform: translateY(-3px); background: #eae3d5; }
-      .principle-item .ar { font-weight: 600; color: var(--green-deep); font-size: 1.02rem; }
-      .principle-item .en { font-size: 0.82rem; color: var(--ink-soft); margin-top: 2px; }
-
-      /* Therapies Pills */
-      .therapy-compact {
-        display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-        margin-top: 18px;
-      }
-      .therapy-pill {
-        background: var(--cream-2);
-        border: 1px solid var(--line);
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: var(--green-deep);
-        display: flex; gap: 8px; align-items: baseline;
-        transition: transform .2s, background .2s, color .2s;
-      }
-      .therapy-pill:hover {
-        transform: translateY(-2px);
-        background: var(--green-deep);
-        color: var(--white);
-      }
-      .therapy-pill:hover .en { color: var(--gold); }
-      .therapy-pill .en { font-size: 0.78rem; color: var(--ink-soft); }
-
-      /* Timeline & Pioneers */
-      .timeline-compact {
-        display: grid;
-        gap: 14px;
-        margin-top: 18px;
-      }
-      .timeline-row {
-        display: grid;
-        grid-template-columns: 70px 1fr;
-        align-items: center;
-        gap: 16px;
-        background: var(--cream-2);
-        padding: 12px 18px;
-        border-radius: 8px;
-        border: 1px solid var(--line);
-        transition: transform .25s;
-      }
-      .timeline-row:hover { transform: translateX(-3px); }
-      .timeline-year {
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: var(--green-deep);
-        direction: ltr;
-      }
-      .timeline-info .ar { font-weight: 600; color: var(--green-deep); font-size: 1rem; }
-      .timeline-info .en { font-size: 0.82rem; color: var(--ink-soft); }
-
-      /* Mini Quote */
-      .mini-quote {
-        background: var(--green-deep);
-        color: var(--white);
-        padding: 24px;
-        border-radius: 8px;
-        text-align: center;
-        margin-top: 22px;
-      }
-      .mini-quote .ar { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: #ffffff; }
-      .mini-quote .en { font-size: 0.88rem; color: var(--gold); margin-top: 6px; font-style: italic; }
-      .mini-quote cite { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--gold); font-style: normal; }
 
       /* ---------- FOOTER ---------- */
-      .site-footer { background: var(--green-deep); color: #dfe3da; padding: 64px 0 0; }
-      .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding: 0 32px 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
-      .footer-brand h3 { color: var(--white); font-size: 1.25rem; line-height: 1.3; margin-bottom: 14px; }
-      .footer-brand p { color: #c3c9bc; font-size: 0.88rem; }
-      .footer-col h4 { color: var(--white); font-family: var(--font-body); font-size: 0.9rem; letter-spacing: 0.4px; margin-bottom: 16px; font-weight: 600; }
-      .footer-col a { display: block; font-size: 0.87rem; color: #c3c9bc; margin-bottom: 10px; transition: color 0.2s; }
-      .footer-col a:hover { color: var(--white); }
-      .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: 22px 0; }
-
-      @media (max-width: 960px) {
-        .main-nav { display: none; }
-        .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .site-footer {
+        background: var(--green-deep);
+        color: #dfe3da;
+        padding: 40px 0;
+        text-align: center;
+        font-size: 0.82rem;
       }
 
-      /* تنسيقات تصغير الخطوط في الجوال لراحة العين */
-      @media (max-width: 560px) {
-        .container { padding: 0 16px; }
-        .section-card { padding: 22px 14px; }
-        .section-title { font-size: 1.6rem; }
-        .text-block { font-size: 0.94rem; line-height: 1.7; }
-        .profile-text .ar { font-size: 1.02rem; }
-        .profile-text .en { font-size: 0.8rem; }
-        .principle-item .ar { font-size: 0.95rem; }
-        .principle-item .en { font-size: 0.78rem; }
-        .therapy-pill { font-size: 0.84rem; padding: 6px 12px; }
-        .timeline-row { grid-template-columns: 1fr; gap: 4px; text-align: center; }
-        .timeline-year { direction: rtl; font-size: 1rem; }
-        .timeline-info .ar { font-size: 0.94rem; }
-        .timeline-info .en { font-size: 0.76rem; }
-        .footer-grid { grid-template-columns: 1fr; }
+      /* ---------- RESPONSIVE MOBILE ---------- */
+      @media (max-width: 850px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 1px solid var(--line);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+          gap: 16px;
+          z-index: 200;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+        }
+        .about-card {
+          padding: 24px;
+        }
+        .about-card h1 {
+          font-size: 1.8rem;
+        }
       }
     </style>
   </head>
@@ -316,211 +185,58 @@
 
     <!-- HEADER -->
     <header class="site-header">
-      <div class="header-inner">
-        <a href="../index.html" class="logo-link">
-          <span class="logo">
-            <span class="logo-icon-wrap">
-              <img src="../images/logoo.png" alt="Nishdan Logo" />
-            </span>
-            Nishdan
-          </span>
+      <div class="header-wrap">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon-wrap">
+            <img src="../images/logoo.png" alt="Logo" />
+          </div>
+          Nishdan
         </a>
-        <nav class="main-nav">
+
+        <nav class="nav-links" id="mainNav">
           <a href="../index.html">Home</a>
           <a href="courses.html">Courses</a>
           <a href="about.html" class="active">About</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <div class="header-icons">
-          <button aria-label="Search" class="icon-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-          </button>
-          <a href="account.html" aria-label="Account" class="icon-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-          </a>
-        </div>
+
+        <!-- زر الخطوط الثلاثة في زاوية اليمين تماماً -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </header>
 
-    <!-- CONTENT FLOW -->
-    <main class="container content-flow">
-
-      <!-- القسم الأول: قصتي والفلسفة -->
-      <section class="section-card">
-        <div class="profile-hero">
-          <div class="profile-img-wrap">
-            <img src="../images/logoo.png" alt="Nishdan" />
-          </div>
-          <div class="profile-text ar-text">
-            <p class="ar">نشدان استشارية ومدربة صحة حاصلة على شهادة في الناتوروباثي وهو طب شمولي تغذوي وعلاج بالطبيعة.</p>
-            <p class="en" lang="en">Nishdan is a health consultant and coach certified in naturopathy — nutritional holistic medicine and nature cure.</p>
-          </div>
-        </div>
-
-        <!-- صورة الترويسة -->
-        <div class="hero-image-banner">
-          <img src="../images/herbs.jpg" alt="Natural Herbs & Plants" onerror="this.src='../images/weight.jpg';" />
-        </div>
-
-        <div class="section-title-wrap ar-text">
-          <h1 class="section-title">فلسفة المداواة الطبيعية</h1>
-          <span class="section-subtitle" lang="en" dir="ltr">Our Holistic Approach</span>
-        </div>
-        
-        <p class="text-block ar-text">
-          هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من ديننا الحنيف والطب الشمولي لتكوني طبيبة نفسكِ وعائلتكِ بوعي تام، بناءً على المنهج الصحي القائم على أن <strong>جسم الإنسان لديه القدرة على التشافي بشكل فطري</strong>، وأن العلاج الحقيقي موجود في الطبيعة.
+    <!-- ABOUT SECTION -->
+    <main class="container about-section">
+      <div class="about-card ar">
+        <span class="eyebrow" style="direction: ltr;">About Me</span>
+        <h1>أنا نشدان</h1>
+        <span class="divider"></span>
+        <p class="about-text">
+          استشارية ومدربة صحة حاصلة على شهادة في الناتوروباثي وهو طب شمولي تغذوي وعلاج بالطبيعة. هدفي أن أضع بين يديك علمًا نافعًا مستنبطاً من الطب النبوي والطب الشمولي بعيدًا عن صخب النصائح المعقدة.
         </p>
-
-        <div class="mini-quote ar-text">
-          <p class="ar">“أياً يكن المرض الذي صنعه الجسم، يمكن له أن يتخلص منه.”</p>
-          <p class="en" lang="en">Whatever illness the body has created, it is also able to undo.</p>
-          <cite>— Dr. A. Vogel / د. ألفريد فوغل</cite>
-        </div>
-      </section>
-
-      <!-- القسم الثاني: المبادئ -->
-      <section class="section-card">
-        <div class="section-title-wrap ar-text">
-          <h2 class="section-title">مبادئ الناتوروباثي</h2>
-          <span class="section-subtitle" lang="en" dir="ltr">Principles of Naturopathy</span>
-        </div>
-
-        <ul class="principles-grid ar-text">
-          <li class="principle-item">
-            <p class="ar">قوة الطبيعة في العلاج</p>
-            <p class="en" lang="en">Healing Power of Nature</p>
-          </li>
-          <li class="principle-item">
-            <p class="ar">الدواء يجب ألا يضر</p>
-            <p class="en" lang="en">Do No Harm</p>
-          </li>
-          <li class="principle-item">
-            <p class="ar">عالج المريض ككل</p>
-            <p class="en" lang="en">Treat the Whole Person</p>
-          </li>
-          <li class="principle-item">
-            <p class="ar">ابحث عن السبب وعالجه</p>
-            <p class="en" lang="en">Treat the Cause</p>
-          </li>
-          <li class="principle-item">
-            <p class="ar">الوقاية</p>
-            <p class="en" lang="en">Disease Prevention</p>
-          </li>
-          <li class="principle-item">
-            <p class="ar">الطبيب مُعلّم</p>
-            <p class="en" lang="en">Doctor as Teacher</p>
-          </li>
-        </ul>
-      </section>
-
-      <!-- القسم الثالث: التاريخ والرواد -->
-      <section class="section-card">
-        <div class="section-title-wrap ar-text">
-          <h2 class="section-title">تاريخ وروّاد الناتوروباثي</h2>
-          <span class="section-subtitle" lang="en" dir="ltr">History &amp; Pioneers</span>
-        </div>
-        
-        <p class="text-block ar-text" style="margin-bottom: 16px;">
-          تعتمد الجذور على حركة (Nature Cure) التي نشأت بأوروبا في القرن الـ 19:
+        <p class="about-text">
+          أسعى لتعليمكِ كيف تكوني مطببة نفسكِ وعائلتكِ بوعي تام وتطبيق يسير يتناسب مع كل الظروف والثقافات، لبناء حياة صحية مستدامة ومستقرة.
         </p>
-
-        <div class="timeline-compact ar-text">
-          <div class="timeline-row">
-            <time class="timeline-year">1826</time>
-            <div class="timeline-info">
-              <p class="ar">د. فنسنت بريزنتس — أبو العلاج بالماء</p>
-              <p class="en" lang="en">Dr. Vincent Priessnitz (Father of Hydrotherapy)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1840</time>
-            <div class="timeline-info">
-              <p class="ar">سباستيان كنايب — تطوير أساليب العلاج المائي</p>
-              <p class="en" lang="en">Sebastian Kneipp (Developed Hydrotherapy)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1880</time>
-            <div class="timeline-info">
-              <p class="ar">د. إيجيناز فون بيزلي — مؤسس علم التشخيص بالقزحية</p>
-              <p class="en" lang="en">Dr. Ignaz Von Peczely (Founder of Iridology)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1885</time>
-            <div class="timeline-info">
-              <p class="ar">د. جون شيل — صاغ مصطلح «ناتوروباثي»</p>
-              <p class="en" lang="en">Dr. John Scheel (Coined Naturopathy)</p>
-            </div>
-          </div>
-
-          <div class="timeline-row">
-            <time class="timeline-year">1900</time>
-            <div class="timeline-info">
-              <p class="ar">د. بينيديكت لوست — أبو الناتوروباثي في أمريكا</p>
-              <p class="en" lang="en">Dr. Benedict Lust (Father of American Naturopathy)</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- القسم الرابع: العلاجات -->
-      <section class="section-card">
-        <div class="section-title-wrap ar-text">
-          <h2 class="section-title">التخصصات والعلاجات المتعددة</h2>
-          <span class="section-subtitle" lang="en" dir="ltr">Multidisciplinary Therapies</span>
-        </div>
-        
-        <p class="text-block ar-text" style="margin-bottom: 16px;">
-          يستخدم معالج الناتوروباثي مجموعة من العلاجات الآمنة والداعمة لآليات التشافي الذاتي في آنٍ واحد:
-        </p>
-
-        <div class="therapy-compact ar-text">
-          <div class="therapy-pill"><span>التغذية العلاجية</span> <span class="en">Nutritional Therapy</span></div>
-          <div class="therapy-pill"><span>الزيوت العطرية</span> <span class="en">Aromatherapy</span></div>
-          <div class="therapy-pill"><span>خلاصات الزهور</span> <span class="en">Flower Essence</span></div>
-          <div class="therapy-pill"><span>هوميوباثي</span> <span class="en">Homeopathy</span></div>
-          <div class="therapy-pill"><span>طب الأعشاب</span> <span class="en">Herbal Medicine</span></div>
-          <div class="therapy-pill"><span>يوغا وتأمل</span> <span class="en">Yoga &amp; Meditation</span></div>
-          <div class="therapy-pill"><span>تقويم العمود الفقري</span> <span class="en">Chiropractic</span></div>
-          <div class="therapy-pill"><span>مساج</span> <span class="en">Massage</span></div>
-          <div class="therapy-pill"><span>كايينيسيولوجي</span> <span class="en">Kinesiology</span></div>
-        </div>
-      </section>
-
+      </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-brand">
-          <h3>Nishdan<br />Integrative Health</h3>
-          <p>Evidence-based naturopathy serving your lifelong health.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <a href="../index.html">Home</a>
-          <a href="courses.html">Courses</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <a href="#">Blog</a>
-          <a href="#">FAQ</a>
-          <a href="#">Legal Notice</a>
-          <a href="#">Privacy Policy</a>
-        </div>
-        <div class="footer-col newsletter">
-          <h4>Stay Connected</h4>
-          <p>Receive exclusive tips and content every week.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2026 Nishdan Integrative Health. All rights reserved.</p>
       </div>
-      <div class="footer-bottom">&copy; 2026 Nishdan Integrative Health — All rights reserved.</div>
     </footer>
 
+    <!-- سكريبت تشغيل القائمة للموبايل -->
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
