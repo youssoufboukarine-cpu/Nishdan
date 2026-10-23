@@ -9,6 +9,9 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <!-- سكريبت Gumroad لتشغيل نافذة الدفع المنبثقة -->
+    <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+
     <style>
       :root {
         --cream: #faf8f3;
@@ -81,7 +84,6 @@
       .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
       .nav-links a:hover { color: var(--green-deep); }
 
-      /* زر الخطوط الثلاثة في زاوية اليمين تماماً على الموبايل */
       .menu-toggle {
         display: none;
         background: none;
@@ -170,10 +172,12 @@
         cursor: pointer;
         transition: background .2s, transform .1s;
         box-shadow: 0 6px 16px rgba(60, 74, 52, 0.25);
+        text-decoration: none;
       }
       .btn-buy-now:hover {
         background: var(--green-mid);
         transform: translateY(-1px);
+        color: var(--white);
       }
 
       .perks-list {
@@ -197,7 +201,7 @@
         font-weight: bold;
       }
 
-      /* ---------- CONTENT SECTIONS (CLEAN CARDS) ---------- */
+      /* ---------- CONTENT SECTIONS ---------- */
       .content-section {
         margin-bottom: 40px;
         display: flex;
@@ -324,7 +328,6 @@
           <a href="contact.html">Contact</a>
         </nav>
 
-        <!-- زر الخطوط الثلاثة في أقصى اليمين -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
@@ -342,7 +345,7 @@
             <img src="../images/beauty.jpg" alt="Beauty and Health Course" />
           </div>
 
-          <!-- لوحة الشراء والسعر (متجر حقيقي) -->
+          <!-- لوحة الشراء والسعر -->
           <div class="product-buy-panel ar">
             <div>
               <h1 class="course-title">الجمال والصحة: الارتباط العضوي والفيزيولوجي</h1>
@@ -354,7 +357,8 @@
               <span class="price-curr">USD</span>
             </div>
 
-            <button class="btn-buy-now">شراء الدورة الآن</button>
+            <!-- زر الشراء المرتبط برابط Gumroad الخاص بالجمال -->
+            <a href="https://jannat180.gumroad.com/l/qqlkuy" target="_blank" class="btn-buy-now">شراء الدورة الآن</a>
 
             <ul class="perks-list">
               <li>وصول فوري ودائم لمحتوى الدورة</li>
