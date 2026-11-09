@@ -246,7 +246,9 @@
       .showcase-card:nth-child(4) { --acc: var(--coral); --tint: #ffe9e0; }
       .showcase-card:nth-child(5) { --acc: var(--berry); --tint: #fde3ec; }
       .showcase-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
-      .showcase-media { height: 170px; overflow: hidden; position: relative; }
+      .showcase-media { display: block; height: 170px; overflow: hidden; position: relative; }
+      .showcase-card h3 a { transition: color .25s; }
+      .showcase-card h3 a:hover { color: var(--acc); }
       .showcase-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
       .showcase-card:hover .showcase-media img { transform: scale(1.08); }
       .showcase-media::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--acc); }
@@ -518,10 +520,10 @@
             </div>
           </div>
           <div class="showcase-card">
-            <div class="showcase-media"><img src="https://images.unsplash.com/photo-1769029262388-3ebd4e4e37d0?auto=format&fit=crop&w=800&q=80" alt="Hands with joint pain" loading="lazy" /></div>
+            <a href="pages/fibromyalgia-protocol.html" class="showcase-media" aria-label="بروتوكول الفايبروماليجيا"><img src="https://images.unsplash.com/photo-1769029262388-3ebd4e4e37d0?auto=format&fit=crop&w=800&q=80" alt="Hands with joint pain" loading="lazy" /></a>
             <div class="showcase-body">
               <span class="showcase-tag">الألم والإرهاق</span>
-              <h3>بروتوكول الفايبروماليجيا</h3>
+              <h3><a href="pages/fibromyalgia-protocol.html">بروتوكول الفايبروماليجيا</a></h3>
               <p>نهج شمولي لتخفيف الألم المزمن والإرهاق وتحسين جودة النوم، يجمع بين التغذية العلاجية والأعشاب ونمط الحياة.</p>
             </div>
           </div>
