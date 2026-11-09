@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بروتوكول الفايبروماليجيا — Nishdan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Same vivid palette as the homepage */
+        --cream: #fffaf2;
+        --cream-2: #fff3e3;
+        --mint: #eaf7e4;
+        --ink: #1f2a1c;
+        --ink-soft: #55604f;
+        --green-deep: #1f5a32;
+        --green: #2f8a45;
+        --green-bright: #5cb85c;
+        --gold: #f0a91c;
+        --gold-deep: #d98e00;
+        --coral: #f2734f;
+        --coral-tint: #ffe9e0;
+        --berry: #e04f7a;
+        --line: #efe4d2;
+        --white: #ffffff;
+        --shadow: 0 24px 48px -24px rgba(31, 90, 50, 0.35);
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "Jost", "Segoe UI", sans-serif;
+        --font-arabic: "IBM Plex Sans Arabic", "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+        --ease: cubic-bezier(.22, .61, .36, 1);
+        --violet: #8a5cd6;
+        --violet-deep: #6a3fbf;
+        --violet-tint: #f0e8fc;
+        --berry-tint: #fde3ec;
+        --honey-tint: #fff1d2;
+        --green-tint: #e6f5df;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.6;
+        direction: ltr;
+        font-size: 0.96rem;
+        overflow-x: hidden;
+      }
+      .ar { direction: rtl; font-family: var(--font-arabic); text-align: right; }
+      h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
+      .ar h1, .ar h3 { font-family: var(--font-arabic); font-weight: 700; }
+      a { text-decoration: none; color: inherit; }
+      img { display: block; width: 100%; object-fit: cover; }
+
+      .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+      /* ---------- HEADER (same as homepage) ---------- */
+      .site-header {
+        background: rgba(255, 250, 242, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        position: sticky; top: 0; z-index: 100;
+        border-bottom: 1px solid rgba(31, 90, 50, 0.08);
+      }
+      .header-wrap {
+        max-width: 1180px; margin: 0 auto;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 16px 32px; min-height: 104px; position: relative;
+      }
+      .logo { display: flex; align-items: center; gap: 14px; color: var(--green-deep); }
+            .logo-mark { height: 72px; width: auto; flex-shrink: 0; filter: drop-shadow(0 6px 10px rgba(31, 90, 50, 0.18)); transition: transform .5s var(--ease); }
+      .logo:hover .logo-mark { transform: rotate(-6deg) scale(1.06); }
+      .logo-text { padding-left: 14px; border-left: 2px solid var(--gold); }
+      .logo-text { display: flex; flex-direction: column; line-height: 1; }
+      .logo-name { font-family: var(--font-display); font-size: 1.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--green-deep); }
+      .logo-tag { font-size: 0.72rem; letter-spacing: 2.4px; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-top: 7px; }
+
+      .nav-links { display: flex; gap: 6px; }
+      .nav-links a {
+        font-size: 0.85rem; letter-spacing: 0.6px; text-transform: uppercase; font-weight: 600;
+        color: var(--ink); padding: 9px 16px; border-radius: 999px; transition: background .25s, color .25s;
+      }
+      .nav-links a:hover { background: var(--mint); color: var(--green); }
+      .nav-links a.active { background: var(--green); color: var(--white); }
+
+      .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
+      .menu-toggle svg { width: 26px; height: 26px; }
+
+      
+      /* ---------- TOP BAND (decorative) ---------- */
+      .top-band { position: relative; height: 290px; overflow: hidden; background: var(--violet); }
+      .top-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: heroZoom 18s ease-in-out infinite alternate; }
+      .top-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(74, 40, 140, 0.85), rgba(138, 92, 214, 0.7) 50%, rgba(224, 79, 122, 0.5)); }
+      @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+      @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+      /* ---------- PRODUCT CARD ---------- */
+      .product-section { margin-top: -200px; position: relative; z-index: 2; padding-bottom: 34px; }
+      .product-showcase {
+        position: relative; background: var(--white); border-radius: 28px; overflow: hidden;
+        box-shadow: 0 30px 60px -34px rgba(31, 42, 28, 0.55);
+        display: grid; grid-template-columns: 1fr 1fr;
+        animation: rise .8s var(--ease) both;
+      }
+      .product-showcase::before {
+        content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; z-index: 2;
+        background: linear-gradient(90deg, var(--violet-deep), var(--violet), var(--berry), var(--coral));
+      }
+      .product-img-box { position: relative; min-height: 460px; overflow: hidden; background: var(--violet-tint); }
+      .product-img-box::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(106, 63, 191, 0.3), transparent 55%); pointer-events: none; }
+      .product-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+      .product-showcase:hover .product-img-box img { transform: scale(1.06); }
+
+      .product-buy-panel { padding: 42px 40px 36px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+      .badge {
+        display: inline-flex; align-items: center; gap: 8px; width: fit-content;
+        background: linear-gradient(135deg, var(--coral), var(--berry));
+        color: var(--white); font-weight: 700; font-size: 0.9rem;
+        padding: 7px 18px; border-radius: 999px; box-shadow: 0 10px 20px -10px var(--berry);
+      }
+      .course-title { font-size: 2.1rem; color: var(--green-deep); line-height: 1.45; }
+      .course-subtitle { font-size: 1.04rem; color: var(--ink-soft); line-height: 1.9; }
+
+      .price-box { display: flex; align-items: baseline; gap: 10px; width: fit-content; background: var(--violet-tint); padding: 10px 22px; border-radius: 18px; }
+      .price-val {
+        font-family: var(--font-display); font-size: 2.6rem; font-weight: 700; line-height: 1.1;
+        background: linear-gradient(135deg, var(--violet-deep), var(--berry));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .price-curr { font-size: 0.9rem; font-weight: 600; color: var(--violet); letter-spacing: 1px; }
+
+      .btn-buy-now {
+        display: block; width: 100%; text-align: center; font-family: var(--font-arabic);
+        background: linear-gradient(135deg, #ffc23d, var(--gold) 45%, var(--coral));
+        color: var(--white); padding: 17px; border-radius: 999px; font-weight: 700; font-size: 1.1rem;
+        box-shadow: 0 16px 32px -12px rgba(242, 115, 79, 0.7);
+        transition: transform .25s var(--ease), box-shadow .25s, filter .25s;
+      }
+      .btn-buy-now:hover { transform: translateY(-3px); filter: brightness(1.06); box-shadow: 0 20px 38px -12px rgba(242, 115, 79, 0.85); color: var(--white); }
+
+      .perks-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.94rem; color: var(--ink-soft); border-top: 1px dashed var(--line); padding-top: 18px; }
+      .perks-list li { display: flex; align-items: center; gap: 10px; }
+      .perks-list li::before {
+        content: "✓"; flex: none; width: 24px; height: 24px; border-radius: 50%;
+        display: grid; place-items: center; font-size: 0.75rem; font-weight: 700; color: var(--white);
+        background: var(--violet); box-shadow: 0 6px 12px -6px var(--violet);
+      }
+      .perks-list li:nth-child(2)::before { background: var(--berry); box-shadow: 0 6px 12px -6px var(--berry); }
+      .perks-list li:nth-child(3)::before { background: var(--green-bright); box-shadow: 0 6px 12px -6px var(--green); }
+
+      /* ---------- CONTENT ---------- */
+      .content-section { margin-bottom: 70px; display: flex; flex-direction: column; gap: 28px; }
+      .info-card {
+        --acc: var(--violet); --tint: var(--violet-tint);
+        position: relative; overflow: hidden; background: var(--white); border-radius: 24px; padding: 38px 40px;
+        box-shadow: 0 18px 44px -28px rgba(31, 42, 28, 0.4); border: 1px solid rgba(31, 42, 28, 0.06);
+        transition: transform .4s var(--ease), box-shadow .4s;
+      }
+      .info-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--acc); }
+      .info-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+      .info-card.c-berry { --acc: var(--berry); --tint: var(--berry-tint); }
+      .info-card.c-green { --acc: var(--green); --tint: var(--green-tint); }
+      .info-card.c-honey { --acc: var(--gold-deep); --tint: var(--honey-tint); }
+
+      .card-eyebrow { display: inline-block; font-size: 0.82rem; font-weight: 700; color: var(--acc); background: var(--tint); padding: 5px 14px; border-radius: 999px; margin-bottom: 12px; }
+      .info-card h2, .info-card h3 { font-size: 1.6rem; color: var(--green-deep); line-height: 1.5; margin-bottom: 18px; }
+      .info-card h2::after, .info-card h3::after {
+        content: ""; display: block; width: 60px; height: 4px; border-radius: 4px; margin-top: 12px;
+        background: linear-gradient(90deg, var(--violet), var(--berry), var(--coral));
+      }
+      .desc-text { font-size: 1.04rem; color: var(--ink-soft); line-height: 2; margin-bottom: 14px; }
+      .desc-text:last-child { margin-bottom: 0; }
+      .desc-text b { color: var(--violet-deep); }
+
+      /* symptoms */
+      .symptom-list { display: grid; grid-template-columns: 1fr; gap: 12px; list-style: none; }
+      .symptom-list li {
+        --c: var(--violet); --t: var(--violet-tint);
+        display: flex; align-items: flex-start; gap: 14px; background: var(--t);
+        padding: 14px 18px; border-radius: 16px; font-size: 1rem; line-height: 1.8; color: var(--ink);
+        transition: transform .3s var(--ease), background .3s, box-shadow .3s;
+      }
+      .symptom-list li:nth-child(2) { --c: var(--berry); --t: var(--berry-tint); }
+      .symptom-list li:nth-child(3) { --c: var(--coral); --t: var(--coral-tint); }
+      .symptom-list li:nth-child(4) { --c: var(--gold-deep); --t: var(--honey-tint); }
+      .symptom-list li:nth-child(5) { --c: var(--green); --t: var(--green-tint); }
+      .symptom-list li::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; margin-top: 9px; background: var(--c); box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8); }
+      .symptom-list li:hover { transform: translateX(-6px); background: var(--white); box-shadow: 0 12px 24px -16px var(--c); }
+
+      /* benefits */
+      .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .benefit {
+        --c: var(--violet); --t: var(--violet-tint);
+        background: var(--t); border-radius: 20px; padding: 24px 22px;
+        transition: transform .35s var(--ease), background .35s, box-shadow .35s;
+      }
+      .benefit:nth-child(2) { --c: var(--green); --t: var(--green-tint); }
+      .benefit:nth-child(3) { --c: var(--berry); --t: var(--berry-tint); }
+      .benefit:nth-child(4) { --c: var(--gold-deep); --t: var(--honey-tint); }
+      .benefit .ico {
+        width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+        background: var(--c); color: var(--white); margin-bottom: 14px; box-shadow: 0 10px 18px -8px var(--c);
+        transition: transform .4s var(--ease);
+      }
+      .benefit .ico svg { width: 22px; height: 22px; }
+      .benefit h4 { font-size: 1.12rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+      .benefit p { font-size: 0.96rem; line-height: 1.85; color: var(--ink-soft); }
+      .benefit:hover { transform: translateY(-6px); background: var(--white); box-shadow: 0 16px 30px -18px var(--c); }
+      .benefit:hover .ico { transform: rotate(-12deg) scale(1.08); }
+
+      /* verse */
+      .verse-band {
+        position: relative; overflow: hidden; text-align: center; border-radius: 26px; padding: 46px 36px 40px;
+        background: linear-gradient(135deg, #4a288c, var(--violet) 55%, var(--berry));
+        color: var(--white);
+      }
+      .verse-band::after { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: rgba(240, 169, 28, 0.35); filter: blur(60px); bottom: -130px; left: -60px; }
+      .verse-band > * { position: relative; z-index: 1; }
+      .verse-band .tag { display: inline-block; background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.3); padding: 5px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 18px; }
+      .verse-band .verse { font-family: "Amiri", var(--font-arabic); font-size: 1.9rem; font-weight: 700; line-height: 1.9; }
+      .verse-band .ref { display: inline-block; margin-top: 10px; color: #ffd166; font-weight: 600; }
+      .verse-band .note { margin-top: 14px; color: rgba(255, 255, 255, 0.88); font-size: 1rem; line-height: 1.9; max-width: 560px; margin-inline: auto; }
+
+      /* inside the protocol */
+      .steps { list-style: none; display: grid; gap: 12px; counter-reset: step; }
+      .steps li {
+        --c: var(--violet); --t: var(--violet-tint);
+        counter-increment: step; display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: center;
+        padding: 14px 16px; border-radius: 18px; background: var(--t);
+        transition: transform .3s var(--ease), background .3s, box-shadow .3s;
+      }
+      .steps li:nth-child(7n+2) { --c: var(--berry); --t: var(--berry-tint); }
+      .steps li:nth-child(7n+3) { --c: var(--coral); --t: var(--coral-tint); }
+      .steps li:nth-child(7n+4) { --c: var(--gold-deep); --t: var(--honey-tint); }
+      .steps li:nth-child(7n+5) { --c: var(--green); --t: var(--green-tint); }
+      .steps li:nth-child(7n+6) { --c: #1f9c8f; --t: #dff5f2; }
+      .steps li:nth-child(7n+7) { --c: var(--violet-deep); --t: var(--violet-tint); }
+      .steps li::before {
+        content: counter(step); width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+        background: var(--c); color: var(--white); font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
+        box-shadow: 0 8px 16px -8px var(--c);
+      }
+      .steps b { display: block; font-size: 1.05rem; color: var(--ink); }
+      .steps span { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.8; }
+      .steps li:hover { transform: translateX(-6px); background: var(--white); box-shadow: 0 12px 24px -16px var(--c); }
+
+      /* personal-protocol notice (like the cover of the liver programme) */
+      .notice {
+        position: relative; border-radius: 22px; padding: 30px 32px; background: var(--coral-tint);
+        border-inline-start: 6px solid var(--coral);
+      }
+      .notice h3 { font-size: 1.3rem; color: var(--coral); margin-bottom: 10px; }
+      .notice p { font-size: 0.98rem; line-height: 2; color: var(--ink); }
+      .notice p + p { margin-top: 8px; }
+      .notice .strong { font-weight: 700; color: #b8452a; }
+
+      /* not-suitable-for block */
+      .contra {
+        position: relative; overflow: hidden; border-radius: 24px; padding: 32px 34px 28px;
+        background: linear-gradient(135deg, #fff1ec, #ffe6ea);
+        border: 2px solid rgba(214, 69, 69, 0.28);
+        box-shadow: 0 18px 40px -28px rgba(214, 69, 69, 0.6);
+      }
+      .contra-head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+      .contra-ico {
+        flex: none; width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+        background: linear-gradient(135deg, #ff7a59, #d64545); color: var(--white);
+        box-shadow: 0 10px 20px -8px rgba(214, 69, 69, 0.8);
+      }
+      .contra-ico svg { width: 26px; height: 26px; }
+      .contra-eyebrow { display: inline-block; font-size: 0.82rem; font-weight: 700; color: #c23b3b; background: rgba(255, 255, 255, 0.75); padding: 4px 12px; border-radius: 999px; margin-bottom: 6px; }
+      .contra h2 { font-size: 1.45rem; color: #a3302f; line-height: 1.5; }
+      .contra-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .contra-list li {
+        display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.8);
+        padding: 12px 16px; border-radius: 14px; font-size: 1rem; font-weight: 600; color: var(--ink);
+      }
+      .contra-list li::before {
+        content: "✕"; flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+        background: #d64545; color: var(--white); font-size: 0.72rem; font-weight: 700;
+      }
+      .contra-foot { margin-top: 16px; font-size: 0.98rem; line-height: 1.9; color: var(--ink); }
+      .contra-foot a, .notice-link { color: #c23b3b; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+      /* closing call to action */
+      .cta-band {
+        position: relative; overflow: hidden; border-radius: 28px; padding: 44px 40px; text-align: center;
+        background: linear-gradient(135deg, var(--violet-tint), var(--cream-2) 50%, var(--berry-tint));
+      }
+      .cta-band::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--violet), var(--berry), var(--coral), var(--gold)); }
+      .cta-band h2 { font-size: 1.8rem; color: var(--green-deep); line-height: 1.5; margin-bottom: 8px; }
+      .cta-band p { color: var(--ink-soft); font-size: 1.02rem; margin-bottom: 24px; }
+      .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-actions a {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px;
+        padding: 13px 28px; border-radius: 999px; font-family: var(--font-arabic); font-weight: 700; font-size: 1rem; color: var(--white);
+        transition: transform .25s var(--ease), filter .25s, box-shadow .25s;
+      }
+      .cta-actions a:hover { transform: translateY(-3px); filter: brightness(1.06); color: var(--white); }
+      .cta-actions .buy { background: linear-gradient(135deg, #ffc23d, var(--gold) 45%, var(--coral)); box-shadow: 0 14px 30px -10px rgba(242, 115, 79, 0.7); }
+      .cta-actions .wa { background: linear-gradient(135deg, #3ee07a, #1faa55); box-shadow: 0 14px 30px -10px rgba(31, 170, 85, 0.7); }
+      .cta-actions .wa svg { width: 20px; height: 20px; }
+
+      /* ---------- FOOTER (homepage style) ---------- */
+      .site-footer { position: relative; background: linear-gradient(160deg, #164a29 0%, var(--green-deep) 60%, #2a6b3f 100%); color: #c7d4c0; padding: 34px 0; text-align: center; font-size: 0.85rem; }
+      .site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral), var(--berry)); }
+
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 850px) {
+        .nav-links {
+          display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white);
+          flex-direction: column; align-items: center; padding: 18px 0; gap: 6px; z-index: 200;
+          border-bottom: 1px solid var(--line); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+        }
+        .nav-links.active { display: flex; }
+        .menu-toggle { display: inline-flex; align-items: center; }
+        .product-showcase { grid-template-columns: 1fr; }
+        .product-img-box { height: 260px; min-height: auto; }
+        .product-buy-panel { padding: 30px 24px; }
+        .course-title { font-size: 1.7rem; }
+      }
+      @media (max-width: 560px) {
+        .header-wrap { min-height: 84px; padding: 12px 18px; }
+        .logo { gap: 10px; }
+        .logo-mark { height: 56px; }
+        .logo-text { padding-left: 10px; }
+        .logo-name { font-size: 1.35rem; letter-spacing: 2px; }
+        .logo-tag { font-size: 0.6rem; letter-spacing: 1.6px; }
+        .container { padding: 0 14px; }
+        .top-band { height: 230px; }
+        .product-section { margin-top: -170px; }
+        .product-img-box { height: 220px; }
+        .course-title { font-size: 1.5rem; }
+        .price-val { font-size: 2.2rem; }
+        .info-card { padding: 28px 20px; border-radius: 20px; }
+        .info-card h2, .info-card h3 { font-size: 1.32rem; }
+        .desc-text { font-size: 0.97rem; line-height: 1.9; }
+        .benefit-grid { grid-template-columns: 1fr; }
+        .contra { padding: 26px 18px 22px; }
+        .contra h2 { font-size: 1.2rem; }
+        .contra-list { grid-template-columns: 1fr; }
+        .verse-band { padding: 36px 20px 32px; }
+        .verse-band .verse { font-size: 1.45rem; }
+        .notice { padding: 24px 20px; }
+        .cta-band { padding: 34px 20px; }
+        .cta-band h2 { font-size: 1.4rem; }
+        .cta-actions a { width: 100%; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-wrap">
+        <a href="../index.html" class="logo">
+          <img class="logo-mark" src="data:image/png;base64,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" alt="Nishdan logo" width="100" height="102" />
+          <span class="logo-text">
+            <span class="logo-name">Nishdan</span>
+            <span class="logo-tag">Integrative Health</span>
+          </span>
+        </a>
+
+        <nav class="nav-links" id="mainNav">
+          <a href="../index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- شريط ملوّن في أعلى الصفحة (زخرفة فقط) -->
+    <div class="top-band" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&w=1920&q=80" alt="" />
+    </div>
+
+    <main class="container">
+
+      <!-- بطاقة البروتوكول والسعر -->
+      <section class="product-section">
+        <div class="product-showcase">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1769029262388-3ebd4e4e37d0?auto=format&fit=crop&w=1000&q=80" alt="Hands with joint pain" />
+          </div>
+
+          <div class="product-buy-panel ar">
+            <span class="badge">بروتوكول شخصي</span>
+            <div>
+              <h1 class="course-title">بروتوكول الفايبروماليجيا</h1>
+              <p class="course-subtitle" style="margin-top: 8px;">رحلتكِ مع الطب الطبيعي نحو التعافي من الألم واستعادة طاقتكِ، خطوة بخطوة.</p>
+            </div>
+
+                        <div class="price-box">
+              <span class="price-val">$24</span>
+              <span class="price-curr">USD</span>
+            </div>
+
+            <!-- ضعي رابط الشراء (Gumroad أو Payhip) مكان # -->
+            <a href="#" target="_blank" class="btn-buy-now">احصلي على البروتوكول الآن</a>
+
+            <ul class="perks-list">
+              <li>دليل علاجي مفصّل نحو التعافي، خطوة بخطوة</li>
+              <li>نظام غذائي واضح وبرنامج وجبات جاهز</li>
+              <li>مكمّلات طبيعية داعمة وطريقة تناولها</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+
+        <!-- تنبيه: لمن لا يصلح هذا البروتوكول -->
+        <div class="contra ar">
+          <div class="contra-head">
+            <span class="contra-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L2.8 19.5h18.4z"/><path d="M12 10v4.5M12 17.2v.1"/></svg></span>
+            <div>
+              <span class="contra-eyebrow">تنبيه قبل البدء</span>
+              <h2>لا يصلح هذا البروتوكول للأشخاص الذين:</h2>
+            </div>
+          </div>
+          <ul class="contra-list">
+            <li>يعانون من ارتفاع ضغط الدم.</li>
+            <li>يعانون من أمراض القلب.</li>
+            <li>يعانون من أمراض الكلى.</li>
+            <li>يعانون من أمراض الكبد.</li>
+            <li>في فترة الحمل أو الرضاعة.</li>
+            <li>يتناولون أدوية مزمنة بشكل منتظم.</li>
+          </ul>
+          <p class="contra-foot">في هذه الحالات يُفضَّل <a href="../index.html#consultation">حجز استشارة منفصلة</a> للحصول على بروتوكول يناسب حالتكِ.</p>
+        </div>
+
+        <!-- مدخل -->
+        <div class="info-card ar">
+          <span class="card-eyebrow">مدخل إلى حالتكِ</span>
+          <h2>ما هي الفايبروماليجيا؟</h2>
+          <p class="desc-text">
+            الفايبروماليجيا (الألم العضلي الليفي) حالة مزمنة يشعر فيها الجسم بألم منتشر في العضلات والمفاصل، يرافقه غالبًا تعب مستمر واضطراب في النوم وصعوبة في التركيز. كثيرات يتنقّلن بين المسكّنات دون أن يجدن راحة حقيقية، لأن الألم رسالة من جسدٍ مُثقَل.
+          </p>
+          <p class="desc-text">
+            في هذا البروتوكول نعالج الألم من جذوره: من <b>غذائكِ، وهضمكِ، ونومكِ، وحالتكِ النفسية والروحية</b>، لنمنح جسمكِ كل ما يحتاجه ليتعافى بإذن الله.
+          </p>
+        </div>
+
+        <!-- الأعراض -->
+        <div class="info-card ar c-berry">
+          <span class="card-eyebrow">هل تعانين من هذا؟</span>
+          <h2>الأعراض الظاهرة</h2>
+          <ul class="symptom-list">
+            <li>ألم منتشر في العضلات والمفاصل يتنقّل من مكان لآخر.</li>
+            <li>تعب مزمن ونقص في الطاقة لا يزول بالراحة.</li>
+            <li>نوم متقطّع تستيقظين بعده دون شعور بالراحة.</li>
+            <li>تيبّس في الجسم، خاصة في الصباح.</li>
+            <li>صعوبة في التركيز والنسيان، أو ما يُعرف بـ«ضباب الدماغ».</li>
+          </ul>
+        </div>
+
+        <!-- كيف يساعدك -->
+        <div class="info-card ar c-green">
+          <span class="card-eyebrow">نهج شمولي</span>
+          <h2>كيف يقودكِ هذا البروتوكول إلى التعافي؟</h2>
+          <div class="benefit-grid">
+            <div class="benefit">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19C5 11 10 5.5 19 5c0 8.5-5.5 14-14 14Z"/><path d="M5 19l8.5-8.5"/></svg></span>
+              <h4>علاج الالتهاب من جذوره</h4>
+              <p>نظام غذائي علاجي يُخرج من حياتكِ الأطعمة التي تغذّي الألم، ويمدّ جسمكِ بما يُطفئ الالتهاب.</p>
+            </div>
+            <div class="benefit">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c3 3.6 5 6.4 5 9a5 5 0 01-10 0c0-2.6 2-5.4 5-9z"/></svg></span>
+              <h4>تطهير الجسم</h4>
+              <p>تنظيف الجسم مما تراكم فيه من سموم وأحماض، ودعم الهضم والكبد ليستعيدا عملهما.</p>
+            </div>
+            <div class="benefit">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg></span>
+              <h4>استعادة النوم والطاقة</h4>
+              <p>نوم عميق يجدّد الجسم، وجهاز عصبي متوازن يعيد لكِ طاقتكِ ونشاطكِ.</p>
+            </div>
+            <div class="benefit">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.7A3.9 3.9 0 0112 8a3.9 3.9 0 017 2.3C19 15.6 12 20 12 20z"/></svg></span>
+              <h4>شفاء الروح والجسد</h4>
+              <p>رقية وأذكار وتعليمات من القرآن والسنة ترافق الدواء، فيتعافى الجسد والروح معًا.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- آية -->
+        <div class="verse-band ar">
+          <span class="tag">تعليمات مهمة</span>
+          <p class="verse">﴿وَاذْكُرْ عَبْدَنَا أَيُّوبَ إِذْ نَادَىٰ رَبَّهُ أَنِّي مَسَّنِيَ الشَّيْطَانُ بِنُصْبٍ وَعَذَابٍ﴾</p>
+          <span class="ref">(ص: 41)</span>
+          <p class="note">نأخذ بالأسباب في الغذاء والدواء، ونستعين بالرقية والأذكار، فالجسد والروح يتشافيان معًا.</p>
+        </div>
+
+        <!-- محتوى البروتوكول -->
+        <div class="info-card ar c-honey">
+          <span class="card-eyebrow">خطوة بخطوة</span>
+          <h2>ماذا ستجدين داخل البروتوكول؟</h2>
+          <ol class="steps">
+            <li><div><b>مدخل إلى حالتكِ</b><span>فهم الفايبروماليجيا وما يُثقل جسمكِ.</span></div></li>
+            <li><div><b>الأعراض وأسبابها</b><span>قراءة إشارات جسمكِ وفهم جذور المشكلة.</span></div></li>
+            <li><div><b>نظامكِ الغذائي</b><span>قائمة واضحة بالأطعمة المسموحة والممنوعة.</span></div></li>
+            <li><div><b>المكمّلات الداعمة</b><span>مكمّلات طبيعية مختارة وطريقة تناولها.</span></div></li>
+            <li><div><b>برنامج الوجبات</b><span>فطور وغداء وعشاء لكل يوم، خطوة بخطوة.</span></div></li>
+            <li><div><b>حلويات صحية</b><span>وصفات بسيطة للمسة حلوة دون أن تُتعب جسمكِ.</span></div></li>
+            <li><div><b>تعليمات مهمة</b><span>رقية وأذكار ونصائح من القرآن والسنة ترافق الدواء.</span></div></li>
+          </ol>
+        </div>
+
+        <!-- تنبيه: بروتوكول شخصي -->
+        <div class="notice ar">
+          <h3>بروتوكول شخصي</h3>
+          <p class="strong">هذا البروتوكول أُعدّ لحالة محددة، ولا يناسب الجميع على حدٍّ سواء.</p>
+          <p>ويُفضَّل <a class="notice-link" href="../index.html#consultation">حجز استشارة منفصلة</a> في حال وجود شكوك أو عدم وضوح في الحالة.</p>
+          <p>جميع الحقوق محفوظة. يُمنع نشر البروتوكول أو نسخه بأي شكل، كليًا أو جزئيًا، دون إذن خطي مسبق من الكاتبة.</p>
+        </div>
+
+        <!-- دعوة ختامية -->
+        <div class="cta-band ar">
+          <h2>ابدئي رحلتكِ نحو التعافي من الألم</h2>
+          <p>احصلي على البروتوكول الآن، أو احجزي استشارة لبروتوكول مصمّم لحالتكِ.</p>
+          <div class="cta-actions">
+            <a href="#" target="_blank" class="buy">احصلي على البروتوكول</a>
+            <a href="../index.html#consultation" class="wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.9 11.9 0 004.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 001.8-1.3 2.3 2.3 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>احجزي استشارة واتساب</a>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Nishdan Integrative Health. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- سكريبت تشغيل القائمة للموبايل -->
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+      });
+    </script>
+  </body>
+</html>
