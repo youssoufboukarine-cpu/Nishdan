@@ -1,412 +1,231 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — NaturoPatra</title>
+    <title>Contact — Nishdan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=500;600;700&family=Jost:wght=300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --cream: #faf8f3;
-        --cream-2: #f3efe7;
-        --ink: #2b2a26;
-        --ink-soft: #5a5850;
-        --green-deep: #3c4a34;
-        --green-mid: #7c8f6e;
-        --green-sage: #a9b99a;
-        --gold: #b8a06a;
-        --line: #dcd6c8;
+        /* Same vivid palette as the homepage */
+        --cream: #fffaf2;
+        --cream-2: #fff3e3;
+        --mint: #eaf7e4;
+        --ink: #1f2a1c;
+        --ink-soft: #55604f;
+        --green-deep: #1f5a32;
+        --green: #2f8a45;
+        --green-bright: #5cb85c;
+        --gold: #f0a91c;
+        --gold-deep: #d98e00;
+        --coral: #f2734f;
+        --coral-tint: #ffe9e0;
+        --berry: #e04f7a;
+        --line: #efe4d2;
         --white: #ffffff;
+        --shadow: 0 24px 48px -24px rgba(31, 90, 50, 0.35);
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
+        --font-arabic: "IBM Plex Sans Arabic", "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+        --ease: cubic-bezier(.22, .61, .36, 1);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
       body {
-        margin: 0;
         font-family: var(--font-body);
         color: var(--ink);
         background: var(--cream);
         line-height: 1.6;
+        direction: ltr;
+        font-size: 0.96rem;
+        overflow-x: hidden;
       }
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-family: var(--font-display);
-        color: var(--ink);
-        margin: 0;
-        font-weight: 600;
-      }
-      p {
-        margin: 0 0 1.2em 0;
-        color: var(--ink-soft);
-        font-size: 0.98rem;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
+      .ar { direction: rtl; font-family: var(--font-arabic); text-align: right; }
+      h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
+      .ar h1, .ar h3 { font-family: var(--font-arabic); font-weight: 700; }
+      a { text-decoration: none; color: inherit; }
+      img { display: block; width: 100%; object-fit: cover; }
 
-      /* HEADER */
+      .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+      /* ---------- HEADER (same as homepage) ---------- */
       .site-header {
-        border-bottom: 1px solid var(--line);
-        background: var(--cream);
-        position: sticky;
-        top: 0;
-        z-index: 50;
+        background: rgba(255, 250, 242, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        position: sticky; top: 0; z-index: 100;
+        border-bottom: 1px solid rgba(31, 90, 50, 0.08);
       }
-      .header-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 18px;
-        padding-bottom: 18px;
+      .header-wrap {
+        max-width: 1180px; margin: 0 auto;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 16px 32px; min-height: 104px; position: relative;
       }
-      .logo-link {
-        text-decoration: none;
-        color: inherit;
-        display: inline-block;
-      }
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: var(--font-display);
-        font-size: 1.2rem;
-        font-weight: 700;
-        letter-spacing: 0.3px;
-      }
-      .logo-icon {
-        width: 40px;
-        height: 35px;
-        color: var(--green-deep);
-      }
-      .main-nav {
-        display: flex;
-        gap: 34px;
-      }
-      .main-nav a {
-        font-size: 0.85rem;
-        letter-spacing: 0.4px;
-        color: var(--ink);
-        transition: color 0.2s;
-      }
-      .main-nav a:hover,
-      .main-nav a.active {
-        color: var(--green-deep);
-        font-weight: 500;
-      }
-      .header-icons {
-        display: flex;
-        gap: 16px;
-      }
-      .icon-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--ink);
-        padding: 4px;
-        position: relative;
-        display: flex;
-        align-items: center;
-      }
-      .icon-btn svg {
-        width: 19px;
-        height: 19px;
-      }
+      .logo { display: flex; align-items: center; gap: 14px; color: var(--green-deep); }
+            .logo-mark { height: 72px; width: auto; flex-shrink: 0; filter: drop-shadow(0 6px 10px rgba(31, 90, 50, 0.18)); transition: transform .5s var(--ease); }
+      .logo:hover .logo-mark { transform: rotate(-6deg) scale(1.06); }
+      .logo-text { padding-left: 14px; border-left: 2px solid var(--gold); }
+      .logo-text { display: flex; flex-direction: column; line-height: 1; }
+      .logo-name { font-family: var(--font-display); font-size: 1.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--green-deep); }
+      .logo-tag { font-size: 0.72rem; letter-spacing: 2.4px; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-top: 7px; }
 
-      /* PANIER BADGE */
-      .cart-badge {
-        position: absolute;
-        top: -2px;
-        right: -2px;
-        background: var(--gold);
-        color: var(--white);
-        font-size: 0.7rem;
-        font-weight: 600;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .nav-links { display: flex; gap: 6px; }
+      .nav-links a {
+        font-size: 0.85rem; letter-spacing: 0.6px; text-transform: uppercase; font-weight: 600;
+        color: var(--ink); padding: 9px 16px; border-radius: 999px; transition: background .25s, color .25s;
       }
+      .nav-links a:hover { background: var(--mint); color: var(--green); }
+      .nav-links a.active { background: var(--green); color: var(--white); }
 
-      /* HERO */
+      .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
+      .menu-toggle svg { width: 26px; height: 26px; }
+
+      
+      /* ---------- PAGE HERO (coloured band) ---------- */
       .contact-hero {
-        text-align: center;
-        padding: 60px 0 40px;
-        background: radial-gradient(circle, #ffffff 0%, #fff7e4 100%);
-        border-bottom: 1px solid var(--line);
+        position: relative; overflow: hidden; text-align: center;
+        padding: 70px 0 150px; background: var(--green-deep);
       }
-      .contact-hero h1 {
-        font-size: 2.8rem;
-        letter-spacing: 0.5px;
-        margin-bottom: 10px;
-      }
-      .contact-hero p {
-        font-size: 1.05rem;
-        max-width: 600px;
-        margin: 15px auto 0;
-      }
-      .divider {
-        display: inline-block;
-        width: 56px;
-        height: 2px;
-        background: var(--green-mid);
-        margin: 15px auto 0;
-      }
+      .contact-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: heroZoom 18s ease-in-out infinite alternate; }
+      .contact-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(20, 60, 33, 0.9), rgba(47, 138, 69, 0.72) 55%, rgba(240, 169, 28, 0.45)); }
+      .contact-hero .container { position: relative; z-index: 2; animation: rise .8s var(--ease) both; }
+      .contact-hero h1 { font-size: 3rem; color: var(--white); line-height: 1.15; margin-bottom: 12px; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+      .contact-hero h1 em { font-style: italic; color: #ffd166; }
+      .contact-hero p { font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto; }
+      .divider { display: block; width: 70px; height: 4px; border-radius: 4px; margin: 22px auto 0; background: linear-gradient(90deg, #b9e07a, var(--gold), var(--coral)); }
+      @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+      @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
-      /* CONTACT SECTION */
-      .contact-section {
-        padding: 80px 0;
+      /* ---------- CONTACT SECTION ---------- */
+      .contact-section { position: relative; z-index: 2; margin-top: -100px; padding-bottom: 90px; }
+      .contact-section .container { max-width: 1100px; }
+      .contact-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 28px; align-items: start; }
+
+      .card {
+        position: relative; overflow: hidden; background: var(--white); border-radius: 26px;
+        box-shadow: 0 24px 50px -30px rgba(31, 42, 28, 0.5); border: 1px solid rgba(31, 42, 28, 0.06);
+        animation: rise .8s var(--ease) both;
       }
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1.4fr;
-        gap: 80px;
-      }
-      .contact-info h2 {
-        font-size: 1.8rem;
-        margin-bottom: 24px;
-      }
-      .info-details {
-        margin-top: 32px;
-      }
+      .card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral), var(--berry)); }
+
+      .contact-info { padding: 40px 34px 34px; }
+      .contact-info h2 { font-size: 1.8rem; color: var(--green-deep); margin-bottom: 14px; }
+      .contact-info > p { font-size: 1rem; line-height: 1.85; color: var(--ink-soft); }
+      .info-details { margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
       .info-item {
-        display: flex;
-        gap: 16px;
-        margin-bottom: 28px;
-        align-items: flex-start;
+        --c: var(--green); --t: #e6f5df;
+        display: flex; gap: 16px; align-items: center; padding: 16px 18px; border-radius: 18px; background: var(--t);
+        transition: transform .3s var(--ease), background .3s, box-shadow .3s;
       }
-      .info-icon {
-        color: var(--green-deep);
-        flex-shrink: 0;
-        margin-top: 3px;
-      }
-      .info-icon svg {
-        width: 20px;
-        height: 20px;
-      }
-      .info-text h3 {
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        font-weight: 600;
-        margin-bottom: 4px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      .info-text p {
-        font-size: 0.95rem;
-        margin: 0;
-      }
+      .info-item:nth-child(2) { --c: var(--gold-deep); --t: #fff1d2; }
+      .info-item:hover { transform: translateY(-3px); background: var(--white); box-shadow: 0 14px 26px -16px var(--c); }
+      .info-icon { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--c); color: var(--white); box-shadow: 0 10px 18px -8px var(--c); }
+      .info-icon svg { width: 22px; height: 22px; }
+      .info-item.wa .info-icon { background: linear-gradient(135deg, #3ee07a, #1faa55); }
+      .info-text h3 { font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--c); margin-bottom: 2px; }
+      .info-text p { font-size: 0.98rem; color: var(--ink); }
+      .info-text a { color: var(--green); font-weight: 600; }
+      .info-text a:hover { text-decoration: underline; }
 
-      /* Form Column */
-      .contact-form-container {
-        background: var(--white);
-        border: 1px solid var(--line);
-        padding: 48px;
-        border-radius: 8px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03);
-      }
-      .form-group {
-        margin-bottom: 24px;
-      }
-      .form-group label {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: 500;
-        margin-bottom: 8px;
-        color: var(--ink);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
+      .contact-form-container { padding: 40px 38px 36px; }
+      .contact-form-container h2 { font-size: 1.8rem; color: var(--green-deep); margin-bottom: 6px; }
+      .contact-form-container .form-sub { font-size: 0.98rem; color: var(--ink-soft); margin-bottom: 24px; }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .form-group { margin-bottom: 18px; display: flex; flex-direction: column; gap: 8px; }
+      .form-group label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--green-deep); }
       .form-control {
-        width: 100%;
-        padding: 12px 16px;
-        border: 1px solid var(--line);
-        background: var(--cream);
-        border-radius: 4px;
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        color: var(--ink);
-        transition:
-          border-color 0.2s,
-          background 0.2s;
+        width: 100%; padding: 14px 16px; border: 1.5px solid var(--line); border-radius: 14px;
+        background: var(--cream); font-family: var(--font-body); font-size: 0.98rem; color: var(--ink); outline: none;
+        transition: border-color .25s, background .25s, box-shadow .25s;
       }
-      .form-control:focus {
-        outline: none;
-        border-color: var(--green-deep);
-        background: var(--white);
+      .form-control:hover { border-color: rgba(31, 90, 50, 0.25); }
+      .form-control:focus { border-color: var(--green); background: var(--white); box-shadow: 0 0 0 4px rgba(92, 184, 92, 0.18); }
+      textarea.form-control { resize: vertical; min-height: 150px; line-height: 1.7; }
+      .btn-send {
+        display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+        padding: 16px; border: none; border-radius: 999px; cursor: pointer;
+        background: linear-gradient(135deg, #ffc23d, var(--gold) 45%, var(--coral));
+        color: var(--white); font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; letter-spacing: 0.3px;
+        box-shadow: 0 16px 32px -12px rgba(242, 115, 79, 0.7);
+        transition: transform .25s var(--ease), box-shadow .25s, filter .25s;
       }
-      textarea.form-control {
-        resize: vertical;
-        min-height: 140px;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 14px 24px;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        cursor: pointer;
-        border: none;
-        transition: background 0.2s;
-      }
-      .btn-dark {
-        background: var(--green-deep);
-        color: var(--white);
-      }
-      .btn-dark:hover {
-        background: #2d3728;
-      }
+      .btn-send:hover { transform: translateY(-3px); filter: brightness(1.06); box-shadow: 0 20px 38px -12px rgba(242, 115, 79, 0.85); }
+      .btn-send svg { width: 18px; height: 18px; }
 
-      /* FOOTER */
-      .site-footer {
-        background: var(--green-deep);
-        color: #dfe3da;
-        padding: 64px 0 0;
-      }
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
-        gap: 40px;
-        padding-bottom: 48px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      }
-      .footer-brand h3 {
-        color: var(--white);
-        font-size: 1.25rem;
-        line-height: 1.3;
-        margin-bottom: 14px;
-      }
-      .footer-brand p {
-        color: #c3c9bc;
-        font-size: 0.88rem;
-      }
-      .footer-col h4 {
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        letter-spacing: 0.4px;
-        margin-bottom: 16px;
-        font-weight: 600;
-      }
-      .footer-col a {
-        display: block;
-        font-size: 0.87rem;
-        color: #c3c9bc;
-        margin-bottom: 10px;
-        transition: color 0.2s;
-      }
-      .footer-col a:hover {
-        color: var(--white);
-      }
-      .footer-bottom {
-        text-align: center;
-        font-size: 0.8rem;
-        color: #a9b09f;
-        padding: 22px 0;
-      }
+      /* ---------- FOOTER (homepage style) ---------- */
+      .site-footer { position: relative; background: linear-gradient(160deg, #164a29 0%, var(--green-deep) 60%, #2a6b3f 100%); color: #c7d4c0; padding: 34px 0; text-align: center; font-size: 0.85rem; }
+      .site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral), var(--berry)); }
 
+      /* ---------- RESPONSIVE ---------- */
       @media (max-width: 860px) {
-        .main-nav {
-          display: none;
+        .nav-links {
+          display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white);
+          flex-direction: column; align-items: center; padding: 18px 0; gap: 6px; z-index: 200;
+          border-bottom: 1px solid var(--line); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
         }
-        .contact-grid {
-          grid-template-columns: 1fr;
-          gap: 50px;
-        }
-        .contact-form-container {
-          padding: 32px;
-        }
-        .footer-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+        .nav-links.active { display: flex; }
+        .menu-toggle { display: inline-flex; align-items: center; }
+        .contact-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 560px) {
+        .header-wrap { min-height: 84px; padding: 12px 18px; }
+        .logo { gap: 10px; }
+        .logo-mark { height: 56px; }
+        .logo-text { padding-left: 10px; }
+        .logo-name { font-size: 1.35rem; letter-spacing: 2px; }
+        .logo-tag { font-size: 0.6rem; letter-spacing: 1.6px; }
+        .container { padding: 0 14px; }
+        .contact-hero { padding: 50px 0 120px; }
+        .contact-hero h1 { font-size: 2.2rem; }
+        .contact-hero p { font-size: 1rem; }
+        .contact-section { margin-top: -80px; padding-bottom: 60px; }
+        .contact-info, .contact-form-container { padding: 32px 20px 26px; }
+        .form-row { grid-template-columns: 1fr; gap: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
       }
     </style>
   </head>
   <body>
+
     <!-- HEADER -->
     <header class="site-header">
-      <div class="container header-inner">
-        <a href="../index.html" class="logo-link">
-          <span class="logo">
-            <img
-              src="../images/logo.jpg"
-              alt="Logo NaturoPatra"
-              class="logo-icon"
-            />
-            NaturoPatra
+      <div class="header-wrap">
+        <a href="../index.html" class="logo">
+          <img class="logo-mark" src="data:image/png;base64,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" alt="Nishdan logo" width="100" height="102" />
+          <span class="logo-text">
+            <span class="logo-name">Nishdan</span>
+            <span class="logo-tag">Integrative Health</span>
           </span>
         </a>
-        <nav class="main-nav">
-          <a href="../index.html">Accueil</a>
-          <a href="articles.html">Articles</a>
-          <a href="protocoles.html">Protocoles</a>
-          <a href="apropos.html">À propos</a>
+
+        <nav class="nav-links" id="mainNav">
+          <a href="../index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="about.html">About</a>
           <a href="contact.html" class="active">Contact</a>
         </nav>
-        <div class="header-icons">
-          <button aria-label="Rechercher" class="icon-btn">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </button>
 
-          <!-- LIEN VERS BOUTIQUE -->
-          <a href="boutique.html" aria-label="Panier" class="icon-btn">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-            >
-              <path d="M6 6h15l-1.5 9h-12z" />
-              <path d="M6 6L4 2H2" />
-              <circle cx="9" cy="20" r="1" />
-              <circle cx="17" cy="20" r="1" />
-            </svg>
-            <span class="cart-badge" id="cart-count">0</span>
-          </a>
-        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </header>
 
     <!-- HERO -->
     <section class="contact-hero">
+      <img src="https://images.unsplash.com/photo-1566792720002-d52fdf3d050a?auto=format&fit=crop&w=1920&q=80" alt="" aria-hidden="true" />
       <div class="container">
-        <h1>Entrons en contact</h1>
+        <h1>Let’s get <em>in touch</em></h1>
+        <p>A question about a protocol, or need personalised guidance? Write to me directly here.</p>
         <span class="divider"></span>
-        <p>
-          Une question sur un protocole ou besoin d'un accompagnement sur mesure
-          ? Écrivez-moi directement ici.
-        </p>
       </div>
     </section>
 
@@ -414,72 +233,79 @@
     <section class="contact-section">
       <div class="container">
         <div class="contact-grid">
-          <div class="contact-info">
-            <h2>Mes Coordonnées</h2>
-            <p>
-              N'hésitez pas à me joindre par e-mail ou via le formulaire. Je
-              réponds généralement sous un délai de 24 à 48 heures ouvrées.
-            </p>
+
+          <div class="card contact-info">
+            <h2>Contact details</h2>
+            <p>Feel free to reach me through the form or on WhatsApp. I usually reply within 24 to 48 working hours.</p>
             <div class="info-details">
-              <div class="info-item">
-                <span class="info-icon"
-                  ><svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                    <circle cx="12" cy="10" r="3" /></svg
-                ></span>
+              <div class="info-item wa">
+                <span class="info-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.9 11.9 0 004.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 001.8-1.3 2.3 2.3 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></span>
                 <div class="info-text">
-                  <h3>Cabinet</h3>
-                  <p>12 Rue de la Paix<br />75002 Paris, France</p>
+                  <h3>WhatsApp</h3>
+                  <!-- ضعي رابط الواتساب هنا عندما يجهز -->
+                  <p><a href="../index.html#consultation">Book a consultation &amp; personal protocol</a></p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <div class="info-text">
+                  <h3>Response time</h3>
+                  <p>24 to 48 working hours</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="contact-form-container">
+
+          <div class="card contact-form-container">
+            <h2>Send a message</h2>
+            <p class="form-sub">Write in English or Arabic, whichever you prefer.</p>
+            <!-- لتفعيل الإرسال: ضعي رابط خدمة نماذج (مثل Formspree) مكان # -->
             <form action="#" method="POST">
-              <!-- ... formulaire inchangé ... -->
-              <div class="form-group">
-                <label>Nom complet</label
-                ><input type="text" class="form-control" required />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cf-name">Full name</label>
+                  <input id="cf-name" name="name" type="text" class="form-control" autocomplete="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="cf-email">Email</label>
+                  <input id="cf-email" name="email" type="email" class="form-control" autocomplete="email" required />
+                </div>
               </div>
-              <button type="submit" class="btn btn-dark">
-                Envoyer le message
-              </button>
+              <div class="form-group">
+                <label for="cf-topic">Subject</label>
+                <select id="cf-topic" name="topic" class="form-control">
+                  <option>A course</option>
+                  <option>A protocol</option>
+                  <option>A personal consultation</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cf-message">Your message</label>
+                <textarea id="cf-message" name="message" class="form-control" dir="auto" required></textarea>
+              </div>
+              <button type="submit" class="btn-send">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             </form>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- SCRIPT BADGE -->
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Nishdan Integrative Health. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- سكريبت تشغيل القائمة للموبايل -->
     <script>
-      // GESTION DU PANIER (Synchronisation avec localStorage) — identique à index.html
-      const cartCountBadge = document.getElementById("cart-count");
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
 
-      function getCart() {
-        return JSON.parse(localStorage.getItem("naturo_cart")) || [];
-      }
-
-      function updateCartBadge() {
-        if (!cartCountBadge) return;
-        const cart = getCart();
-        const totalQty = cart.reduce(
-          (acc, item) => acc + (item.quantity || 0),
-          0,
-        );
-        cartCountBadge.textContent = totalQty;
-      }
-
-      // Initialisation de la pastille du panier au chargement de la page
-      updateCartBadge();
-
-      // Garde le badge à jour si le panier change dans un autre onglet/page
-      window.addEventListener("storage", (e) => {
-        if (e.key === "naturo_cart") updateCartBadge();
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
       });
     </script>
   </body>
