@@ -5,24 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>حسابي — Nishdan Integrative Health</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --cream: #faf8f3;
-        --cream-2: #f3efe7;
-        --ink: #2b2a26;
-        --ink-soft: #5a5850;
-        --green-deep: #3c4a34;
-        --green-mid: #7c8f6e;
-        --gold: #b8a06a;
-        --line: #dcd6c8;
+        /* Same vivid palette as the homepage */
+        --cream: #fffaf2;
+        --cream-2: #fff3e3;
+        --mint: #eaf7e4;
+        --ink: #1f2a1c;
+        --ink-soft: #55604f;
+        --green-deep: #1f5a32;
+        --green: #2f8a45;
+        --green-bright: #5cb85c;
+        --gold: #f0a91c;
+        --gold-deep: #d98e00;
+        --coral: #f2734f;
+        --coral-tint: #ffe9e0;
+        --berry: #e04f7a;
+        --line: #efe4d2;
         --white: #ffffff;
+        --shadow: 0 24px 48px -24px rgba(31, 90, 50, 0.35);
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
-        --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+        --font-arabic: "IBM Plex Sans Arabic", "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+        --ease: cubic-bezier(.22, .61, .36, 1);
       }
 
       * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,211 +44,181 @@
         line-height: 1.6;
         direction: ltr;
         font-size: 0.96rem;
+        overflow-x: hidden;
       }
-      .ar {
-        direction: rtl;
-        font-family: var(--font-arabic);
-        text-align: right;
-      }
+      .ar { direction: rtl; font-family: var(--font-arabic); text-align: right; }
       h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
+      .ar h1, .ar h3 { font-family: var(--font-arabic); font-weight: 700; }
       a { text-decoration: none; color: inherit; }
       img { display: block; width: 100%; object-fit: cover; }
-      
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
 
-      /* ---------- HEADER ---------- */
+      .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+      /* ---------- HEADER (same as homepage) ---------- */
       .site-header {
-        background: var(--white);
-        border-bottom: 1px solid var(--line);
-        position: sticky;
-        top: 0;
-        z-index: 100;
+        background: rgba(255, 250, 242, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        position: sticky; top: 0; z-index: 100;
+        border-bottom: 1px solid rgba(31, 90, 50, 0.08);
       }
       .header-wrap {
-        max-width: 980px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 20px;
-        position: relative;
+        max-width: 1180px; margin: 0 auto;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 16px 32px; min-height: 104px; position: relative;
       }
-      .logo {
-        display: flex; align-items: center; gap: 10px;
-        font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
-      }
-      .logo-icon-wrap {
-        width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
-        border: 2px solid var(--gold); background: var(--white);
-        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      }
-      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
+      .logo { display: flex; align-items: center; gap: 14px; color: var(--green-deep); }
+            .logo-mark { height: 72px; width: auto; flex-shrink: 0; filter: drop-shadow(0 6px 10px rgba(31, 90, 50, 0.18)); transition: transform .5s var(--ease); }
+      .logo:hover .logo-mark { transform: rotate(-6deg) scale(1.06); }
+      .logo-text { padding-left: 14px; border-left: 2px solid var(--gold); }
+      .logo-text { display: flex; flex-direction: column; line-height: 1; }
+      .logo-name { font-family: var(--font-display); font-size: 1.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--green-deep); }
+      .logo-tag { font-size: 0.72rem; letter-spacing: 2.4px; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-top: 7px; }
 
-      .nav-links { display: flex; gap: 20px; font-size: 0.8rem; text-transform: uppercase; font-weight: 500; }
-      .nav-links a:hover, .nav-links a.active { color: var(--green-deep); }
-
-      /* زر الخطوط الثلاثة في أقصى اليمين على الموبايل */
-      .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--ink);
-        padding: 4px;
+      .nav-links { display: flex; gap: 6px; }
+      .nav-links a {
+        font-size: 0.85rem; letter-spacing: 0.6px; text-transform: uppercase; font-weight: 600;
+        color: var(--ink); padding: 9px 16px; border-radius: 999px; transition: background .25s, color .25s;
       }
-      .menu-toggle svg { width: 24px; height: 24px; }
+      .nav-links a:hover { background: var(--mint); color: var(--green); }
+      .nav-links a.active { background: var(--green); color: var(--white); }
+
+      .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
+      .menu-toggle svg { width: 26px; height: 26px; }
+
+      
+      /* ---------- TOP BAND (decorative) ---------- */
+      .top-band { position: relative; height: 260px; overflow: hidden; background: var(--green-deep); }
+      .top-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: heroZoom 18s ease-in-out infinite alternate; }
+      .top-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(20, 60, 33, 0.9), rgba(47, 138, 69, 0.7) 55%, rgba(240, 169, 28, 0.45)); }
+      @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+      @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
       /* ---------- AUTH SECTION ---------- */
-      .auth-section {
-        padding: 50px 0 70px;
-      }
+      .auth-section { position: relative; z-index: 2; margin-top: -180px; padding-bottom: 90px; }
 
       .auth-container {
-        max-width: 480px;
+        position: relative; overflow: hidden;
+        max-width: 500px;
         margin: 0 auto;
         background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 35px 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        border-radius: 28px;
+        padding: 40px 36px 34px;
+        box-shadow: 0 30px 60px -34px rgba(31, 42, 28, 0.55);
+        border: 1px solid rgba(31, 42, 28, 0.06);
+        animation: rise .8s var(--ease) both;
+      }
+      .auth-container::before {
+        content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+        background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral), var(--berry));
       }
 
       /* التبويبات (تسجيل الدخول / إنشاء حساب) */
       .auth-tabs {
-        display: flex;
-        border-bottom: 1px solid var(--line);
-        margin-bottom: 24px;
+        display: flex; gap: 6px;
+        background: var(--mint);
+        padding: 6px;
+        border-radius: 999px;
+        margin-bottom: 28px;
       }
       .tab-btn {
         flex: 1;
         background: none;
         border: none;
-        padding: 12px;
+        padding: 12px 10px;
+        border-radius: 999px;
         font-family: var(--font-arabic);
         font-size: 1rem;
         font-weight: 600;
         color: var(--ink-soft);
         cursor: pointer;
-        position: relative;
-        transition: color .2s;
+        transition: background .3s, color .3s, box-shadow .3s;
       }
+      .tab-btn:hover { color: var(--green); }
       .tab-btn.active {
-        color: var(--green-deep);
-      }
-      .tab-btn.active::after {
-        content: "";
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--green-deep);
+        background: linear-gradient(135deg, var(--green-bright), var(--green));
+        color: var(--white);
+        box-shadow: 0 10px 20px -10px rgba(47, 138, 69, 0.8);
       }
 
       /* النماذج (Forms) */
-      .auth-form {
-        display: none;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .auth-form.active {
-        display: flex;
-      }
+      .auth-form { display: none; flex-direction: column; gap: 18px; }
+      .auth-form.active { display: flex; animation: rise .45s var(--ease) both; }
 
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .form-group label {
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: var(--ink);
-      }
+      .form-group { display: flex; flex-direction: column; gap: 8px; }
+      .form-group label { font-size: 0.92rem; font-weight: 600; color: var(--green-deep); }
       .form-group input {
         width: 100%;
-        padding: 12px 14px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
+        padding: 14px 16px;
+        border: 1.5px solid var(--line);
+        border-radius: 14px;
         font-family: var(--font-body);
-        font-size: 0.92rem;
+        font-size: 0.95rem;
         background: var(--cream);
         color: var(--ink);
         outline: none;
-        transition: border-color .2s;
+        transition: border-color .25s, background .25s, box-shadow .25s;
       }
+      .form-group input:hover { border-color: rgba(31, 90, 50, 0.25); }
       .form-group input:focus {
-        border-color: var(--green-deep);
+        border-color: var(--green);
         background: var(--white);
+        box-shadow: 0 0 0 4px rgba(92, 184, 92, 0.18);
       }
 
       .btn-submit {
-        display: block;
-        width: 100%;
-        background: var(--green-deep);
+        display: block; width: 100%;
+        background: linear-gradient(135deg, #ffc23d, var(--gold) 45%, var(--coral));
         color: var(--white);
         text-align: center;
-        padding: 13px;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 0.98rem;
+        padding: 15px;
+        border-radius: 999px;
+        font-family: var(--font-arabic);
+        font-weight: 700;
+        font-size: 1.05rem;
         border: none;
         cursor: pointer;
-        transition: background .2s;
-        box-shadow: 0 4px 12px rgba(60, 74, 52, 0.2);
         margin-top: 6px;
+        box-shadow: 0 16px 32px -12px rgba(242, 115, 79, 0.7);
+        transition: transform .25s var(--ease), box-shadow .25s, filter .25s;
       }
-      .btn-submit:hover {
-        background: var(--green-mid);
-      }
+      .btn-submit:hover { transform: translateY(-3px); filter: brightness(1.06); box-shadow: 0 20px 38px -12px rgba(242, 115, 79, 0.85); }
 
-      .auth-note {
-        text-align: center;
-        font-size: 0.82rem;
-        color: var(--ink-soft);
-        margin-top: 10px;
-      }
+      .auth-note { text-align: center; font-size: 0.88rem; line-height: 1.8; color: var(--ink-soft); margin-top: 6px; }
 
-      /* ---------- FOOTER ---------- */
+      /* ---------- FOOTER (homepage style) ---------- */
       .site-footer {
-        background: var(--green-deep);
-        color: #dfe3da;
-        padding: 40px 0;
-        text-align: center;
-        font-size: 0.82rem;
+        position: relative;
+        background: linear-gradient(160deg, #164a29 0%, var(--green-deep) 60%, #2a6b3f 100%);
+        color: #c7d4c0; padding: 34px 0; text-align: center; font-size: 0.85rem;
       }
+      .site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral), var(--berry)); }
 
       /* ---------- RESPONSIVE MOBILE ---------- */
       @media (max-width: 850px) {
         .nav-links {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: var(--white);
-          flex-direction: column;
-          align-items: center;
-          padding: 20px 0;
-          border-bottom: 1px solid var(--line);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-          gap: 16px;
-          z-index: 200;
+          display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white);
+          flex-direction: column; align-items: center; padding: 18px 0; gap: 6px; z-index: 200;
+          border-bottom: 1px solid var(--line); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
         }
-        .nav-links.active {
-          display: flex;
-        }
-        .menu-toggle {
-          display: inline-flex;
-          align-items: center;
-        }
-        .auth-container {
-          padding: 24px 20px;
-        }
+        .nav-links.active { display: flex; }
+        .menu-toggle { display: inline-flex; align-items: center; }
+        .auth-container { padding: 34px 20px 28px; }
+      }
+      @media (max-width: 560px) {
+        .header-wrap { min-height: 84px; padding: 12px 18px; }
+        .logo { gap: 10px; }
+        .logo-mark { height: 56px; }
+        .logo-text { padding-left: 10px; }
+        .logo-name { font-size: 1.35rem; letter-spacing: 2px; }
+        .logo-tag { font-size: 0.6rem; letter-spacing: 1.6px; }
+        .container { padding: 0 14px; }
+        .top-band { height: 220px; }
+        .auth-section { margin-top: -160px; padding-bottom: 60px; }
+        .tab-btn { font-size: 0.92rem; padding: 11px 6px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
       }
     </style>
   </head>
@@ -248,10 +228,11 @@
     <header class="site-header">
       <div class="header-wrap">
         <a href="../index.html" class="logo">
-          <div class="logo-icon-wrap">
-            <img src="../images/logoo.png" alt="Logo" />
-          </div>
-          Nishdan
+          <img class="logo-mark" src="data:image/png;base64,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" alt="Nishdan logo" width="100" height="102" />
+          <span class="logo-text">
+            <span class="logo-name">Nishdan</span>
+            <span class="logo-tag">Integrative Health</span>
+          </span>
         </a>
 
         <nav class="nav-links" id="mainNav">
@@ -261,12 +242,16 @@
           <a href="contact.html">Contact</a>
         </nav>
 
-        <!-- زر الخطوط الثلاثة في زاوية اليمين تماماً -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
     </header>
+
+    <!-- شريط ملوّن في أعلى الصفحة (زخرفة فقط) -->
+    <div class="top-band" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1566792720002-d52fdf3d050a?auto=format&fit=crop&w=1920&q=80" alt="" />
+    </div>
 
     <!-- AUTH SECTION -->
     <main class="container auth-section">
