@@ -5,26 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About — Nishdan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --cream: #faf8f3;
-        --cream-2: #f3efe7;
-        --ink: #2b2a26;
-        --ink-soft: #5a5850;
-        --green-deep: #3c4a34;
-        --green-mid: #7c8f6e;
-        --green-sage: #a9b99a;
-        --gold: #b8a06a;
-        --line: #dcd6c8;
+        /* Same vivid palette as the homepage */
+        --cream: #fffaf2;
+        --cream-2: #fff3e3;
+        --mint: #eaf7e4;
+        --ink: #1f2a1c;
+        --ink-soft: #55604f;
+        --green-deep: #1f5a32;
+        --green: #2f8a45;
+        --green-bright: #5cb85c;
+        --lime: #b9e07a;
+        --gold: #f0a91c;
+        --gold-deep: #d98e00;
+        --coral: #f2734f;
+        --berry: #e04f7a;
+        --violet: #8a5cd6;
+        --line: #efe4d2;
         --white: #ffffff;
-        --accent-tint: #f4efe6;
+        --shadow: 0 24px 48px -24px rgba(31, 90, 50, 0.35);
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
-        --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
+        --font-arabic: "IBM Plex Sans Arabic", "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
         --ease: cubic-bezier(.22, .61, .36, 1);
       }
 
@@ -37,313 +45,314 @@
         background: var(--cream);
         line-height: 1.7;
         direction: ltr;
+        overflow-x: hidden;
       }
-      .ar-text {
-        direction: rtl;
-        font-family: var(--font-arabic);
-      }
-      h1, h2, h3 {
-        font-family: var(--font-display);
-        color: var(--ink);
-        margin: 0;
-        font-weight: 600;
-      }
-      p {
-        margin: 0;
-        color: var(--ink-soft);
-        font-size: 0.98rem;
-      }
+      .ar-text { direction: rtl; font-family: var(--font-arabic); }
+      h1, h2, h3 { font-family: var(--font-display); color: var(--ink); margin: 0; font-weight: 600; }
+      .ar-text h1, .ar-text h2 { font-family: var(--font-arabic); font-weight: 700; }
+      p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
       a { color: inherit; text-decoration: none; }
       img { display: block; max-width: 100%; object-fit: cover; }
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
+      .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
 
-      /* ---------- HEADER ---------- */
+      /* ---------- HEADER (same as homepage) ---------- */
       .site-header {
-        border-bottom: 1px solid var(--line);
-        background: var(--cream);
-        position: sticky;
-        top: 0;
-        z-index: 50;
+        background: rgba(255, 250, 242, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        position: sticky; top: 0; z-index: 50;
+        border-bottom: 1px solid rgba(31, 90, 50, 0.08);
       }
-      .header-inner {
-        max-width: 1180px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 14px;
-        padding-bottom: 14px;
-        padding-left: 32px;
-        padding-right: 32px;
-        position: relative;
-      }
-      .logo-link { text-decoration: none; color: inherit; display: inline-block; }
-      .logo {
-        display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px;
-      }
-      
-      /* الشعار الأول في الهيدر */
+      .header-inner { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; min-height: 104px; position: relative; }
+      .logo-link { display: inline-block; }
+      .logo { display: flex; align-items: center; gap: 16px; color: var(--green-deep); }
       .logo-icon-wrap {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 2.5px solid var(--gold);
-        background: var(--white);
-        box-shadow: 0 4px 12px rgba(184, 160, 106, 0.25);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform .3s var(--ease);
+        width: 78px; height: 78px; border-radius: 22px; overflow: hidden;
+        border: 2px solid var(--gold); background: var(--white);
+        box-shadow: 0 10px 22px -8px rgba(240, 169, 28, 0.55);
+        display: flex; align-items: center; justify-content: center; padding: 4px;
+        transition: transform .4s var(--ease);
       }
-      .logo-link:hover .logo-icon-wrap { transform: scale(1.05); }
-      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
+      .logo-link:hover .logo-icon-wrap { transform: rotate(-5deg) scale(1.05); }
+      .logo-icon-wrap img { width: 100%; height: 100%; object-fit: contain; }
+      .logo-text { display: flex; flex-direction: column; line-height: 1; }
+      .logo-name { font-family: var(--font-display); font-size: 1.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--green-deep); }
+      .logo-tag { font-size: 0.72rem; letter-spacing: 2.4px; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-top: 7px; }
 
-      .main-nav { display: flex; gap: 34px; }
+      .main-nav { display: flex; gap: 6px; }
       .main-nav a {
-        font-size: 0.85rem; letter-spacing: 0.4px; color: var(--ink); transition: color 0.2s; text-transform: uppercase; font-weight: 500;
+        font-size: 0.85rem; letter-spacing: 0.6px; text-transform: uppercase; font-weight: 600;
+        color: var(--ink); padding: 9px 16px; border-radius: 999px; transition: background .25s, color .25s;
       }
-      .main-nav a:hover, .main-nav a.active { color: var(--green-deep); }
-      .header-icons { display: flex; align-items: center; gap: 16px; }
-      .icon-btn {
-        background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; position: relative; display: inline-flex; align-items: center; transition: color 0.2s;
-      }
-      .icon-btn svg { width: 19px; height: 19px; }
+      .main-nav a:hover { background: var(--mint); color: var(--green); }
+      .main-nav a.active { background: var(--green); color: var(--white); }
 
-      /* زر الخطوط الثلاثة للموبايل */
-      .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--ink);
-        padding: 4px;
+      .header-icons { display: flex; align-items: center; gap: 8px; }
+      .icon-btn {
+        background: var(--white); border: 1px solid var(--line); cursor: pointer; color: var(--ink);
+        width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+        transition: background .25s, color .25s, transform .25s;
       }
-      .menu-toggle svg { width: 24px; height: 24px; }
+      .icon-btn:hover { background: var(--gold); color: var(--white); border-color: var(--gold); transform: translateY(-2px); }
+      .icon-btn svg { width: 18px; height: 18px; }
+      .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
+      .menu-toggle svg { width: 26px; height: 26px; }
+
+      /* ---------- TOP BAND (decorative) ---------- */
+      .top-band { position: relative; height: 300px; overflow: hidden; background: var(--green-deep); }
+      .top-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: heroZoom 18s ease-in-out infinite alternate; }
+      .top-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(20, 60, 33, 0.9), rgba(47, 138, 69, 0.55)); }
+      @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
 
       /* ---------- CONTENT FLOW ---------- */
       .content-flow {
-        padding-block: 50px 70px;
+        max-width: 980px;
+        margin: -200px auto 0;
+        padding: 0 32px 90px;
+        position: relative; z-index: 2;
         display: grid;
-        gap: 32px;
+        gap: 34px;
       }
 
       .section-card {
+        --acc: var(--green); --tint: #e6f5df;
+        position: relative;
         background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 40px;
-        box-shadow: 0 10px 30px -15px rgba(0,0,0,0.05);
-        transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+        border-radius: 26px;
+        padding: 46px 44px;
+        overflow: hidden;
+        box-shadow: 0 18px 44px -26px rgba(31, 42, 28, 0.4);
+        border: 1px solid rgba(31, 42, 28, 0.06);
+        transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+        animation: rise .8s var(--ease) both;
       }
-      .section-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 35px -15px rgba(0,0,0,0.1);
-      }
+      .section-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--acc); }
+      .section-card:nth-child(1)::before { background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral), var(--berry)); }
+      .section-card:nth-child(2) { --acc: var(--gold-deep); --tint: #fff1d2; }
+      .section-card:nth-child(3) { --acc: var(--coral); --tint: #ffe9e0; }
+      .section-card:nth-child(4) { --acc: var(--violet); --tint: #f0e8fc; }
+      .section-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+      @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
-      .section-title-wrap {
-        text-align: center;
-        margin-bottom: 24px;
-        padding-bottom: 12px;
-        border-bottom: 2px solid var(--cream-2);
-        background: radial-gradient(circle at center, var(--accent-tint) 0%, transparent 80%);
-        border-radius: 8px;
-        padding-top: 8px;
-      }
-      .section-title {
-        font-size: 2rem;
-        color: var(--green-deep);
-        margin-bottom: 4px;
+      .section-title-wrap { text-align: center; margin-bottom: 26px; }
+      .section-title { font-size: 2.2rem; color: var(--green-deep); line-height: 1.45; margin-bottom: 10px; }
+      .section-title-wrap::after {
+        content: ""; display: block; width: 64px; height: 4px; border-radius: 4px; margin: 16px auto 0;
+        background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral));
       }
       .section-subtitle {
-        font-size: 0.95rem;
-        color: var(--gold);
-        font-weight: 600;
-        letter-spacing: 0.5px;
+        display: inline-block; font-family: var(--font-body);
+        font-size: 0.78rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+        color: var(--acc); background: var(--tint); padding: 6px 16px; border-radius: 999px;
       }
 
       .text-block {
-        font-size: 1.02rem;
-        line-height: 1.85;
+        font-size: 1.06rem;
+        line-height: 2;
         color: var(--ink-soft);
         text-align: center;
-        max-width: 720px;
+        max-width: 740px;
         margin-inline: auto;
       }
+      .text-block strong { color: var(--green); font-weight: 700; }
       .text-block + .text-block { margin-top: 14px; }
 
-      /* Profile Hero (الشعار الثاني) */
-      .profile-hero {
-        display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
-        margin-bottom: 22px;
-      }
+      /* Profile hero */
+      .profile-hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; margin-bottom: 30px; }
       .profile-img-wrap {
-        width: 85px; height: 85px; border-radius: 50%;
-        overflow: hidden; border: 3px solid var(--gold);
-        box-shadow: 0 6px 16px rgba(184, 160, 106, 0.25);
+        width: 120px; height: 120px; border-radius: 30px; overflow: hidden; padding: 6px;
+        background: var(--white); border: 2.5px solid var(--gold);
+        box-shadow: 0 14px 30px -10px rgba(240, 169, 28, 0.6);
+        transition: transform .5s var(--ease);
       }
-      .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-      .profile-text .ar { font-weight: 600; color: var(--green-deep); font-size: 1.15rem; }
-      .profile-text .en { font-size: 0.85rem; color: var(--ink-soft); }
+      .profile-img-wrap:hover { transform: rotate(-5deg) scale(1.05); }
+      .profile-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+      .profile-text { max-width: 640px; }
+      .profile-text .ar { font-weight: 600; color: var(--green-deep); font-size: 1.3rem; line-height: 1.9; }
+      .profile-text .en { font-size: 0.92rem; color: var(--ink-soft); margin-top: 6px; direction: ltr; }
 
-      /* تنسيق بانر صورة الترويسة */
+      /* Image banner */
       .hero-image-banner {
-        width: 100%; 
-        height: 220px; 
-        border-radius: 10px; 
-        overflow: hidden;
-        margin-bottom: 24px; 
-        border: 1px solid var(--line);
-        background-color: var(--cream-2);
+        position: relative; width: 100%; height: 300px; border-radius: 20px; overflow: hidden;
+        margin-bottom: 34px; background-color: var(--mint);
+        box-shadow: 0 18px 36px -22px rgba(31, 90, 50, 0.5);
       }
-      .hero-image-banner img { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
+      .hero-image-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(31, 90, 50, 0.25), transparent 55%); pointer-events: none; }
+      .hero-image-banner img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+      .hero-image-banner:hover img { transform: scale(1.06); }
+
+      /* Quote */
+      .mini-quote {
+        position: relative; overflow: hidden;
+        background: linear-gradient(135deg, #164a29, var(--green) 100%);
+        color: var(--white);
+        padding: 40px 32px 34px;
+        border-radius: 22px;
+        text-align: center;
+        margin-top: 30px;
+      }
+      .mini-quote::before {
+        content: "”"; position: absolute; top: -40px; right: 22px;
+        font-family: var(--font-display); font-size: 180px; line-height: 1; color: var(--gold); opacity: 0.35;
+      }
+      .mini-quote::after { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; background: rgba(240, 169, 28, 0.35); filter: blur(60px); bottom: -120px; left: -60px; }
+      .mini-quote > * { position: relative; z-index: 1; }
+      .mini-quote .ar { font-family: "Amiri", var(--font-arabic); font-size: 1.7rem; font-weight: 700; line-height: 1.7; color: #ffffff; }
+      .mini-quote .en { font-size: 0.98rem; color: #ffd166; margin-top: 8px; font-style: italic; direction: ltr; }
+      .mini-quote cite {
+        display: inline-block; margin-top: 16px; font-size: 0.88rem; font-weight: 600; font-style: normal;
+        color: var(--green-deep); background: #ffd166; padding: 6px 16px; border-radius: 999px;
       }
 
-      /* Principles Grid */
+      /* Principles */
       .principles-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 14px;
-        margin-top: 18px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 10px;
         list-style: none;
         padding: 0;
       }
       .principle-item {
-        background: var(--cream-2);
-        padding: 16px 20px;
-        border-radius: 8px;
+        --c: var(--green); --t: #e6f5df;
+        position: relative;
+        background: var(--t);
+        padding: 26px 20px 22px;
+        border-radius: 18px;
         text-align: center;
-        border: 1px solid var(--line);
-        transition: transform .25s, background .25s;
+        transition: transform .35s var(--ease), box-shadow .35s, background .35s;
       }
-      .principle-item:hover { transform: translateY(-3px); background: #eae3d5; }
-      .principle-item .ar { font-weight: 600; color: var(--green-deep); font-size: 1.02rem; }
-      .principle-item .en { font-size: 0.82rem; color: var(--ink-soft); margin-top: 2px; }
+      .principle-item:nth-child(2) { --c: var(--gold-deep); --t: #fff1d2; }
+      .principle-item:nth-child(3) { --c: var(--coral); --t: #ffe9e0; }
+      .principle-item:nth-child(4) { --c: var(--berry); --t: #fde3ec; }
+      .principle-item:nth-child(5) { --c: var(--violet); --t: #f0e8fc; }
+      .principle-item:nth-child(6) { --c: #1f9c8f; --t: #dff5f2; }
+      .principle-item::before {
+        content: ""; display: block; width: 42px; height: 42px; margin: 0 auto 14px; border-radius: 50%;
+        background: var(--c) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M5 19C5 11 10 5.5 19 5c0 8.5-5.5 14-14 14Z'/><path d='M5 19l8.5-8.5'/></svg>") center / 20px no-repeat;
+        box-shadow: 0 8px 16px -6px var(--c);
+        transition: transform .4s var(--ease);
+      }
+      .principle-item:hover { transform: translateY(-6px); box-shadow: 0 16px 30px -18px var(--c); background: var(--white); }
+      .principle-item:hover::before { transform: rotate(-15deg) scale(1.08); }
+      .principle-item .ar { font-weight: 700; color: var(--ink); font-size: 1.08rem; }
+      .principle-item .en { font-size: 0.84rem; color: var(--c); margin-top: 4px; font-weight: 600; direction: ltr; }
 
-      /* Therapies Pills */
-      .therapy-compact {
-        display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-        margin-top: 18px;
-      }
-      .therapy-pill {
-        background: var(--cream-2);
-        border: 1px solid var(--line);
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: var(--green-deep);
-        display: flex; gap: 8px; align-items: baseline;
-        transition: transform .2s, background .2s, color .2s;
-      }
-      .therapy-pill:hover {
-        transform: translateY(-2px);
-        background: var(--green-deep);
-        color: var(--white);
-      }
-      .therapy-pill:hover .en { color: var(--gold); }
-      .therapy-pill .en { font-size: 0.78rem; color: var(--ink-soft); }
-
-      /* Timeline & Pioneers */
-      .timeline-compact {
-        display: grid;
-        gap: 14px;
-        margin-top: 18px;
+      /* Timeline */
+      .timeline-compact { position: relative; display: grid; gap: 14px; margin-top: 10px; }
+      .timeline-compact::before {
+        content: ""; position: absolute; top: 20px; bottom: 20px; right: 54px; width: 3px; border-radius: 3px;
+        background: linear-gradient(to bottom, var(--green-bright), var(--gold), var(--coral), var(--berry), var(--violet));
       }
       .timeline-row {
+        --c: var(--green); --t: #e6f5df;
+        position: relative;
         display: grid;
-        grid-template-columns: 70px 1fr;
+        grid-template-columns: 110px 1fr;
         align-items: center;
-        gap: 16px;
-        background: var(--cream-2);
-        padding: 12px 18px;
-        border-radius: 8px;
-        border: 1px solid var(--line);
-        transition: transform .25s;
+        gap: 18px;
+        padding: 6px 0;
+        transition: transform .3s var(--ease);
       }
-      .timeline-row:hover { transform: translateX(-3px); }
+      .timeline-row:nth-child(2) { --c: var(--gold-deep); --t: #fff1d2; }
+      .timeline-row:nth-child(3) { --c: var(--coral); --t: #ffe9e0; }
+      .timeline-row:nth-child(4) { --c: var(--berry); --t: #fde3ec; }
+      .timeline-row:nth-child(5) { --c: var(--violet); --t: #f0e8fc; }
+      .timeline-row:hover { transform: translateX(-6px); }
       .timeline-year {
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: var(--green-deep);
-        direction: ltr;
+        position: relative; z-index: 1; justify-self: center;
+        font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--white);
+        background: var(--c); padding: 7px 16px; border-radius: 999px; direction: ltr;
+        box-shadow: 0 8px 18px -8px var(--c);
       }
-      .timeline-info .ar { font-weight: 600; color: var(--green-deep); font-size: 1rem; }
-      .timeline-info .en { font-size: 0.82rem; color: var(--ink-soft); }
+      .timeline-info { background: var(--t); padding: 14px 20px; border-radius: 16px; transition: background .3s, box-shadow .3s; }
+      .timeline-row:hover .timeline-info { background: var(--white); box-shadow: 0 12px 26px -16px var(--c); }
+      .timeline-info .ar { font-weight: 700; color: var(--ink); font-size: 1.02rem; }
+      .timeline-info .en { font-size: 0.85rem; color: var(--c); font-weight: 600; direction: ltr; text-align: right; }
 
-      /* Mini Quote */
-      .mini-quote {
-        background: var(--green-deep);
-        color: var(--white);
-        padding: 24px;
-        border-radius: 8px;
-        text-align: center;
-        margin-top: 22px;
+      /* Therapies */
+      .therapy-compact { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
+      .therapy-pill {
+        --c: var(--green); --t: #e6f5df;
+        background: var(--t);
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--ink);
+        display: flex; gap: 10px; align-items: center;
+        transition: transform .25s var(--ease), background .25s, color .25s, box-shadow .25s;
       }
-      .mini-quote .ar { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: #ffffff; }
-      .mini-quote .en { font-size: 0.88rem; color: var(--gold); margin-top: 6px; font-style: italic; }
-      .mini-quote cite { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--gold); font-style: normal; }
+      .therapy-pill::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex: none; }
+      .therapy-pill:nth-child(5n+2) { --c: var(--gold-deep); --t: #fff1d2; }
+      .therapy-pill:nth-child(5n+3) { --c: var(--coral); --t: #ffe9e0; }
+      .therapy-pill:nth-child(5n+4) { --c: var(--berry); --t: #fde3ec; }
+      .therapy-pill:nth-child(5n+5) { --c: var(--violet); --t: #f0e8fc; }
+      .therapy-pill:hover { transform: translateY(-3px); background: var(--c); color: var(--white); box-shadow: 0 12px 22px -12px var(--c); }
+      .therapy-pill:hover::before { background: var(--white); }
+      .therapy-pill .en { font-size: 0.8rem; color: var(--c); font-weight: 600; }
+      .therapy-pill:hover .en { color: rgba(255, 255, 255, 0.9); }
 
-      /* ---------- FOOTER ---------- */
-      .site-footer { background: var(--green-deep); color: #dfe3da; padding: 64px 0 0; }
-      .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding: 0 32px 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
-      .footer-brand h3 { color: var(--white); font-size: 1.25rem; line-height: 1.3; margin-bottom: 14px; }
-      .footer-brand p { color: #c3c9bc; font-size: 0.88rem; }
-      .footer-col h4 { color: var(--white); font-family: var(--font-body); font-size: 0.9rem; letter-spacing: 0.4px; margin-bottom: 16px; font-weight: 600; }
-      .footer-col a { display: block; font-size: 0.87rem; color: #c3c9bc; margin-bottom: 10px; transition: color 0.2s; }
-      .footer-col a:hover { color: var(--white); }
-      .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: 22px 0; }
+      /* ---------- FOOTER (same as homepage) ---------- */
+      .site-footer { background: linear-gradient(160deg, #164a29 0%, var(--green-deep) 60%, #2a6b3f 100%); color: #dfe8d9; padding: 70px 0 0; position: relative; }
+      .site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--coral), var(--berry)); }
+      .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+      .footer-brand h3 { color: var(--white); font-size: 1.35rem; line-height: 1.3; margin-bottom: 14px; }
+      .footer-brand h3 span { color: #ffd166; font-style: italic; }
+      .footer-brand p { color: #c7d4c0; font-size: 0.9rem; }
+      .footer-col h4 { color: #ffd166; font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 1.2px; text-transform: uppercase; margin: 0 0 16px; font-weight: 600; }
+      .footer-col a { display: block; font-size: 0.9rem; color: #c7d4c0; margin-bottom: 10px; transition: color .2s, transform .2s; }
+      .footer-col a:hover { color: var(--white); transform: translateX(4px); }
+      .newsletter p { color: #c7d4c0; font-size: 0.88rem; }
+      .footer-bottom { text-align: center; font-size: 0.82rem; color: #a9bba2; padding: 22px 0; }
 
+      /* ---------- RESPONSIVE ---------- */
       @media (max-width: 960px) {
         .main-nav {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: var(--cream);
-          flex-direction: column;
-          align-items: center;
-          padding: 20px 0;
-          border-bottom: 1px solid var(--line);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-          gap: 16px;
-          z-index: 200;
+          display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white);
+          flex-direction: column; align-items: center; padding: 18px 0; gap: 6px; z-index: 200;
+          border-bottom: 1px solid var(--line); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
         }
-        .main-nav.active {
-          display: flex;
-        }
-        .menu-toggle {
-          display: inline-flex;
-          align-items: center;
-        }
+        .main-nav.active { display: flex; }
+        .menu-toggle { display: inline-flex; align-items: center; }
         .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        .principles-grid { grid-template-columns: repeat(2, 1fr); }
       }
 
-      /* تنسيقات تصغير الخطوط في الجوال لراحة العين */
+      /* Smaller type on phones for comfortable reading */
       @media (max-width: 560px) {
-        .container { padding: 0 16px; }
-        .section-card { padding: 22px 14px; }
-        .section-title { font-size: 1.6rem; }
-        .text-block { font-size: 0.94rem; line-height: 1.7; }
-        .profile-text .ar { font-size: 1.02rem; }
-        .profile-text .en { font-size: 0.8rem; }
+        .container { padding: 0 18px; }
+        .header-inner { min-height: 84px; padding-top: 12px; padding-bottom: 12px; }
+        .logo { gap: 10px; }
+        .logo-icon-wrap { width: 60px; height: 60px; border-radius: 17px; }
+        .logo-name { font-size: 1.35rem; letter-spacing: 2px; }
+        .logo-tag { font-size: 0.6rem; letter-spacing: 1.6px; }
+        .icon-btn { width: 36px; height: 36px; }
+        .header-icons { gap: 6px; }
+        .top-band { height: 240px; }
+        .content-flow { margin-top: -170px; padding: 0 14px 60px; gap: 24px; }
+        .section-card { padding: 30px 18px; border-radius: 22px; }
+        .section-title { font-size: 1.65rem; }
+        .text-block { font-size: 0.96rem; line-height: 1.85; }
+        .profile-img-wrap { width: 96px; height: 96px; border-radius: 24px; }
+        .profile-text .ar { font-size: 1.08rem; }
+        .profile-text .en { font-size: 0.82rem; }
+        .hero-image-banner { height: 200px; }
+        .mini-quote { padding: 34px 18px 28px; }
+        .mini-quote .ar { font-size: 1.35rem; }
+        .principles-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .principle-item { padding: 18px 10px 16px; }
         .principle-item .ar { font-size: 0.95rem; }
-        .principle-item .en { font-size: 0.78rem; }
-        .therapy-pill { font-size: 0.84rem; padding: 6px 12px; }
-        .timeline-row { grid-template-columns: 1fr; gap: 4px; text-align: center; }
-        .timeline-year { direction: rtl; font-size: 1rem; }
-        .timeline-info .ar { font-size: 0.94rem; }
-        .timeline-info .en { font-size: 0.76rem; }
+        .principle-item .en { font-size: 0.76rem; }
+        .therapy-pill { font-size: 0.86rem; padding: 8px 14px; }
+        .timeline-compact::before { right: 50%; transform: translateX(50%); opacity: 0.35; }
+        .timeline-row { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+        .timeline-info .en { text-align: center; }
+        .timeline-info .ar { font-size: 0.96rem; }
         .footer-grid { grid-template-columns: 1fr; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
       }
     </style>
   </head>
@@ -351,13 +360,16 @@
 
     <!-- HEADER -->
     <header class="site-header">
-      <div class="header-inner">
+      <div class="container header-inner">
         <a href="../index.html" class="logo-link">
           <span class="logo">
             <span class="logo-icon-wrap">
               <img src="../images/logoo.png" alt="Nishdan Logo" />
             </span>
-            Nishdan
+            <span class="logo-text">
+              <span class="logo-name">Nishdan</span>
+              <span class="logo-tag">Integrative Health</span>
+            </span>
           </span>
         </a>
         <nav class="main-nav" id="mainNav">
@@ -368,10 +380,10 @@
         </nav>
         <div class="header-icons">
           <button aria-label="Search" class="icon-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
           </button>
           <a href="account.html" aria-label="Account" class="icon-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
           </a>
           <!-- زر الخطوط الثلاثة في أقصى اليمين على الموبايل -->
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
@@ -381,8 +393,13 @@
       </div>
     </header>
 
+    <!-- شريط ملوّن في أعلى الصفحة (زخرفة فقط) -->
+    <div class="top-band" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1783793883329-6aa40b74f667?auto=format&fit=crop&w=1920&q=80" alt="" />
+    </div>
+
     <!-- CONTENT FLOW -->
-    <main class="container content-flow">
+    <main class="content-flow">
 
       <!-- القسم الأول: قصتي والفلسفة -->
       <section class="section-card">
@@ -398,14 +415,14 @@
 
         <!-- صورة الترويسة -->
         <div class="hero-image-banner">
-          <img src="../images/herbs.jpg" alt="Natural Herbs & Plants" onerror="this.src='../images/weight.jpg';" />
+          <img src="../images/herbs.jpg" alt="Natural Herbs & Plants" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1783793883329-6aa40b74f667?auto=format&fit=crop&w=1400&q=80';" />
         </div>
 
         <div class="section-title-wrap ar-text">
           <h1 class="section-title">فلسفة المداواة الطبيعية</h1>
           <span class="section-subtitle" lang="en" dir="ltr">Our Holistic Approach</span>
         </div>
-        
+
         <p class="text-block ar-text">
           هدفي أن أضع بين يديك علمًا نافعًا مستنبطًا من ديننا الحنيف والطب الشمولي لتكوني طبيبة نفسكِ وعائلتكِ بوعي تام، بناءً على المنهج الصحي القائم على أن <strong>جسم الإنسان لديه القدرة على التشافي بشكل فطري</strong>، وأن العلاج الحقيقي موجود في الطبيعة.
         </p>
@@ -458,8 +475,8 @@
           <h2 class="section-title">تاريخ وروّاد الناتوروباثي</h2>
           <span class="section-subtitle" lang="en" dir="ltr">History &amp; Pioneers</span>
         </div>
-        
-        <p class="text-block ar-text" style="margin-bottom: 16px;">
+
+        <p class="text-block ar-text" style="margin-bottom: 22px;">
           تعتمد الجذور على حركة (Nature Cure) التي نشأت بأوروبا في القرن الـ 19:
         </p>
 
@@ -512,8 +529,8 @@
           <h2 class="section-title">التخصصات والعلاجات المتعددة</h2>
           <span class="section-subtitle" lang="en" dir="ltr">Multidisciplinary Therapies</span>
         </div>
-        
-        <p class="text-block ar-text" style="margin-bottom: 16px;">
+
+        <p class="text-block ar-text" style="margin-bottom: 22px;">
           يستخدم معالج الناتوروباثي مجموعة من العلاجات الآمنة والداعمة لآليات التشافي الذاتي في آنٍ واحد:
         </p>
 
@@ -536,7 +553,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <h3>Nishdan<br />Integrative Health</h3>
+          <h3>Nishdan<br /><span>Integrative Health</span></h3>
           <p>Evidence-based naturopathy serving your lifelong health.</p>
         </div>
         <div class="footer-col">
