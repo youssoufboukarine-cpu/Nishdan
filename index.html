@@ -21,6 +21,7 @@
         --gold: #b8a06a;
         --line: #dcd6c8;
         --white: #ffffff;
+        --accent-glow: #e6dfcc;
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Jost", "Segoe UI", sans-serif;
         --font-arabic: "Plus Jakarta Sans", Tahoma, Arial, sans-serif;
@@ -108,7 +109,6 @@
       }
       .icon-btn svg { width: 19px; height: 19px; }
 
-      /* زر الخطوط الثلاثة للموبايل (Hamburger Menu) */
       .menu-toggle {
         display: none;
         background: none;
@@ -119,28 +119,27 @@
       }
       .menu-toggle svg { width: 24px; height: 24px; }
 
-      /* ---------- HERO ---------- */
+      /* ---------- COMPONENTS ---------- */
       .divider { display: inline-block; width: 56px; height: 2px; background: var(--green-mid); }
       .divider.small { width: 42px; margin: 14px 0; }
       .divider.center { margin-left: auto; margin-right: auto; display: block; }
 
       .btn {
-        display: inline-flex; align-items: center; width: fit-content; padding: 10px 18px; border-radius: 4px; font-size: 0.82rem; letter-spacing: 0.3px; transition: transform 0.15s, background 0.2s; border: none; cursor: pointer;
+        display: inline-flex; align-items: center; justify-content: center; width: fit-content; padding: 10px 20px; border-radius: 4px; font-size: 0.85rem; letter-spacing: 0.3px; transition: transform 0.15s, background 0.2s; border: none; cursor: pointer; font-weight: 500; text-decoration: none;
       }
       .btn-dark { background: var(--green-deep); color: var(--white); }
       .btn-dark:hover { background: #2d3728; }
       .btn-dark.small { padding: 9px 22px; font-size: 0.8rem; margin: 0 auto; }
       .btn-outline { background: transparent; border: 1px solid var(--ink); color: var(--ink); }
+      .btn-gold { background: var(--gold); color: var(--white); }
+      .btn-gold:hover { background: #a48c56; }
 
-      /* ---------- ABOUT ---------- */
-      .about { background: var(--cream-2); padding: 80px 0; }
-      .eyebrow { display: block; font-size: 0.78rem; letter-spacing: 2px; color: var(--green-mid); font-weight: 600; margin-bottom: 10px; }
-      .about-text h2 { font-size: 2.1rem; margin-bottom: 2px; }
-      .about-text p { margin-top: 18px; }
+      .banner { width: 100%; height: 100px; overflow: hidden; margin-top: 0; }
+      .banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-      /* ---------- COURSES ---------- */
-      .protocols { padding: 40px 0; }
-      .section-heading { text-align: center; max-width: 650px; margin: 0 auto 50px; }
+      /* ---------- COURSES / PROTOCOLS SECTION ---------- */
+      .protocols { padding: 60px 0; }
+      .section-heading { text-align: center; max-width: 650px; margin: 0 auto 40px; }
       .section-heading h2 { font-size: 2.1rem; }
       .section-sub { margin-top: 18px; line-height: 1.7; }
       .protocol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
@@ -148,7 +147,7 @@
         background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; padding-bottom: 24px; text-align: center; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;
       }
       .protocol-card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -18px rgba(0, 0, 0, 0.2); }
-      .protocol-photo { height: 190px; position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0; }
+      .protocol-photo { height: 190px; position: relative; display: flex; align-items: flex-end; justify-content: center; }
       .protocol-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
       .protocol-icon {
         width: 52px; height: 52px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-deep); transform: translateY(50%); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); position: relative; z-index: 2;
@@ -157,15 +156,64 @@
       .protocol-card h3 { font-size: 1.1rem; margin: 38px 16px 12px; line-height: 1.4; font-weight: 600; }
       .protocol-card p { font-size: 0.88rem; margin: 0 20px 20px; flex-grow: 1; }
       .see-all { text-align: center; margin-top: 44px; }
+      .protocol-img-link { position: absolute; inset: 0; z-index: 3; }
 
-      .protocol-img-link {
-        position: absolute;
-        inset: 0;
-        z-index: 3;
+      /* ---------- PROTOCOLS HIGHLIGHT SECTION (NEW) ---------- */
+      .protocols-showcase { background: var(--cream-2); padding: 70px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+      .showcase-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 32px 24px;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      }
+      .showcase-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: var(--cream-2);
+        color: var(--green-deep);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+      .showcase-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+
+      /* ---------- CONSULTATION BANNER SECTION (NEW) ---------- */
+      .consultation-section {
+        padding: 80px 0;
+        background: var(--green-deep);
+        color: var(--white);
+        text-align: center;
+      }
+      .consultation-box {
+        max-width: 750px;
+        margin: 0 auto;
+      }
+      .consultation-box h2 {
+        color: var(--white);
+        font-size: 2.3rem;
+        margin-bottom: 18px;
+      }
+      .consultation-box p {
+        color: #d1d9cc;
+        font-size: 1.05rem;
+        margin-bottom: 30px;
+        line-height: 1.8;
       }
 
+      /* ---------- ABOUT ---------- */
+      .about { background: var(--cream); padding: 80px 0; }
+      .eyebrow { display: block; font-size: 0.78rem; letter-spacing: 2px; color: var(--green-mid); font-weight: 600; margin-bottom: 10px; }
+      .about-text h2 { font-size: 2.1rem; margin-bottom: 2px; }
+      .about-text p { margin-top: 18px; }
+
       /* ---------- FOOTER ---------- */
-      .site-footer { background: var(--green-deep); color: #dfe3da; padding: 64px 0 0; }
+      .site-footer { background: var(--green-deep); color: #dfe3da; padding: 64px 0 0; border-top: 1px solid rgba(255,255,255,0.1); }
       .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
       .footer-brand h3 { color: var(--white); font-size: 1.25rem; line-height: 1.3; margin-bottom: 14px; }
       .footer-brand p { color: #c3c9bc; font-size: 0.88rem; }
@@ -181,10 +229,7 @@
       .social-icons svg { width: 15px; height: 15px; color: var(--white); }
       .footer-bottom { text-align: center; font-size: 0.8rem; color: #a9b09f; padding: 22px 0; }
 
-      .banner { width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
-      .banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-      /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
+      /* ---------- RESPONSIVE ---------- */
       @media (max-width: 960px) {
         .main-nav {
           display: none;
@@ -200,17 +245,12 @@
           box-shadow: 0 10px 20px rgba(0,0,0,0.05);
           gap: 16px;
         }
-        .main-nav.active {
-          display: flex;
-        }
-        .menu-toggle {
-          display: inline-flex;
-          align-items: center;
-        }
-        .protocol-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        .main-nav.active { display: flex; }
+        .menu-toggle { display: inline-flex; align-items: center; }
+        .protocol-grid, .showcase-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
       }
       @media (max-width: 560px) {
-        .protocol-grid, .footer-grid { grid-template-columns: 1fr; }
+        .protocol-grid, .showcase-grid, .footer-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -244,7 +284,6 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
             </a>
           </div>
-          <!-- زر الخطوط الثلاثة للموبايل -->
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
@@ -256,11 +295,11 @@
       <img src="images/barre.jpeg" alt="Banner" />
     </section>
 
-    <!-- COURSES (ARABIC CONTENT) -->
+    <!-- COURSES SECTION -->
     <section class="protocols">
       <div class="container">
         <div class="section-heading ar-text">
-          <h2> منصة دورات توعوية بالصحة </h2>
+          <h2>منصة دورات توعوية بالصحة</h2>
           <span class="divider small center"></span>
           <p class="section-sub">
             برامج تمنحك خبرة وفهمًا أعمق ومعارف جديدة، لبناء عادات مستدامة وحياة صحية
@@ -268,11 +307,11 @@
         </div>
 
         <div class="protocol-grid">
-          <!-- COURSE 1: Weight Control -->
+          <!-- COURSE 1 -->
           <div class="protocol-card">
             <div class="protocol-photo">
               <a href="pages/weight-course.html" class="protocol-img-link"></a>
-              <img src="images/weight.jpg" alt="Weight Control Setup" class="protocol-img" />
+              <img src="images/weight.jpg" alt="Weight Control" class="protocol-img" />
               <span class="protocol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" /></svg></span>
             </div>
             <h3 class="ar-text"><a href="pages/weight-course.html">كيف أتحكم بوزني</a></h3>
@@ -280,7 +319,7 @@
             <a href="pages/weight-course.html" class="btn btn-dark small">Discover</a>
           </div>
 
-          <!-- COURSE 2: Beauty & Health -->
+          <!-- COURSE 2 -->
           <div class="protocol-card">
             <div class="protocol-photo">
               <a href="pages/beauty-course.html" class="protocol-img-link"></a>
@@ -292,27 +331,27 @@
             <a href="pages/beauty-course.html" class="btn btn-dark small">Discover</a>
           </div>
 
-          <!-- COURSE 3: Child Care, Nutrition & Brain Development -->
+          <!-- COURSE 3 -->
           <div class="protocol-card">
             <div class="protocol-photo">
               <a href="pages/child-care-course.html" class="protocol-img-link"></a>
-              <img src="images/kids.jpg" alt="Child care and brain development" class="protocol-img" />
+              <img src="images/kids.jpg" alt="Child care" class="protocol-img" />
               <span class="protocol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z" /><path d="M12 6v6l4 2" /></svg></span>
             </div>
-            <h3 class="ar-text"><a href="pages/child-care-course.html">صحة طفلك النفسية والعصبية تبدأ من غذاءه وتربيته</a></h3>
-            <p class="ar-text">دليل الأم الواعية لاكتشاف العلاقة الخفية بين الغذاء السليم، أساليب التربية، وتطور دماغ طفلك العصبي.</p>
+            <h3 class="ar-text"><a href="pages/child-care-course.html">صحة طفلك النفسية والعصبية</a></h3>
+            <p class="ar-text">دليل الأم الواعية لاكتشاف العلاقة الخفية بين الغذاء والتطور العصبي.</p>
             <a href="pages/child-care-course.html" class="btn btn-dark small">Discover</a>
           </div>
 
-          <!-- COURSE 4: Healthy Cooking -->
+          <!-- COURSE 4 -->
           <div class="protocol-card">
             <div class="protocol-photo">
               <a href="pages/cooking-workshop.html" class="protocol-img-link"></a>
-              <img src="images/cooking.jpg" alt="Healthy cooking workshop" class="protocol-img" />
+              <img src="images/cooking.jpg" alt="Healthy cooking" class="protocol-img" />
               <span class="protocol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c2 0 3 1.5 3 3s-1 2-1 3 1 1.5 1 3-1.5 3-3 3-2-1-3-1-2.5 1-4 1-3-1.5-3-3 1-2 1-3-1-2-1-3 1.5-3 3-3 2 1 3 1 2-1 4-1z" /></svg></span>
             </div>
             <h3 class="ar-text"><a href="pages/cooking-workshop.html">ورشة الطبخ الصحي</a></h3>
-            <p class="ar-text">تعلمي فنون تحضير وجبات لذيذة ومغذية تدعم صحتك دون التضحية بالمذاق الرائع.</p>
+            <p class="ar-text">تعلمي فنون تحضير وجبات لذيذة ومغذية تدعم صحتك.</p>
             <a href="pages/cooking-workshop.html" class="btn btn-dark small">Discover</a>
           </div>
         </div>
@@ -323,14 +362,55 @@
       </div>
     </section>
 
-    <!-- ABOUT ME (ARABIC) -->
+    <!-- PROTOCOLS SECTION (NEW) -->
+    <section class="protocols-showcase">
+      <div class="container">
+        <div class="section-heading ar-text">
+          <h2>بروتوكولات نِشدان الحصرية</h2>
+          <span class="divider small center"></span>
+          <p class="section-sub">خطط علاجية وتغذوية طبيعية مبنية على أسس علمية وشمولية لدعم نمط حياتك</p>
+        </div>
+
+        <div class="showcase-grid ar-text">
+          <div class="showcase-card">
+            <span class="showcase-tag">الأيض والأوزان</span>
+            <h3>بروتوكول إعادة ضبط الأيض</h3>
+            <p>خطة متكاملة لتنظيم سكر الدم، تحفيز الحرق الطبيعي، والتخلص من التهابات الأمعاء المرتبطة بثبات الوزن.</p>
+          </div>
+          <div class="showcase-card">
+            <span class="showcase-tag">الجمال الحيوي</span>
+            <h3>بروتوكول البشرة الصافية من الداخل</h3>
+            <p>يربط بين صحة الميكروبيوم ونقاء البشرة، لتعيدي إشراقة وجهك بطرق طبيعية وخالية من المواد الكيميائية القاسية.</p>
+          </div>
+          <div class="showcase-card">
+            <span class="showcase-tag">الطفل والعائلة</span>
+            <h3>بروتوكول تعزيز المناعة والتركيز</h3>
+            <p>أدلة عملية للأمهات لدعم مناعة الأطفال، تحسين جودة النوم، وموازنة السلوك الغذائي للأطفال المفرطي الحركة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONSULTATION & CUSTOM PROTOCOL SECTION (NEW) -->
+    <section class="consultation-section">
+      <div class="container">
+        <div class="consultation-box ar-text">
+          <h2>استشري الآن واحصل على بروتوكولكِ الخاص</h2>
+          <p>لا داعي للبحث العشوائي. احجزي استشارتك المباشرة معي عبر الزوم، وسأقوم بدراسة حالتكِ الصحية بدقة لأصمم لكِ بروتوكولاً علاجياً وتغذائياً مُفصلاً خصيصاً ليناسب جسدكِ وظروفكِ الفريدة.</p>
+          <!-- هنا يتم ربط زر Payhip الخاص بالحجز المباشر -->
+          <a href="https://payhip.com" target="_blank" class="btn btn-gold" style="font-size: 0.95rem; padding: 12px 28px;">احجزي استشارتك وبروتوكولك الخاص الآن 🚀</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME -->
     <section class="about">
       <div class="container" style="max-width: 800px; text-align: center;">
         <div class="about-text ar-text">
           <span class="eyebrow" style="direction: ltr;">عنّي</span>
           <h2>أنا نشدان</h2>
           <span class="divider small center"></span>
-          <p style="font-size: 1.05rem; margin-top: 20px;"> استشارية ومدربة صحة حاصلة على شهادة في الناتوروباثي وهو طب شمولي تغذوي وعلاج بالطبيعة. هدفي أن أضع بين يديك علمًا نافعًا مستنبط من الطب النبوي والطب الشمولي بعيدًا عن صخب النصائح المعقدة، لتتعلمي كيف تكوني مطببة نفسكِ وعائلتك بوعي تام وتطبيق يسير يتناسب مع كل الظروف والثقافات.</p>
+          <p style="font-size: 1.05rem; margin-top: 20px;">استشارية ومدربة صحة حاصلة على شهادة في الناتوروباثي وهو طب شمولي تغذوي وعلاج بالطبيعة. هدفي أن أضع بين يديك علمًا نافعًا مستنبط من الطب النبوي والطب الشمولي بعيدًا عن صخب النصائح المعقدة، لتتعلمي كيف تكوني مطببة نفسكِ وعائلتك بوعي تام وتطبيق يسير يتناسب مع كل الظروف والثقافات.</p>
         </div>
       </div>
     </section>
@@ -374,7 +454,6 @@
       <div class="footer-bottom">© 2026 Nishdan Integrative Health — All rights reserved.</div>
     </footer>
 
-    <!-- سكريبت لتشغيل قائمة الموبايل -->
     <script>
       const menuToggle = document.getElementById('menuToggle');
       const mainNav = document.getElementById('mainNav');
