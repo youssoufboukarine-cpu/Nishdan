@@ -405,6 +405,20 @@
         .pp-img { max-width: 380px; margin: 0 auto; }
         .pp-phases, .pp-list { grid-template-columns: 1fr; }
       }
+
+      /* ---------- desktop layout refinements ---------- */
+      .pp-img img { height: 340px; aspect-ratio: auto; background: var(--cream-2); }
+      .pp-why-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: start; max-width: 980px; margin: 0 auto 16px; }
+      .pp-main .pp-text { text-align: right; max-width: none; margin: 0 0 12px; }
+      .pp-side { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
+      .pp-side-t { font-weight: 700; color: var(--green-deep); margin: 0 0 12px; }
+      .pp-side .pp-chips { justify-content: flex-start; margin: 0; max-width: none; }
+      .pp-list { display: flex; flex-wrap: wrap; justify-content: center; max-width: 980px; }
+      .pp-list li { flex: 0 1 calc(33.333% - 8px); }
+      @media (max-width: 860px) {
+        .pp-why-grid { grid-template-columns: 1fr; }
+        .pp-list li { flex-basis: 100%; }
+      }
     </style>
   </head>
   <body>
@@ -464,10 +478,7 @@
           <span class="divider center"></span>
           <p>كثيرات يعانين شهورًا وسنوات من أعراض مزعجة دون أن يعرفن لها سببًا، وقد تكون الطفيليات أحد هذه الأسباب.</p>
         </div>
-        <p class="pp-text">قد تظهر الإصابة بالطفيليات على شكل انتفاخ وغازات متكررة، وآلام وتقلصات في البطن، وإسهال أو إمساك، وتعب وإرهاق مستمر، وحكة متكررة، واضطراب في النوم والشهية.</p>
-        <p class="pp-text">ومع طول الوقت دون علاج قد تتطور الأمور إلى أعراض أخطر:</p>
-        <div class="pp-chips"><span>فقر الدم</span><span>نقص المعادن والفيتامينات</span><span>ضعف الامتصاص</span><span>ضعف المناعة</span><span>مشاكل صحية مزمنة يصعب تفسيرها</span></div>
-        <p class="pp-text">إذا وجدتِ نفسكِ في عدة نقاط مما سبق، فلا تكتفي بتسكين الأعراض كل مرة. <strong>هذا البروتوكول مصمم ليرافقكِ خطوة بخطوة</strong>، فيعالج الجسم من الطفيليات ويستهدف الأسباب لا الأعراض فقط، لتستعيدي راحتكِ وطاقتكِ.</p>
+        <div class="pp-why-grid"><div class="pp-main"><p class="pp-text">قد تظهر الإصابة بالطفيليات على شكل انتفاخ وغازات متكررة، وآلام وتقلصات في البطن، وإسهال أو إمساك، وتعب وإرهاق مستمر، وحكة متكررة، واضطراب في النوم والشهية.</p><p class="pp-text">إذا وجدتِ نفسكِ في عدة نقاط مما سبق، فلا تكتفي بتسكين الأعراض كل مرة. <strong>هذا البروتوكول مصمم ليرافقكِ خطوة بخطوة</strong>، فيعالج الجسم من الطفيليات ويستهدف الأسباب لا الأعراض فقط، لتستعيدي راحتكِ وطاقتكِ.</p></div><aside class="pp-side"><p class="pp-side-t">ومع طول الوقت دون علاج قد تتطور الأمور إلى أعراض أخطر:</p><div class="pp-chips"><span>فقر الدم</span><span>نقص المعادن والفيتامينات</span><span>ضعف الامتصاص</span><span>ضعف المناعة</span><span>مشاكل صحية مزمنة يصعب تفسيرها</span></div></aside></div>
         <p class="pp-small">قد تتشابه هذه الأعراض مع حالات أخرى، فإن كانت شديدة أو مستمرة فاستشيري طبيبكِ.</p>
       </div>
     </section>
